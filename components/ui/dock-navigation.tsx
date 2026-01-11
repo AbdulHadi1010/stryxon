@@ -26,16 +26,11 @@ const data = [
   {
     title: "Services",
     icon: <Briefcase className="h-full w-full text-neutral-300" />,
-    href: "#workflows",
-  },
-  {
-    title: "Features",
-    icon: <Sparkles className="h-full w-full text-neutral-300" />,
-    href: "#features",
+    href: "#services",
   },
   {
     title: "Tech Stack",
-    icon: <Layers className="h-full w-full text-neutral-300" />,
+    icon: <Sparkles className="h-full w-full text-neutral-300" />,
     href: "#stack",
   },
   {
@@ -54,12 +49,12 @@ export default function DockNavigation() {
   const handleClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
-    <div className="fixed bottom-4 left-1/2 max-w-full -translate-x-1/2 z-50">
+    <div className="fixed bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-1rem)] sm:w-auto max-w-[95vw] px-2 sm:px-0">
       <Dock className="items-end pb-3 bg-neutral-900 border border-neutral-800 shadow-2xl shadow-indigo-500/20">
         {data.map((item, idx) => (
           <DockItem

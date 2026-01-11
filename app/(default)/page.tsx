@@ -1,32 +1,63 @@
-export const metadata = {
-  title: "Stryxon Technologies - Engineering Intelligence",
-  description:
-    "The White-Label Technical Partner for Agencies. We combine Immutable Cloud Infrastructure with Custom AI Agents.",
-};
+"use client";
 
-import InfiniteHero from "@/components/ui/infinite-hero";
-import Testimonials from "@/components/testimonials-new";
-import StackFeatureSection from "@/components/ui/stack-feature-section";
-import ServicesSection from "@/components/services-section";
-import GlobeFeatureSection from "@/components/ui/globe-feature-section";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const InfiniteHero = dynamic(() => import("@/components/ui/infinite-hero"), {
+  ssr: false,
+  loading: () => <div className="h-screen bg-black" />,
+});
+
+const StackFeatureSection = dynamic(
+  () => import("@/components/ui/stack-feature-section"),
+  {
+    loading: () => <div className="h-96 bg-transparent" />,
+  }
+);
+
+const ServicesSection = dynamic(() => import("@/components/services-section"), {
+  loading: () => <div className="h-96 bg-transparent" />,
+});
+
+const Testimonials = dynamic(() => import("@/components/testimonials-new"), {
+  loading: () => <div className="h-96 bg-transparent" />,
+});
+
+const GlobeFeatureSection = dynamic(
+  () => import("@/components/ui/globe-feature-section"),
+  {
+    ssr: false,
+    loading: () => <div className="h-96 bg-transparent" />,
+  }
+);
 
 export default function Home() {
   return (
     <>
       <section id="hero">
-        <InfiniteHero />
+        <Suspense fallback={<div className="h-screen bg-black" />}>
+          <InfiniteHero />
+        </Suspense>
       </section>
       <div id="stack">
-        <StackFeatureSection />
+        <Suspense fallback={<div className="h-96 bg-transparent" />}>
+          <StackFeatureSection />
+        </Suspense>
       </div>
       <div id="services">
-        <ServicesSection />
+        <Suspense fallback={<div className="h-96 bg-transparent" />}>
+          <ServicesSection />
+        </Suspense>
       </div>
       <div id="testimonials">
-        <Testimonials />
+        <Suspense fallback={<div className="h-96 bg-transparent" />}>
+          <Testimonials />
+        </Suspense>
       </div>
       <div id="contact">
-        <GlobeFeatureSection />
+        <Suspense fallback={<div className="h-96 bg-transparent" />}>
+          <GlobeFeatureSection />
+        </Suspense>
       </div>
     </>
   );

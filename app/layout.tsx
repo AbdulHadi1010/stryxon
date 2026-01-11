@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${nacelle.variable} bg-black font-inter text-base text-gray-200 antialiased`}
+        className={`${inter.variable} ${nacelle.variable} bg-black font-inter text-base text-gray-200 antialiased pb-24 sm:pb-28`}
       >
         <ThemeProvider
           attribute="class"

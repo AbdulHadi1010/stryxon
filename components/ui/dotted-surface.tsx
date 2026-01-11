@@ -21,32 +21,37 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    if (typeof window === 'undefined') return;
 
+    // Reduce particle count on mobile for better performance
+    const isMobile = window.innerWidth < 768;
     const SEPARATION = 150;
-    const AMOUNTX = 40;
-    const AMOUNTY = 60;
+    const AMOUNTX = isMobile ? 20 : 40;
+    const AMOUNTY = isMobile ? 30 : 60;
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x000000, 2000, 10000);
+    try {
+      // Scene setup
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0x000000, 2000, 10000);
 
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      1,
-      10000
-    );
-    camera.position.set(0, 355, 1220);
+      const camera = new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth / window.innerHeight,
+        1,
+        10000
+      );
+      camera.position.set(0, 355, 1220);
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(scene.fog.color, 0);
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: !isMobile, // Disable antialiasing on mobile
+        powerPreference: "low-power", // Use low power mode
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap pixel ratio
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(scene.fog.color, 0);
 
-    containerRef.current.appendChild(renderer.domElement);
+      containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
     const particles: THREE.Points[] = [];
@@ -163,12 +168,23 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
         sceneRef.current.renderer.dispose();
 
         if (containerRef.current && sceneRef.current.renderer.domElement) {
-          containerRef.current.removeChild(
-            sceneRef.current.renderer.domElement
-          );
+          try {
+            containerRef.current.removeChild(
+              sceneRef.current.renderer.domElement
+            );
+          } catch (e) {
+            // Ignore if element already removed
+          }
         }
       }
     };
+    } catch (error) {
+      console.error("Three.js initialization error:", error);
+      // Clean up on error
+      if (sceneRef.current) {
+        cancelAnimationFrame(sceneRef.current.animationId);
+      }
+    }
   }, [theme]);
 
   return (

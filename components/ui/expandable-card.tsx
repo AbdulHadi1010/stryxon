@@ -3,6 +3,7 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface ExpandableCardProps {
   title: string;
@@ -81,10 +82,13 @@ export function ExpandableCard({
             >
               <motion.div layoutId={`image-${title}-${id}`}>
                 <div className="relative before:absolute before:inset-x-0 before:-bottom-px before:h-17.5 before:z-50 before:bg-linear-to-t dark:before:from-zinc-950 before:from-zinc-50">
-                  <img
+                  <Image
                     src={src}
                     alt={title}
+                    width={800}
+                    height={320}
                     className="w-full h-80 object-cover object-center"
+                    priority
                   />
                 </div>
               </motion.div>
@@ -161,10 +165,13 @@ export function ExpandableCard({
       >
         <div className="flex gap-4 flex-col">
           <motion.div layoutId={`image-${title}-${id}`}>
-            <img
+            <Image
               src={src}
               alt={title}
+              width={256}
+              height={224}
               className="w-64 h-56 rounded-lg object-cover object-center"
+              loading="lazy"
             />
           </motion.div>
           <div className="flex justify-between items-center">
