@@ -3,7 +3,6 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 interface ExpandableCardProps {
   title: string;
@@ -149,27 +148,17 @@ export function ExpandableCard({
         )}
       </AnimatePresence>
 
-      <div className="relative">
-        <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={9999}
-          inactiveZone={0}
-          borderWidth={2}
-          className="rounded-2xl"
-        />
-        <motion.div
-          role="dialog"
-          aria-labelledby={`card-title-${id}`}
-          aria-modal="true"
-          layoutId={`card-${title}-${id}`}
-          onClick={() => setActive(true)}
-          className={cn(
-            "relative p-3 flex flex-col justify-between items-center bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
-            className
-          )}
-        >
+      <motion.div
+        role="dialog"
+        aria-labelledby={`card-title-${id}`}
+        aria-modal="true"
+        layoutId={`card-${title}-${id}`}
+        onClick={() => setActive(true)}
+        className={cn(
+          "relative p-3 flex flex-col justify-between items-center bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
+          className
+        )}
+      >
           <div className="flex gap-4 flex-col">
             <motion.div layoutId={`image-${title}-${id}`}>
               <img
@@ -224,7 +213,6 @@ export function ExpandableCard({
             </div>
           </div>
         </motion.div>
-      </div>
-    </>
-  );
-}
+      </>
+    );
+  }
