@@ -66,7 +66,7 @@ export default function DockNavigation() {
             key={idx}
             className={`aspect-square rounded-full cursor-pointer ${
               idx === 0
-                ? "bg-gradient-to-br from-indigo-600 to-indigo-500"
+                ? "bg-linear-to-br from-indigo-600 to-indigo-500"
                 : "bg-neutral-800"
             }`}
           >

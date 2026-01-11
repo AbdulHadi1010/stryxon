@@ -125,7 +125,7 @@ export default function Testimonials() {
                   listened to our feedback. Highly recommend!
                 </p>
 
-                <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
+                <div className="grid items-center gap-3 grid-cols-[auto_1fr]">
                   <AnimatedAvatar
                     icon={BookOpen}
                     gradient="bg-gradient-to-br from-pink-600 to-orange-600"

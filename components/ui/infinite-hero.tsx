@@ -318,7 +318,7 @@ export default function InfiniteHero() {
           >
             <button
               type="button"
-              className="group relative overflow-hidden border border-indigo-400/30 bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm rounded-full font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-500 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/30 cursor-pointer"
+              className="group relative overflow-hidden border border-indigo-400/30 bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm rounded-full font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-500 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/30 cursor-pointer"
             >
               Book Technical Audit
             </button>

@@ -41,7 +41,7 @@ export default function StackFeatureSection() {
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative max-w-6xl mx-auto my-32 px-6 md:pl-10 flex flex-col md:flex-row items-center justify-between min-h-[30rem] border border-indigo-500/20 bg-gray-900/50 backdrop-blur-sm overflow-hidden rounded-3xl shadow-lg shadow-indigo-500/10">
+    <section className="relative max-w-6xl mx-auto my-32 px-6 md:pl-10 flex flex-col md:flex-row items-center justify-between min-h-120 border border-indigo-500/20 bg-gray-900/50 backdrop-blur-sm overflow-hidden rounded-3xl shadow-lg shadow-indigo-500/10">
       {/* Left side: Heading and Text */}
       <div className="w-full md:w-1/2 z-10 py-12 md:py-0">
         <div className="flex items-center gap-2 mb-4">
@@ -57,7 +57,7 @@ export default function StackFeatureSection() {
           stack ensures reliability and performance.
         </p>
         <div className="flex items-center gap-3">
-          <Button className="bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50">
+          <Button className="bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50">
             <Link href="#contact">Book Technical Audit</Link>
           </Button>
           <Button
@@ -70,10 +70,10 @@ export default function StackFeatureSection() {
       </div>
 
       {/* Right side: Orbit animation cropped to 1/4 */}
-      <div className="relative w-full md:w-1/2 h-[30rem] flex items-center justify-center md:justify-start overflow-hidden">
-        <div className="relative w-[50rem] h-[50rem] md:translate-x-[50%] flex items-center justify-center">
+      <div className="relative w-full md:w-1/2 h-120 flex items-center justify-center md:justify-start overflow-hidden">
+        <div className="relative w-200 h-200 md:translate-x-[50%] flex items-center justify-center">
           {/* Center Circle with Stryxon Logo */}
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-500 shadow-lg shadow-indigo-500/50 flex items-center justify-center">
+          <div className="w-24 h-24 rounded-full bg-linear-to-br from-indigo-600 to-indigo-500 shadow-lg shadow-indigo-500/50 flex items-center justify-center">
             <Zap className="w-12 h-12 text-white" fill="white" />
           </div>
 
@@ -99,8 +99,12 @@ export default function StackFeatureSection() {
                   )
                   .map((cfg, iconIdx) => {
                     const angle = iconIdx * angleStep;
-                    const x = 50 + 50 * Math.cos(angle);
-                    const y = 50 + 50 * Math.sin(angle);
+                    const x = parseFloat(
+                      (50 + 50 * Math.cos(angle)).toFixed(4)
+                    );
+                    const y = parseFloat(
+                      (50 + 50 * Math.sin(angle)).toFixed(4)
+                    );
 
                     return (
                       <div
@@ -111,6 +115,7 @@ export default function StackFeatureSection() {
                           top: `${y}%`,
                           transform: "translate(-50%, -50%)",
                         }}
+                        suppressHydrationWarning
                       >
                         <cfg.Icon
                           className="w-8 h-8"

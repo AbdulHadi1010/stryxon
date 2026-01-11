@@ -19,11 +19,11 @@ export default function GlobeFeatureSection() {
               intelligent automation.
             </span>
           </h1>
-          <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
+          <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
             Book Technical Audit <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
-        <div className="relative h-[180px] w-full max-w-xl">
+        <div className="relative h-45 w-full max-w-xl">
           <Globe className="absolute -bottom-20 -right-40 scale-150" />
         </div>
       </div>
@@ -122,13 +122,13 @@ export function Globe({
   return (
     <div
       className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
+        "absolute inset-0 mx-auto aspect-square w-full max-w-150",
         className
       )}
     >
       <canvas
         className={cn(
-          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
+          "size-full opacity-0 transition-opacity duration-500 contain-[layout_paint_size]"
         )}
         ref={canvasRef}
         onPointerDown={(e) =>
