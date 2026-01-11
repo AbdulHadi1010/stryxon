@@ -159,60 +159,60 @@ export function ExpandableCard({
           className
         )}
       >
-          <div className="flex gap-4 flex-col">
-            <motion.div layoutId={`image-${title}-${id}`}>
-              <img
-                src={src}
-                alt={title}
-                className="w-64 h-56 rounded-lg object-cover object-center"
-              />
-            </motion.div>
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col">
-                <motion.p
-                  layoutId={`description-${description}-${id}`}
-                  className="text-zinc-500 dark:text-zinc-400 md:text-left text-sm font-medium"
-                >
-                  {description}
-                </motion.p>
-                <motion.h3
-                  layoutId={`title-${title}-${id}`}
-                  className="text-black dark:text-white md:text-left font-semibold"
-                >
-                  {title}
-                </motion.h3>
-              </div>
-              <motion.button
-                aria-label="Open card"
-                layoutId={`button-${title}-${id}`}
-                className={cn(
-                  "h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950  hover:bg-neutral-50 dark:hover:bg-neutral-950 dark:text-white/70 text-black/70 border border-gray-200/90 dark:border-zinc-900 hover:border-gray-300/90 hover:text-black dark:hover:text-white dark:hover:border-zinc-800 transition-colors duration-300  focus:outline-none",
-                  className
-                )}
+        <div className="flex gap-4 flex-col">
+          <motion.div layoutId={`image-${title}-${id}`}>
+            <img
+              src={src}
+              alt={title}
+              className="w-64 h-56 rounded-lg object-cover object-center"
+            />
+          </motion.div>
+          <div className="flex justify-between items-center">
+            <div className="flex flex-col">
+              <motion.p
+                layoutId={`description-${description}-${id}`}
+                className="text-zinc-500 dark:text-zinc-400 md:text-left text-sm font-medium"
               >
-                <motion.div
-                  animate={{ rotate: active ? 45 : 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="M12 5v14" />
-                  </svg>
-                </motion.div>
-              </motion.button>
+                {description}
+              </motion.p>
+              <motion.h3
+                layoutId={`title-${title}-${id}`}
+                className="text-black dark:text-white md:text-left font-semibold"
+              >
+                {title}
+              </motion.h3>
             </div>
+            <motion.button
+              aria-label="Open card"
+              layoutId={`button-${title}-${id}`}
+              className={cn(
+                "h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950  hover:bg-neutral-50 dark:hover:bg-neutral-950 dark:text-white/70 text-black/70 border border-gray-200/90 dark:border-zinc-900 hover:border-gray-300/90 hover:text-black dark:hover:text-white dark:hover:border-zinc-800 transition-colors duration-300  focus:outline-none",
+                className
+              )}
+            >
+              <motion.div
+                animate={{ rotate: active ? 45 : 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
+              </motion.div>
+            </motion.button>
           </div>
-        </motion.div>
-      </>
-    );
-  }
+        </div>
+      </motion.div>
+    </>
+  );
+}
