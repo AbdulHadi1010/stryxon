@@ -293,7 +293,7 @@ export default function InfiniteHero() {
         <ShaderBackground className="h-full w-full" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(120%_80%_at_50%_50%,_transparent_40%,_black_100%)]" />
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(120%_80%_at_50%_50%,transparent_40%,black_100%)]" />
 
       <div className="relative z-10 flex h-svh w-full items-center justify-center px-6">
         <div className="text-center">
