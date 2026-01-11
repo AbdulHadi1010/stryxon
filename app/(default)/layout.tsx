@@ -13,7 +13,9 @@ function ErrorFallback({ error }: { error: Error }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
+        <h2 className="text-2xl font-bold text-white mb-4">
+          Something went wrong
+        </h2>
         <button
           onClick={() => window.location.reload()}
           className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
