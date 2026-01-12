@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 gsap.registerPlugin(SplitText);
@@ -181,13 +181,13 @@ function ShaderBackground({
         f *= .9;
         
         // Apply purple/violet color tint on dark background
-        vec3 purpleBright = vec3(0.7, 0.3, 0.95); // Bright purple for lines
-        vec3 purpleDark = vec3(0.15, 0.05, 0.2); // Very dark purple
-        vec3 bgDark = vec3(0.02, 0.02, 0.05); // Almost black background
+        vec3 purpleBright = vec3(1.0, 0.5, 1.2); // Much brighter purple for lines
+        vec3 purpleDark = vec3(0.3, 0.15, 0.4); // Lighter dark purple
+        vec3 bgDark = vec3(0.05, 0.02, 0.08); // Slightly purple tinted background
         
         // Enhance contrast for animated lines
-        f = pow(f, 0.8); // Make lines more prominent
-        vec3 col = mix(bgDark, mix(purpleDark, purpleBright, f), f);
+        f = pow(f, 0.6); // Make lines much more prominent
+        vec3 col = mix(bgDark, mix(purpleDark, purpleBright, f * 1.3), f * 1.2);
         
         fragColor = vec4(col,1.0);
     }
@@ -229,6 +229,14 @@ export default function InfiniteHero() {
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(
+      window.innerWidth < 768 ||
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    );
+  }, []);
 
   useGSAP(
     () => {
@@ -290,7 +298,44 @@ export default function InfiniteHero() {
       className="relative h-svh w-full overflow-hidden bg-black text-white"
     >
       <div className="absolute inset-0" ref={bgRef}>
-        <ShaderBackground className="h-full w-full" />
+        {!isMobile && <ShaderBackground className="h-full w-full" />}
+        {isMobile && (
+          <>
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" />
+            
+            {/* Floating particles */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(20)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-indigo-500/20 blur-sm"
+                  style={{
+                    width: `${Math.random() * 4 + 2}px`,
+                    height: `${Math.random() * 4 + 2}px`,
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+                    animationDelay: `${Math.random() * 5}s`,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Glowing orbs */}
+            <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
+            
+            {/* Grid pattern overlay */}
+            <div className="absolute inset-0 opacity-10" style={{
+              backgroundImage: `
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px',
+            }} />
+          </>
+        )}
       </div>
 
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(120%_80%_at_50%_50%,transparent_40%,black_100%)]" />

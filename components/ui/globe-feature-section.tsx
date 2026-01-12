@@ -32,15 +32,15 @@ export default function GlobeFeatureSection() {
 }
 
 const GLOBE_CONFIG: COBEOptions = {
-  width: 800,
-  height: 800,
+  width: 600, // Reduced from 800
+  height: 600, // Reduced from 800
   onRender: () => {},
-  devicePixelRatio: 2,
+  devicePixelRatio: 1.5, // Reduced from 2
   phi: 0,
   theta: 0.3,
   dark: 1,
   diffuse: 0.4,
-  mapSamples: 16000,
+  mapSamples: 8000, // Reduced from 16000
   mapBrightness: 1.2,
   baseColor: [0.3, 0.3, 0.4],
   markerColor: [99 / 255, 102 / 255, 241 / 255],

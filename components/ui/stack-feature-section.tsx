@@ -90,6 +90,7 @@ export default function StackFeatureSection() {
                   width: size,
                   height: size,
                   animation: `spin ${12 + orbitIdx * 6}s linear infinite`,
+                  willChange: "transform", // Optimize animation performance
                 }}
               >
                 {iconConfigs

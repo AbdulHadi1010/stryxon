@@ -9,6 +9,7 @@ import {
   MessageSquare,
   Mail,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock";
 
@@ -46,6 +47,17 @@ const data = [
 ];
 
 export default function DockNavigation() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const handleClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -54,8 +66,13 @@ export default function DockNavigation() {
   };
 
   return (
-    <div className="fixed bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-1rem)] sm:w-auto max-w-[95vw] px-2 sm:px-0">
-      <Dock className="items-end pb-3 bg-neutral-900 border border-neutral-800 shadow-2xl shadow-indigo-500/20">
+    <div className="fixed bottom-1 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-0.5rem)] sm:w-auto max-w-[98vw] px-1 sm:px-0">
+      <Dock
+        className="items-end pb-2 sm:pb-3 bg-neutral-900 border border-neutral-800 shadow-2xl shadow-indigo-500/20"
+        magnification={isMobile ? 50 : 80}
+        distance={isMobile ? 100 : 150}
+        panelHeight={isMobile ? 48 : 64}
+      >
         {data.map((item, idx) => (
           <DockItem
             key={idx}

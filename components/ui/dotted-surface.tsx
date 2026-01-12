@@ -1,13 +1,14 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 type DottedSurfaceProps = Omit<React.ComponentProps<"div">, "ref">;
 
 export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
   const { theme } = useTheme();
+  const [isMobile, setIsMobile] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<{
@@ -20,14 +21,22 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
   } | null>(null);
 
   useEffect(() => {
+    setIsMobile(
+      window.innerWidth < 768 ||
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    );
+  }, []);
+
+  useEffect(() => {
+    // Disable Three.js particles entirely on mobile to prevent memory crashes
+    if (isMobile) return;
+
     if (!containerRef.current) return;
     if (typeof window === "undefined") return;
 
-    // Reduce particle count on mobile for better performance
-    const isMobile = window.innerWidth < 768;
     const SEPARATION = 150;
-    const AMOUNTX = isMobile ? 20 : 40;
-    const AMOUNTY = isMobile ? 30 : 60;
+    const AMOUNTX = 40;
+    const AMOUNTY = 60;
 
     try {
       // Scene setup
@@ -44,10 +53,11 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: !isMobile, // Disable antialiasing on mobile
-        powerPreference: "low-power", // Use low power mode
+        antialias: false,
+        powerPreference: "low-power",
+        precision: "lowp", // Use low precision for better performance
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap pixel ratio
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setClearColor(scene.fog.color, 0);
 
@@ -188,7 +198,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
         cancelAnimationFrame(sceneRef.current.animationId);
       }
     }
-  }, [theme]);
+  }, [theme, isMobile]);
 
   return (
     <div
