@@ -309,14 +309,15 @@ export default function InfiniteHero() {
               {[...Array(8)].map((_, i) => (
                 <div
                   key={`streak-${i}`}
-                  className="absolute h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"
+                  className="absolute h-[2px] bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent shadow-[0_0_10px_rgba(129,140,248,0.6)]"
                   style={{
-                    width: "200%",
-                    left: "-50%",
+                    width: "150%",
                     top: `${i * 12}%`,
+                    left: 0,
                     transform: "rotate(-15deg)",
+                    transformOrigin: "left center",
                     animation: `slide-right ${8 + i * 2}s linear infinite`,
-                    animationDelay: `${i * 0.5}s`,
+                    animationDelay: `${i * 0.8}s`,
                   }}
                 />
               ))}
