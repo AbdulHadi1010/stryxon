@@ -311,10 +311,10 @@ export default function InfiniteHero() {
                   key={`streak-${i}`}
                   className="absolute h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"
                   style={{
-                    width: '200%',
-                    left: '-50%',
+                    width: "200%",
+                    left: "-50%",
                     top: `${i * 12}%`,
-                    transform: 'rotate(-15deg)',
+                    transform: "rotate(-15deg)",
                     animation: `slide-right ${8 + i * 2}s linear infinite`,
                     animationDelay: `${i * 0.5}s`,
                   }}

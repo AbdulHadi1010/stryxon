@@ -107,7 +107,7 @@
       transform: scale(1.1);
     }
   }
-  
+
   @keyframes slide-right {
     0% {
       transform: translateX(-100%) rotate(-15deg);
