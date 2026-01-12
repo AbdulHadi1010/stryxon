@@ -1,8 +1,8 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* Additional styles */
-@import './additional-styles/utility-patterns.css' layer(components);
-@import './additional-styles/theme.css';
+@import "./additional-styles/utility-patterns.css" layer(components);
+@import "./additional-styles/theme.css";
 
 @plugin "@tailwindcss/forms" {
   strategy: base;
@@ -72,18 +72,20 @@
       background-position: 200% center;
     }
   }
-  
+
   @keyframes gradient-shift {
-    0%, 100% {
+    0%,
+    100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
     }
   }
-  
+
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) translateX(0px);
     }
     33% {
@@ -93,9 +95,10 @@
       transform: translateY(-10px) translateX(-10px);
     }
   }
-  
+
   @keyframes pulse-slow {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.3;
       transform: scale(1);
     }
@@ -104,7 +107,7 @@
       transform: scale(1.1);
     }
   }
-  
+
   --animate-gradient-shift: gradient-shift 15s ease infinite;
   --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
 }

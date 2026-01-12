@@ -303,7 +303,7 @@ export default function InfiniteHero() {
           <>
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" />
-            
+
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden">
               {[...Array(20)].map((_, i) => (
@@ -315,7 +315,9 @@ export default function InfiniteHero() {
                     height: `${Math.random() * 4 + 2}px`,
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
-                    animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+                    animation: `float ${
+                      Math.random() * 10 + 10
+                    }s ease-in-out infinite`,
                     animationDelay: `${Math.random() * 5}s`,
                   }}
                 />
@@ -324,16 +326,22 @@ export default function InfiniteHero() {
 
             {/* Glowing orbs */}
             <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-            
+            <div
+              className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"
+              style={{ animationDelay: "2s" }}
+            />
+
             {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-10" style={{
-              backgroundImage: `
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage: `
                 linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
               `,
-              backgroundSize: '50px 50px',
-            }} />
+                backgroundSize: "50px 50px",
+              }}
+            />
           </>
         )}
       </div>
