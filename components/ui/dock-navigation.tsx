@@ -66,9 +66,9 @@ export default function DockNavigation() {
   };
 
   return (
-    <div className="fixed bottom-1 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-0.5rem)] sm:w-auto max-w-[98vw] px-1 sm:px-0">
+    <div className="fixed bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] sm:w-auto max-w-full px-0 sm:px-0">
       <Dock
-        className="items-end pb-2 sm:pb-3 bg-neutral-900 border border-neutral-800 shadow-2xl shadow-indigo-500/20"
+        className="items-end pb-2 sm:pb-3 bg-neutral-900/95 backdrop-blur-sm border border-neutral-800 shadow-2xl shadow-indigo-500/20"
         magnification={isMobile ? 50 : 80}
         distance={isMobile ? 100 : 150}
         panelHeight={isMobile ? 48 : 64}

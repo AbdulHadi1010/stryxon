@@ -107,6 +107,23 @@
       transform: scale(1.1);
     }
   }
+  
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-100%) rotate(-15deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    90% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateX(100%) rotate(-15deg);
+      opacity: 0;
+    }
+  }
 
   --animate-gradient-shift: gradient-shift 15s ease infinite;
   --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;

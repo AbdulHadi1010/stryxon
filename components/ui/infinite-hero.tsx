@@ -304,6 +304,24 @@ export default function InfiniteHero() {
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" />
 
+            {/* Diagonal animated streaks */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={`streak-${i}`}
+                  className="absolute h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"
+                  style={{
+                    width: '200%',
+                    left: '-50%',
+                    top: `${i * 12}%`,
+                    transform: 'rotate(-15deg)',
+                    animation: `slide-right ${8 + i * 2}s linear infinite`,
+                    animationDelay: `${i * 0.5}s`,
+                  }}
+                />
+              ))}
+            </div>
+
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden">
               {[...Array(20)].map((_, i) => (
