@@ -8,7 +8,7 @@ export default function ServicesSection() {
     {
       title: "Cloud Architecture & Migration",
       description: "Self-Healing Infrastructure",
-      src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=75",
+      src: "/images/cloud-infrastructure.jpg",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -60,7 +60,7 @@ export default function ServicesSection() {
     {
       title: "DevOps & Container Orchestration",
       description: "Ship Code Without Fear",
-      src: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=400&q=75",
+      src: "/images/devops.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -111,7 +111,7 @@ export default function ServicesSection() {
     {
       title: "AI Engineering & RAG Systems",
       description: "Custom AI Agents",
-      src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=75",
+      src: "/images/rag_image.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -160,7 +160,7 @@ export default function ServicesSection() {
     {
       title: "Workflow Automation & Integration",
       description: "Stop Manual Data Entry",
-      src: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=400&q=75",
+      src: "/images/automation.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -209,7 +209,7 @@ export default function ServicesSection() {
     {
       title: "Backend Engineering & APIs",
       description: "High-Performance Systems",
-      src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&q=75",
+      src: "/images/backend.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -257,7 +257,7 @@ export default function ServicesSection() {
     {
       title: "Cloud Cost Optimization (FinOps)",
       description: "Cut AWS Bills by 30-50%",
-      src: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=75",
+      src: "/images/cloud cost.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -305,7 +305,7 @@ export default function ServicesSection() {
     {
       title: "Security & Compliance Hardening",
       description: "Enterprise-Grade Security",
-      src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=75",
+      src: "/images/security.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -356,7 +356,7 @@ export default function ServicesSection() {
     {
       title: "Data Engineering & ETL Pipelines",
       description: "Break Down Data Silos",
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=75",
+      src: "/images/data engineering.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">
@@ -407,7 +407,7 @@ export default function ServicesSection() {
     {
       title: "Web Scraping & Data Mining",
       description: "Turn the Web Into Your Database",
-      src: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&q=75",
+      src: "/images/web-scraping.png",
       content: (
         <>
           <div className="mb-4 flex flex-wrap gap-2">

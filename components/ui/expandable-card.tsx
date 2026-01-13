@@ -168,8 +168,9 @@ export function ExpandableCard({
             <Image
               src={src}
               alt={title}
-              width={256}
-              height={224}
+              width={512}
+              height={448}
+              quality={95}
               className="w-64 h-56 rounded-lg object-cover object-center"
               loading="lazy"
             />
