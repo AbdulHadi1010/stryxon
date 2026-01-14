@@ -25,14 +25,14 @@ const data = [
     href: "#hero",
   },
   {
-    title: "Services",
-    icon: <Briefcase className="h-full w-full text-neutral-300" />,
-    href: "#services",
-  },
-  {
     title: "Tech Stack",
     icon: <Sparkles className="h-full w-full text-neutral-300" />,
     href: "#stack",
+  },
+  {
+    title: "Services",
+    icon: <Briefcase className="h-full w-full text-neutral-300" />,
+    href: "#services",
   },
   {
     title: "Testimonials",

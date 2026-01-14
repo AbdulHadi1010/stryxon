@@ -58,13 +58,13 @@ export default function StackFeatureSection() {
         </p>
         <div className="flex items-center gap-3">
           <Button className="bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50">
-            <Link href="#contact">Book Technical Audit</Link>
+            <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">Book Technical Audit</a>
           </Button>
           <Button
             variant="outline"
             className="border-indigo-400/30 text-white hover:bg-indigo-500/10"
           >
-            View Services
+            <a href="#services">View Services</a>
           </Button>
         </div>
       </div>

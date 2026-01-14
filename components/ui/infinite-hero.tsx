@@ -388,19 +388,23 @@ export default function InfiniteHero() {
             ref={ctaRef}
             className="mt-8 flex flex-row items-center justify-center gap-4"
           >
-            <button
-              type="button"
-              className="group relative overflow-hidden border border-indigo-400/30 bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm rounded-full font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-500 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/30 cursor-pointer"
-            >
-              Book Technical Audit
-            </button>
+            <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">
+              <button
+                type="button"
+                className="group relative overflow-hidden border border-indigo-400/30 bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm rounded-full font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-500 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/30 cursor-pointer"
+              >
+                Book Technical Audit
+              </button>
+            </a>
 
-            <button
-              type="button"
-              className="group relative px-6 py-3 text-sm font-medium tracking-wide text-white/90 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.8)] hover:text-white cursor-pointer"
-            >
-              View Capabilities
-            </button>
+            <a href="#services">
+              <button
+                type="button"
+                className="group relative px-6 py-3 text-sm font-medium tracking-wide text-white/90 transition-all duration-500 hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.8)] hover:text-white cursor-pointer"
+              >
+                View Capabilities
+              </button>
+            </a>
           </div>
         </div>
       </div>

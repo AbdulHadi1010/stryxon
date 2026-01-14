@@ -10,8 +10,6 @@ const nextConfig = {
   },
   // Enable React compiler for better performance
   reactStrictMode: true,
-  // Optimize production builds
-  swcMinify: true,
 };
 
 module.exports = nextConfig;

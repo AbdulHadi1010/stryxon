@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function ServicesSection() {
   const services = [
+    // Row 1
     {
       title: "Cloud Architecture & Migration",
       description: "Self-Healing Infrastructure",
@@ -157,6 +158,159 @@ export default function ServicesSection() {
         </>
       ),
     },
+    // Row 2
+    {
+      title: "Backend Engineering & APIs",
+      description: "High-Performance Systems",
+      src: "/images/backend.png",
+      content: (
+        <>
+          <div className="mb-4 flex flex-wrap gap-2">
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Python
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Django
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              FastAPI
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              PostgreSQL
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Redis
+            </span>
+          </div>
+          <p>
+            The frontend is what your users see, but the backend is where your
+            business actually lives. A slow or insecure backend kills user
+            retention instantly. At Stryxon, we are Python specialists. We build
+            robust, type-safe APIs using FastAPI and Django, designed to serve
+            data to your web and mobile apps with millisecond latency.
+          </p>
+          <p>
+            We take data integrity seriously. We design normalized database
+            schemas using PostgreSQL to ensure your data is stored efficiently
+            and correctly. For high-velocity data needs, we implement caching
+            layers using Redis to offload database pressure. We also handle the
+            messy parts of backend dev: authentication (OAuth2, JWT), permission
+            systems (RBAC), and third-party API integrations (Stripe, Twilio).
+          </p>
+          <p>
+            Security is baked into every endpoint we write. We implement rate
+            limiting to prevent abuse, input validation to stop injection
+            attacks, and encryption at rest for sensitive user data. Whether you
+            are building a new SaaS MVP or refactoring a legacy API that's
+            slowing you down, we provide the engineering muscle to get it right.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Data Engineering & ETL Pipelines",
+      description: "Break Down Data Silos",
+      src: "/images/data engineering.png",
+      content: (
+        <>
+          <div className="mb-4 flex flex-wrap gap-2">
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Python
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              AWS Glue
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              SQL
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Pandas
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Airflow
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Lambda
+            </span>
+          </div>
+          <p>
+            Data is the new oil, but for most businesses, it's unrefined and
+            messy. You have customer data in Stripe, marketing data in Facebook
+            Ads, and user logs in your database—but they don't talk to each
+            other. Stryxon builds the "plumbing" that connects your business. We
+            specialize in ETL (Extract, Transform, Load) processes using Python
+            and AWS.
+          </p>
+          <p>
+            We don't just move data; we clean it. We write robust scripts using
+            Pandas and AWS Lambda to sanitize your messy inputs, standardizing
+            formats and removing duplicates before they ever hit your dashboard.
+            Whether you are building a data lake in S3 or a warehouse in
+            PostgreSQL or Snowflake, we ensure the architecture is scalable and
+            cost-effective.
+          </p>
+          <p>
+            This service is critical for agencies who want to build "Unified
+            Dashboards" for their clients. We handle the backend engineering
+            that pulls data from APIs every hour, processes it, and stores it
+            securely, ready for your visualization tools to consume.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Mobile Application Development",
+      description: "Native & Cross-Platform Apps",
+      src: "/images/mobile.png",
+      content: (
+        <>
+          <div className="mb-4 flex flex-wrap gap-2">
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              React Native
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Flutter
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Kotlin
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Swift
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              iOS
+            </span>
+            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
+              Android
+            </span>
+          </div>
+          <p>
+            In a mobile-first world, your application needs to live in your
+            users' pockets. Whether you need a cross-platform solution or
+            platform-specific native apps, Stryxon builds mobile experiences
+            that are fast, intuitive, and scalable. We specialize in both
+            cross-platform frameworks like React Native and Flutter, as well as
+            native development with Swift for iOS and Kotlin for Android.
+          </p>
+          <p>
+            React Native allows us to write one codebase that runs on both iOS
+            and Android, cutting development time in half without sacrificing
+            performance. For apps requiring maximum performance and native
+            features, we build truly native applications using Swift and Kotlin,
+            leveraging platform-specific capabilities like ARKit, CoreML, or
+            Android's Jetpack Compose.
+          </p>
+          <p>
+            We handle the entire mobile lifecycle: UI/UX design implementation,
+            state management, API integration, push notifications, deep linking,
+            and App Store deployment. Whether you're launching an MVP or
+            refactoring a legacy mobile app, we deliver production-ready code
+            that passes Apple and Google's review processes on the first try.
+          </p>
+        </>
+      ),
+    },
+    // Row 3
     {
       title: "Workflow Automation & Integration",
       description: "Stop Manual Data Entry",
@@ -202,54 +356,6 @@ export default function ServicesSection() {
             monitor these automations 24/7/365, ensuring that your business
             logic runs silently and perfectly in the background, allowing your
             human team to focus on high-value strategy rather than data entry.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "Backend Engineering & APIs",
-      description: "High-Performance Systems",
-      src: "/images/backend.png",
-      content: (
-        <>
-          <div className="mb-4 flex flex-wrap gap-2">
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Python
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Django
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              FastAPI
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              PostgreSQL
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Redis
-            </span>
-          </div>
-          <p>
-            The frontend is what your users see, but the backend is where your
-            business actually lives. A slow or insecure backend kills user
-            retention instantly. At Stryxon, we are Python specialists. We build
-            robust, type-safe APIs using FastAPI and Django, designed to serve
-            data to your web and mobile apps with millisecond latency.
-          </p>
-          <p>
-            We take data integrity seriously. We design normalized database
-            schemas using PostgreSQL to ensure your data is stored efficiently
-            and correctly. For high-velocity data needs, we implement caching
-            layers using Redis to offload database pressure. We also handle the
-            messy parts of backend dev: authentication (OAuth2, JWT), permission
-            systems (RBAC), and third-party API integrations (Stripe, Twilio).
-          </p>
-          <p>
-            Security is baked into every endpoint we write. We implement rate
-            limiting to prevent abuse, input validation to stop injection
-            attacks, and encryption at rest for sensitive user data. Whether you
-            are building a new SaaS MVP or refactoring a legacy API that's
-            slowing you down, we provide the engineering muscle to get it right.
           </p>
         </>
       ),
@@ -349,104 +455,6 @@ export default function ServicesSection() {
             readiness) by ensuring comprehensive logging, backup retention
             policies, and disaster recovery plans are in place. We lock the
             doors so you can focus on building the house.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "Data Engineering & ETL Pipelines",
-      description: "Break Down Data Silos",
-      src: "/images/data engineering.png",
-      content: (
-        <>
-          <div className="mb-4 flex flex-wrap gap-2">
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Python
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              AWS Glue
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              SQL
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Pandas
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Airflow
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Lambda
-            </span>
-          </div>
-          <p>
-            Data is the new oil, but for most businesses, it's unrefined and
-            messy. You have customer data in Stripe, marketing data in Facebook
-            Ads, and user logs in your database—but they don't talk to each
-            other. Stryxon builds the "plumbing" that connects your business. We
-            specialize in ETL (Extract, Transform, Load) processes using Python
-            and AWS.
-          </p>
-          <p>
-            We don't just move data; we clean it. We write robust scripts using
-            Pandas and AWS Lambda to sanitize your messy inputs, standardizing
-            formats and removing duplicates before they ever hit your dashboard.
-            Whether you are building a data lake in S3 or a warehouse in
-            PostgreSQL or Snowflake, we ensure the architecture is scalable and
-            cost-effective.
-          </p>
-          <p>
-            This service is critical for agencies who want to build "Unified
-            Dashboards" for their clients. We handle the backend engineering
-            that pulls data from APIs every hour, processes it, and stores it
-            securely, ready for your visualization tools to consume.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "Web Scraping & Data Mining",
-      description: "Turn the Web Into Your Database",
-      src: "/images/web-scraping.png",
-      content: (
-        <>
-          <div className="mb-4 flex flex-wrap gap-2">
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Selenium
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Scrapy
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              BeautifulSoup
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Puppeteer
-            </span>
-            <span className="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">
-              Proxy Rotation
-            </span>
-          </div>
-          <p>
-            Sometimes the data you need doesn't have an API. Maybe it's
-            competitor pricing, real estate listings, or potential leads on a
-            directory site. While others do this manually, Stryxon automates it.
-            We build industrial-grade web scrapers that can navigate complex
-            websites, handle logins, and extract structured data from the chaos
-            of the web.
-          </p>
-          <p>
-            We use advanced Python libraries like Selenium and Scrapy to
-            simulate human behavior, rendering JavaScript and managing proxy
-            rotation to avoid blocks. We turn unstructured HTML into clean JSON
-            or CSV files delivered directly to your inbox or database.
-          </p>
-          <p>
-            This is a game-changer for marketing agencies and product teams.
-            Need to track competitor prices daily? Need to aggregate 10,000
-            leads from a niche industry site? We build the bots that do the
-            grunt work, giving you a competitive edge with proprietary datasets
-            that your rivals don't have.
           </p>
         </>
       ),

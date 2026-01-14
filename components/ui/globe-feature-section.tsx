@@ -19,9 +19,11 @@ export default function GlobeFeatureSection() {
               intelligent automation.
             </span>
           </h1>
-          <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
-            Book Technical Audit <ArrowRight className="h-4 w-4" />
-          </Button>
+          <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">
+            <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
+              Book Technical Audit <ArrowRight className="h-4 w-4" />
+            </Button>
+          </a>
         </div>
         <div className="relative h-45 w-full max-w-xl">
           <Globe className="absolute -bottom-20 -right-40 scale-150" />
