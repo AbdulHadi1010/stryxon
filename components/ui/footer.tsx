@@ -24,7 +24,7 @@ export default function Footer() {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (footerRef.current) {
@@ -84,7 +84,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer ref={footerRef} className="bg-[#0F0F11]/10 relative rounded-3xl overflow-hidden m-8">
+    <footer
+      ref={footerRef}
+      className="bg-[#0F0F11]/10 relative rounded-3xl overflow-hidden m-8"
+    >
       {isVisible && (
         <BackgroundBeamsWithCollision className="h-fit min-h-175 dark:from-black dark:to-neutral-900">
           {/* Text hover effect - positioned to start from the hr line */}
@@ -93,65 +96,70 @@ export default function Footer() {
           </div>
 
           <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center space-x-2">
-                <Zap className="text-indigo-400 w-8 h-8" fill="currentColor" />
-                <span className="text-white text-3xl font-bold">Stryxon</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
+              <div className="flex flex-col space-y-4">
+                <div className="flex items-center space-x-2">
+                  <Zap
+                    className="text-indigo-400 w-8 h-8"
+                    fill="currentColor"
+                  />
+                  <span className="text-white text-3xl font-bold">Stryxon</span>
+                </div>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  Engineering Intelligence for Modern Agencies. Immutable Cloud
+                  Infrastructure meets Custom AI Agents.
+                </p>
               </div>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Engineering Intelligence for Modern Agencies. Immutable Cloud
-                Infrastructure meets Custom AI Agents.
-              </p>
-            </div>
 
-            {footerLinks.map((section) => (
-              <div key={section.title}>
+              {footerLinks.map((section) => (
+                <div key={section.title}>
+                  <h4 className="text-white text-lg font-semibold mb-6">
+                    {section.title}
+                  </h4>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-gray-400 hover:text-indigo-400 transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              <div>
                 <h4 className="text-white text-lg font-semibold mb-6">
-                  {section.title}
+                  Contact Us
                 </h4>
-                <ul className="space-y-3">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-indigo-400 transition-colors"
-                      >
-                        {link.label}
-                      </a>
+                <ul className="space-y-4">
+                  {contactInfo.map((item, i) => (
+                    <li key={i} className="flex items-center space-x-3">
+                      {item.icon}
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-gray-400 hover:text-indigo-400 transition-colors text-sm"
+                        >
+                          {item.component || item.text}
+                        </a>
+                      ) : (
+                        <span className="text-gray-400 text-sm">
+                          {item.text}
+                        </span>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
-
-            <div>
-              <h4 className="text-white text-lg font-semibold mb-6">
-                Contact Us
-              </h4>
-              <ul className="space-y-4">
-                {contactInfo.map((item, i) => (
-                  <li key={i} className="flex items-center space-x-3">
-                    {item.icon}
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-gray-400 hover:text-indigo-400 transition-colors text-sm"
-                      >
-                        {item.component || item.text}
-                      </a>
-                    ) : (
-                      <span className="text-gray-400 text-sm">{item.text}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
             </div>
-          </div>
 
-          <hr className="border-t border-gray-700 my-8" />
+            <hr className="border-t border-gray-700 my-8" />
 
-          {/* <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-sm space-y-4 md:space-y-0">
+            {/* <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-sm space-y-4 md:space-y-0">
             <div className="flex space-x-6 text-gray-400">
               {socialLinks.map(({ icon, label, href }) => (
                 <a
@@ -170,7 +178,7 @@ export default function Footer() {
               reserved.
             </p>
           </div> */}
-        </div>
+          </div>
 
           <FooterBackgroundGradient />
         </BackgroundBeamsWithCollision>
