@@ -86,13 +86,13 @@
   @keyframes float {
     0%,
     100% {
-      transform: translateY(0px) translateX(0px);
+      transform: translateY(0px) translateX(0px) translateZ(0);
     }
     33% {
-      transform: translateY(-20px) translateX(10px);
+      transform: translateY(-20px) translateX(10px) translateZ(0);
     }
     66% {
-      transform: translateY(-10px) translateX(-10px);
+      transform: translateY(-10px) translateX(-10px) translateZ(0);
     }
   }
 
@@ -100,17 +100,17 @@
     0%,
     100% {
       opacity: 0.3;
-      transform: scale(1);
+      transform: scale(1) translateZ(0);
     }
     50% {
       opacity: 0.5;
-      transform: scale(1.1);
+      transform: scale(1.1) translateZ(0);
     }
   }
 
   @keyframes slide-right {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(-100%) translateZ(0);
       opacity: 0;
     }
     10% {
@@ -120,7 +120,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(calc(100vw + 100%));
+      transform: translateX(calc(100vw + 100%)) translateZ(0);
       opacity: 0;
     }
   }
@@ -153,5 +153,36 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Custom Scrollbar Styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.3) rgba(15, 15, 17, 0.5);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgba(15, 15, 17, 0.5);
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
+
+  /* Performance optimizations */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

@@ -302,22 +302,24 @@ export default function InfiniteHero() {
         {isMobile && (
           <>
             {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" style={{ willChange: 'background-position' }} />
 
             {/* Diagonal animated streaks */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(8)].map((_, i) => (
+              {[...Array(6)].map((_, i) => (
                 <div
                   key={`streak-${i}`}
                   className="absolute h-[2px] bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent shadow-[0_0_10px_rgba(129,140,248,0.6)]"
                   style={{
                     width: "150%",
-                    top: `${i * 12}%`,
+                    top: `${i * 16}%`,
                     left: 0,
-                    transform: "rotate(-15deg)",
+                    transform: "rotate(-15deg) translateZ(0)",
                     transformOrigin: "left center",
                     animation: `slide-right ${8 + i * 2}s linear infinite`,
-                    animationDelay: `${i * 0.8}s`,
+                    animationDelay: `${i * 1.2}s`,
+                    willChange: "transform, opacity",
+                    backfaceVisibility: "hidden",
                   }}
                 />
               ))}
@@ -325,7 +327,7 @@ export default function InfiniteHero() {
 
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(20)].map((_, i) => (
+              {[...Array(12)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute rounded-full bg-indigo-500/20 blur-sm"
@@ -338,16 +340,18 @@ export default function InfiniteHero() {
                       Math.random() * 10 + 10
                     }s ease-in-out infinite`,
                     animationDelay: `${Math.random() * 5}s`,
+                    willChange: "transform",
+                    transform: "translateZ(0)",
                   }}
                 />
               ))}
             </div>
 
             {/* Glowing orbs */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow" style={{ willChange: "transform, opacity", transform: "translateZ(0)" }} />
             <div
               className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"
-              style={{ animationDelay: "2s" }}
+              style={{ animationDelay: "2s", willChange: "transform, opacity", transform: "translateZ(0)" }}
             />
 
             {/* Grid pattern overlay */}
