@@ -302,7 +302,10 @@ export default function InfiniteHero() {
         {isMobile && (
           <>
             {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift" style={{ willChange: 'background-position' }} />
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift"
+              style={{ willChange: "background-position" }}
+            />
 
             {/* Diagonal animated streaks */}
             <div className="absolute inset-0 overflow-hidden">
@@ -348,10 +351,20 @@ export default function InfiniteHero() {
             </div>
 
             {/* Glowing orbs */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow" style={{ willChange: "transform, opacity", transform: "translateZ(0)" }} />
+            <div
+              className="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
+              style={{
+                willChange: "transform, opacity",
+                transform: "translateZ(0)",
+              }}
+            />
             <div
               className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"
-              style={{ animationDelay: "2s", willChange: "transform, opacity", transform: "translateZ(0)" }}
+              style={{
+                animationDelay: "2s",
+                willChange: "transform, opacity",
+                transform: "translateZ(0)",
+              }}
             />
 
             {/* Grid pattern overlay */}
