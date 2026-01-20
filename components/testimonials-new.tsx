@@ -1,37 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Zap, Rocket, Code, BookOpen, Target } from "lucide-react";
-import { motion } from "framer-motion";
-
-const AnimatedAvatar = ({
-  icon: Icon,
-  gradient,
-}: {
-  icon: any;
-  gradient: string;
-}) => {
-  return (
-    <Avatar className="size-12 overflow-visible">
-      <AvatarFallback className={`${gradient} relative`}>
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Icon className="w-6 h-6 text-white" />
-        </motion.div>
-      </AvatarFallback>
-    </Avatar>
-  );
-};
+import { Zap } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -67,20 +37,13 @@ export default function Testimonials() {
                   to detail. Highly recommended!
                 </p>
 
-                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                  <AnimatedAvatar
-                    icon={Rocket}
-                    gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
-                  />
-
-                  <div>
-                    <cite className="text-sm font-medium text-white">
-                      Rayan A.
-                    </cite>
-                    <span className="text-gray-400 block text-sm">
-                      Co-Founder, Sportamize
-                    </span>
-                  </div>
+                <div>
+                  <cite className="text-lg font-semibold text-indigo-400">
+                    Rayan A.
+                  </cite>
+                  <span className="text-gray-400 block text-sm">
+                    Co-Founder, Sportamize
+                  </span>
                 </div>
               </blockquote>
             </CardContent>
@@ -97,19 +60,13 @@ export default function Testimonials() {
                   ensure the project's success.
                 </p>
 
-                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                  <AnimatedAvatar
-                    icon={Code}
-                    gradient="bg-gradient-to-br from-purple-600 to-pink-600"
-                  />
-                  <div>
-                    <cite className="text-sm font-medium text-white">
-                      Muhammad Z.
-                    </cite>
-                    <span className="text-gray-400 block text-sm">
-                      Software Architect
-                    </span>
-                  </div>
+                <div>
+                  <cite className="text-lg font-semibold text-indigo-400">
+                    Muhammad Z.
+                  </cite>
+                  <span className="text-gray-400 block text-sm">
+                    Software Architect
+                  </span>
                 </div>
               </blockquote>
             </CardContent>
@@ -125,19 +82,13 @@ export default function Testimonials() {
                   listened to our feedback. Highly recommend!
                 </p>
 
-                <div className="grid items-center gap-3 grid-cols-[auto_1fr]">
-                  <AnimatedAvatar
-                    icon={BookOpen}
-                    gradient="bg-gradient-to-br from-pink-600 to-orange-600"
-                  />
-                  <div>
-                    <cite className="text-sm font-medium text-white">
-                      Maryam K.
-                    </cite>
-                    <span className="text-gray-400 block text-sm">
-                      Lecturer, UCP
-                    </span>
-                  </div>
+                <div>
+                  <cite className="text-lg font-semibold text-indigo-400">
+                    Maryam K.
+                  </cite>
+                  <span className="text-gray-400 block text-sm">
+                    Lecturer, UCP
+                  </span>
                 </div>
               </blockquote>
             </CardContent>
@@ -153,19 +104,13 @@ export default function Testimonials() {
                   professional journey.
                 </p>
 
-                <div className="grid grid-cols-[auto_1fr] gap-3">
-                  <AnimatedAvatar
-                    icon={Target}
-                    gradient="bg-gradient-to-br from-orange-600 to-red-600"
-                  />
-                  <div>
-                    <p className="text-sm font-medium text-white">
-                      Wilson Uduma
-                    </p>
-                    <span className="text-gray-400 block text-sm">
-                      Product Management
-                    </span>
-                  </div>
+                <div>
+                  <p className="text-lg font-semibold text-indigo-400">
+                    Wilson Uduma
+                  </p>
+                  <span className="text-gray-400 block text-sm">
+                    Product Management
+                  </span>
                 </div>
               </blockquote>
             </CardContent>

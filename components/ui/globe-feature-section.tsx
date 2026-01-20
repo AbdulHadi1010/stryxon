@@ -19,7 +19,7 @@ export default function GlobeFeatureSection() {
               intelligent automation.
             </span>
           </h1>
-          <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">
+          <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
             <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
               Book Technical Audit <ArrowRight className="h-4 w-4" />
             </Button>
@@ -97,7 +97,7 @@ export function Globe({
       state.width = width * 2;
       state.height = width * 2;
     },
-    [r]
+    [r],
   );
 
   const onResize = () => {
@@ -125,17 +125,17 @@ export function Globe({
     <div
       className={cn(
         "absolute inset-0 mx-auto aspect-square w-full max-w-150",
-        className
+        className,
       )}
     >
       <canvas
         className={cn(
-          "size-full opacity-0 transition-opacity duration-500 contain-[layout_paint_size]"
+          "size-full opacity-0 transition-opacity duration-500 contain-[layout_paint_size]",
         )}
         ref={canvasRef}
         onPointerDown={(e) =>
           updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current
+            e.clientX - pointerInteractionMovement.current,
           )
         }
         onPointerUp={() => updatePointerInteraction(null)}

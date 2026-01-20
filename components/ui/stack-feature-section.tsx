@@ -58,7 +58,7 @@ export default function StackFeatureSection() {
         </p>
         <div className="flex items-center gap-3">
           <Button className="bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50">
-            <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">
+            <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
               Book Technical Audit
             </a>
           </Button>
@@ -98,15 +98,15 @@ export default function StackFeatureSection() {
                 {iconConfigs
                   .slice(
                     orbitIdx * iconsPerOrbit,
-                    orbitIdx * iconsPerOrbit + iconsPerOrbit
+                    orbitIdx * iconsPerOrbit + iconsPerOrbit,
                   )
                   .map((cfg, iconIdx) => {
                     const angle = iconIdx * angleStep;
                     const x = parseFloat(
-                      (50 + 50 * Math.cos(angle)).toFixed(4)
+                      (50 + 50 * Math.cos(angle)).toFixed(4),
                     );
                     const y = parseFloat(
-                      (50 + 50 * Math.sin(angle)).toFixed(4)
+                      (50 + 50 * Math.sin(angle)).toFixed(4),
                     );
 
                     return (

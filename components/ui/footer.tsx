@@ -3,6 +3,7 @@
 import Logo from "./logo";
 import { BackgroundBeamsWithCollision } from "./background-beams-with-collision";
 import { TextHoverEffect, FooterBackgroundGradient } from "./hover-footer";
+import EmailImage from "./email-image";
 import {
   Mail,
   Phone,
@@ -37,8 +38,10 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <Mail size={18} className="text-indigo-400" />,
-      text: "hello@stryxon.com",
-      href: "mailto:hello@stryxon.com",
+      component: (
+        <EmailImage className="text-gray-400 hover:text-indigo-400 transition-colors" />
+      ),
+      href: "mailto:contact@stryxon.com",
     },
     {
       icon: <Phone size={18} className="text-indigo-400" />,
@@ -111,7 +114,7 @@ export default function Footer() {
                         href={item.href}
                         className="text-gray-400 hover:text-indigo-400 transition-colors text-sm"
                       >
-                        {item.text}
+                        {item.component || item.text}
                       </a>
                     ) : (
                       <span className="text-gray-400 text-sm">{item.text}</span>
@@ -124,7 +127,7 @@ export default function Footer() {
 
           <hr className="border-t border-gray-700 my-8" />
 
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-sm space-y-4 md:space-y-0">
+          {/* <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-sm space-y-4 md:space-y-0">
             <div className="flex space-x-6 text-gray-400">
               {socialLinks.map(({ icon, label, href }) => (
                 <a
@@ -142,7 +145,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Stryxon Technologies. All rights
               reserved.
             </p>
-          </div>
+          </div> */}
         </div>
 
         <FooterBackgroundGradient />

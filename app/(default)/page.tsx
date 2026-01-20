@@ -12,7 +12,7 @@ const StackFeatureSection = dynamic(
   () => import("@/components/ui/stack-feature-section"),
   {
     loading: () => <div className="h-96 bg-transparent" />,
-  }
+  },
 );
 
 const ServicesSection = dynamic(() => import("@/components/services-section"), {
@@ -28,8 +28,12 @@ const GlobeFeatureSection = dynamic(
   {
     ssr: false,
     loading: () => <div className="h-96 bg-transparent" />,
-  }
+  },
 );
+
+const ContactForm = dynamic(() => import("@/components/contact-form"), {
+  loading: () => <div className="h-96 bg-transparent" />,
+});
 
 export default function Home() {
   return (
@@ -54,11 +58,12 @@ export default function Home() {
           <Testimonials />
         </Suspense>
       </div>
-      <div id="contact">
-        <Suspense fallback={<div className="h-96 bg-transparent" />}>
-          <GlobeFeatureSection />
-        </Suspense>
-      </div>
+      <Suspense fallback={<div className="h-96 bg-transparent" />}>
+        <GlobeFeatureSection />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-transparent" />}>
+        <ContactForm />
+      </Suspense>
     </>
   );
 }

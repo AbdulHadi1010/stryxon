@@ -207,7 +207,7 @@ function ShaderBackground({
       u_resolution: { value: new THREE.Vector3(1, 1, 1) },
       ...uniforms,
     }),
-    [uniforms]
+    [uniforms],
   );
 
   return (
@@ -234,7 +234,7 @@ export default function InfiniteHero() {
   useEffect(() => {
     setIsMobile(
       window.innerWidth < 768 ||
-        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
     );
   }, []);
 
@@ -269,7 +269,7 @@ export default function InfiniteHero() {
             duration: 0.8,
             stagger: 0.1,
           },
-          0.3
+          0.3,
         )
         .to(
           pSplit.lines,
@@ -280,7 +280,7 @@ export default function InfiniteHero() {
             duration: 0.6,
             stagger: 0.08,
           },
-          "-=0.3"
+          "-=0.3",
         )
         .to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
 
@@ -289,7 +289,7 @@ export default function InfiniteHero() {
         pSplit.revert();
       };
     },
-    { scope: rootRef }
+    { scope: rootRef },
   );
 
   return (
@@ -388,7 +388,7 @@ export default function InfiniteHero() {
             ref={ctaRef}
             className="mt-8 flex flex-row items-center justify-center gap-4"
           >
-            <a href="mailto:abdulhadi.consulting@gmail.com?subject=Technical Audit Request">
+            <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
               <button
                 type="button"
                 className="group relative overflow-hidden border border-indigo-400/30 bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm rounded-full font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-500 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-500/30 cursor-pointer"
