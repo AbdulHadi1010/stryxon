@@ -95,7 +95,7 @@ export default function ServicesSection() {
             applications in Docker, we ensure consistency across development,
             staging, and production environments. For high-scale applications,
             we orchestrate these containers using Kubernetes (K8s) and Amazon
-            EKS. This allows your application to self-heal—if a container
+            EKS. This allows your application to self-heal if a container
             crashes, Kubernetes restarts it instantly before your users even
             notice.
           </p>
@@ -142,14 +142,14 @@ export default function ServicesSection() {
           </p>
           <p>
             This allows us to build intelligent agents that don't just
-            "hallucinate" answers—they cite your actual data. Whether you need
+            "hallucinate" answers they cite your actual data. Whether you need
             an internal HR bot that answers questions based on your employee
             handbook, or a customer support agent that references your live
             Shopify inventory, we engineer the logic using LangChain and Python.
           </p>
           <p>
             We go beyond simple text generation. We build "Agentic Workflows"
-            where the AI can take action—querying a database, sending an email,
+            where the AI can take action querying a database, sending an email,
             or updating a CRM record based on the conversation. We handle the
             complex prompt engineering, context window management, and token
             optimization to ensure your AI solution is cost-effective and
@@ -236,7 +236,7 @@ export default function ServicesSection() {
           <p>
             Data is the new oil, but for most businesses, it's unrefined and
             messy. You have customer data in Stripe, marketing data in Facebook
-            Ads, and user logs in your database—but they don't talk to each
+            Ads, and user logs in your database but they don't talk to each
             other. Stryxon builds the "plumbing" that connects your business. We
             specialize in ETL (Extract, Transform, Load) processes using Python
             and AWS.
@@ -348,10 +348,10 @@ export default function ServicesSection() {
             that can process thousands of events per hour. Imagine a system
             where a new lead on your website automatically triggers a background
             check, updates your CRM, generates a custom contract PDF, and
-            notifies your sales team on Slack—all in under 3 seconds.
+            notifies your sales team on Slack all in under 3 seconds.
           </p>
           <p>
-            We integrate deeply with any tool that has an API—Stripe,
+            We integrate deeply with any tool that has an API Stripe,
             Salesforce, HubSpot, Slack, and proprietary internal tools. We
             monitor these automations 24/7/365, ensuring that your business
             logic runs silently and perfectly in the background, allowing your
