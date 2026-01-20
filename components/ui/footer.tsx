@@ -92,7 +92,7 @@ export default function Footer() {
             <TextHoverEffect text="STRYXON" className="z-10" />
           </div>
 
-        <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
+          <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
             <div className="flex flex-col space-y-4">
               <div className="flex items-center space-x-2">
@@ -172,8 +172,8 @@ export default function Footer() {
           </div> */}
         </div>
 
-        <FooterBackgroundGradient />
-      </BackgroundBeamsWithCollision>
+          <FooterBackgroundGradient />
+        </BackgroundBeamsWithCollision>
       )}
       {!isVisible && (
         <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
@@ -187,3 +187,6 @@ export default function Footer() {
           </div>
         </div>
       )}
+    </footer>
+  );
+}
