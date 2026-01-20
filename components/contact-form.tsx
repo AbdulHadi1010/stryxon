@@ -212,7 +212,7 @@ export default function ContactForm() {
               <Turnstile
                 siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
                 onSuccess={(token) => setTurnstileToken(token)}
-                theme="dark"
+                options={{ theme: "dark" }}
                 className="mb-4"
               />
 
