@@ -69,8 +69,8 @@ function ShaderBackground({
     uniform vec3 u_resolution;
     uniform sampler2D iChannel0;
 
-    #define STEP 256
-    #define EPS .001
+    #define STEP 128
+    #define EPS .002
 
     float smin( float a, float b, float k )
     {
@@ -85,15 +85,14 @@ function ShaderBackground({
       return sin(1.5*x.x)*sin(1.5*x.y);
     }
 
-    float fbm6( vec2 p )
+    float fbm4( vec2 p )
     {
         float f = 0.0;
         f += 0.500000*(0.5+0.5*noise( p )); p = m*p*2.02;
         f += 0.250000*(0.5+0.5*noise( p )); p = m*p*2.03;
         f += 0.125000*(0.5+0.5*noise( p )); p = m*p*2.01;
-        f += 0.062500*(0.5+0.5*noise( p )); p = m*p*2.04;
-        f += 0.015625*(0.5+0.5*noise( p ));
-        return f/0.96875;
+        f += 0.062500*(0.5+0.5*noise( p ));
+        return f/0.9375;
     }
 
 
@@ -114,7 +113,7 @@ function ShaderBackground({
     float swingPlane(float height)
     {
         vec3 pos = _position + vec3(0.,0.,u_time * 5.5);
-        float def =  fbm6(pos.xz * .25) * 0.5;
+        float def =  fbm4(pos.xz * .25) * 0.5;
         
         float way = pow(abs(pos.x) * 34. ,2.5) *.0000125;
         def *= way;
@@ -212,7 +211,17 @@ function ShaderBackground({
 
   return (
     <div className={className}>
-      <Canvas className={className}>
+      <Canvas
+        className={className}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
+        frameloop="always"
+        gl={{
+          antialias: false,
+          powerPreference: "high-performance",
+          alpha: false,
+        }}
+      >
         <ShaderPlane
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
@@ -315,6 +324,7 @@ export default function InfiniteHero() {
     <div
       ref={rootRef}
       className="relative h-svh w-full overflow-hidden bg-black text-white"
+      style={{ contain: "layout style paint" }}
     >
       <div className="absolute inset-0" ref={bgRef}>
         {!isMobile && isVisible && (
@@ -330,18 +340,18 @@ export default function InfiniteHero() {
 
             {/* Diagonal animated streaks */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(6)].map((_, i) => (
+              {[...Array(4)].map((_, i) => (
                 <div
                   key={`streak-${i}`}
                   className="absolute h-[2px] bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent shadow-[0_0_10px_rgba(129,140,248,0.6)]"
                   style={{
                     width: "150%",
-                    top: `${i * 16}%`,
+                    top: `${i * 24}%`,
                     left: 0,
                     transform: "rotate(-15deg) translateZ(0)",
                     transformOrigin: "left center",
-                    animation: `slide-right ${8 + i * 2}s linear infinite`,
-                    animationDelay: `${i * 1.2}s`,
+                    animation: `slide-right ${10 + i * 3}s linear infinite`,
+                    animationDelay: `${i * 1.5}s`,
                     willChange: "transform, opacity",
                     backfaceVisibility: "hidden",
                   }}
@@ -351,7 +361,7 @@ export default function InfiniteHero() {
 
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(12)].map((_, i) => (
+              {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute rounded-full bg-indigo-500/20 blur-sm"
@@ -361,9 +371,9 @@ export default function InfiniteHero() {
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                     animation: `float ${
-                      Math.random() * 10 + 10
+                      Math.random() * 15 + 15
                     }s ease-in-out infinite`,
-                    animationDelay: `${Math.random() * 5}s`,
+                    animationDelay: `${Math.random() * 8}s`,
                     willChange: "transform",
                     transform: "translateZ(0)",
                   }}
