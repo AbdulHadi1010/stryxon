@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Logo from "./logo";
 import { BackgroundBeamsWithCollision } from "./background-beams-with-collision";
 import { TextHoverEffect, FooterBackgroundGradient } from "./hover-footer";
@@ -15,6 +16,28 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const footerRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+
   const footerLinks = [
     {
       title: "Services",
@@ -61,12 +84,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0F0F11]/10 relative rounded-3xl overflow-hidden m-8">
-      <BackgroundBeamsWithCollision className="h-fit min-h-175 dark:from-black dark:to-neutral-900">
-        {/* Text hover effect - positioned to start from the hr line */}
-        <div className="absolute bottom-0 left-0 right-0 h-120 flex items-start justify-center pointer-events-auto z-10 -mb-16">
-          <TextHoverEffect text="STRYXON" className="z-10" />
-        </div>
+    <footer ref={footerRef} className="bg-[#0F0F11]/10 relative rounded-3xl overflow-hidden m-8">
+      {isVisible && (
+        <BackgroundBeamsWithCollision className="h-fit min-h-175 dark:from-black dark:to-neutral-900">
+          {/* Text hover effect - positioned to start from the hr line */}
+          <div className="absolute bottom-0 left-0 right-0 h-120 flex items-start justify-center pointer-events-auto z-10 -mb-16">
+            <TextHoverEffect text="STRYXON" className="z-10" />
+          </div>
 
         <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
@@ -150,6 +174,16 @@ export default function Footer() {
 
         <FooterBackgroundGradient />
       </BackgroundBeamsWithCollision>
-    </footer>
-  );
-}
+      )}
+      {!isVisible && (
+        <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
+            <div className="flex flex-col space-y-4">
+              <div className="flex items-center space-x-2">
+                <Zap className="text-indigo-400 w-8 h-8" fill="currentColor" />
+                <span className="text-white text-3xl font-bold">Stryxon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}

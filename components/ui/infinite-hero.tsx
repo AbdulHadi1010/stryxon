@@ -230,12 +230,31 @@ export default function InfiniteHero() {
   const pRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     setIsMobile(
       window.innerWidth < 768 ||
         /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
     );
+
+    // Intersection Observer to pause when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    if (rootRef.current) {
+      observer.observe(rootRef.current);
+    }
+
+    return () => {
+      if (rootRef.current) {
+        observer.unobserve(rootRef.current);
+      }
+    };
   }, []);
 
   useGSAP(
@@ -298,8 +317,10 @@ export default function InfiniteHero() {
       className="relative h-svh w-full overflow-hidden bg-black text-white"
     >
       <div className="absolute inset-0" ref={bgRef}>
-        {!isMobile && <ShaderBackground className="h-full w-full" />}
-        {isMobile && (
+        {!isMobile && isVisible && (
+          <ShaderBackground className="h-full w-full" />
+        )}
+        {isMobile && isVisible && (
           <>
             {/* Animated gradient background */}
             <div

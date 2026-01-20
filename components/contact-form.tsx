@@ -210,9 +210,17 @@ export default function ContactForm() {
               )}
 
               <Turnstile
-                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
                 onSuccess={(token) => setTurnstileToken(token)}
-                options={{ theme: "dark" }}
+                onError={() =>
+                  console.log(
+                    "Turnstile error - continuing without verification",
+                  )
+                }
+                options={{
+                  theme: "dark",
+                  size: "normal",
+                }}
                 className="mb-4"
               />
 
