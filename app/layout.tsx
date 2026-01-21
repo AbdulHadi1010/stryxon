@@ -43,6 +43,10 @@ export const metadata = {
   title: "Stryxon Technologies - Engineering Intelligence",
   description:
     "The White-Label Technical Partner for Agencies. We combine Immutable Cloud Infrastructure with Custom AI Agents.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/images/stryxon-logo.png",
+  },
 };
 
 export default function RootLayout({
