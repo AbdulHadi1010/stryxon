@@ -493,9 +493,9 @@ export default function SpeedCheckerSection() {
                           )}
                         </p>
                       </div>
-                      <Meteors 
-                        number={12} 
-                        color={isOptimized ? "#10b981" : "#f97316"} 
+                      <Meteors
+                        number={12}
+                        color={isOptimized ? "#10b981" : "#f97316"}
                       />
                     </div>
                   );

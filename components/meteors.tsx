@@ -29,10 +29,10 @@ export const Meteors = ({
             animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
           }}
         >
-          <div 
+          <div
             className="pointer-events-none absolute top-1/2 left-1/2 h-[1px] w-[50px] -translate-y-1/2 -translate-x-1/2 bg-gradient-to-r to-transparent"
             style={{
-              backgroundImage: `linear-gradient(to right, ${color}, transparent)`
+              backgroundImage: `linear-gradient(to right, ${color}, transparent)`,
             }}
           />
         </span>
