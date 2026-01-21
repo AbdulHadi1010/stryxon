@@ -8,24 +8,16 @@ import {
   Layers,
   MessageSquare,
   Mail,
+  Gauge,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock";
 
 const data = [
   {
     title: "Stryxon",
-    icon: (
-      <Image
-        src="/images/stryxon-logo.png"
-        alt="Stryxon"
-        width={24}
-        height={24}
-        className="h-full w-full object-contain"
-      />
-    ),
+    icon: <Zap className="h-full w-full text-indigo-400" fill="currentColor" />,
     href: "#hero",
   },
   {
@@ -42,6 +34,11 @@ const data = [
     title: "Services",
     icon: <Briefcase className="h-full w-full text-neutral-300" />,
     href: "#services",
+  },
+  {
+    title: "Speed Checker",
+    icon: <Gauge className="h-full w-full text-neutral-300" />,
+    href: "#speed-checker",
   },
   {
     title: "Testimonials",

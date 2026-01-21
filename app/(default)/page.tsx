@@ -36,6 +36,13 @@ const ContactForm = dynamic(() => import("@/components/contact-form"), {
   loading: () => <div className="h-96 bg-transparent" />,
 });
 
+const SpeedCheckerSection = dynamic(
+  () => import("@/components/speed-checker-section"),
+  {
+    loading: () => <div className="h-96 bg-transparent" />,
+  },
+);
+
 export default function Home() {
   return (
     <>
@@ -45,6 +52,11 @@ export default function Home() {
           <InfiniteHero />
         </Suspense>
       </section>
+      <div id="speed-checker">
+        <Suspense fallback={<div className="h-96 bg-transparent" />}>
+          <SpeedCheckerSection />
+        </Suspense>
+      </div>
       <div id="stack">
         <Suspense fallback={<div className="h-96 bg-transparent" />}>
           <StackFeatureSection />

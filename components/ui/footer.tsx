@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Logo from "./logo";
-import Image from "next/image";
 import { BackgroundBeamsWithCollision } from "./background-beams-with-collision";
 import { TextHoverEffect, FooterBackgroundGradient } from "./hover-footer";
 import EmailImage from "./email-image";
@@ -188,14 +187,8 @@ export default function Footer() {
         <div className="relative z-40 mx-auto max-w-7xl p-14 pt-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12 justify-items-center text-center md:text-left md:justify-items-start">
             <div className="flex flex-col space-y-4">
-              <div className="flex items-center space-x-3">
-                <Image
-                  src="/images/stryxon-logo.png"
-                  alt="Stryxon Logo"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8 object-contain"
-                />
+              <div className="flex items-center space-x-2">
+                <Zap className="text-indigo-400 w-8 h-8" fill="currentColor" />
                 <span className="text-white text-3xl font-bold">Stryxon</span>
               </div>
             </div>

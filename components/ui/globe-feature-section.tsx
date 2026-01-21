@@ -19,11 +19,18 @@ export default function GlobeFeatureSection() {
               intelligent automation.
             </span>
           </h1>
-          <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
-            <Button className="mt-6 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
-              Book Technical Audit <ArrowRight className="h-4 w-4" />
-            </Button>
-          </a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
+              <Button className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
+                Book Technical Audit <ArrowRight className="h-4 w-4" />
+              </Button>
+            </a>
+            <a href="#speed-checker">
+              <Button className="inline-flex items-center gap-2 rounded-full bg-gray-800 border border-indigo-500/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 hover:border-indigo-500/50">
+                Test Your Speed <ArrowRight className="h-4 w-4" />
+              </Button>
+            </a>
+          </div>
         </div>
         <div className="relative h-45 w-full max-w-xl">
           <Globe className="absolute -bottom-20 -right-40 scale-150" />

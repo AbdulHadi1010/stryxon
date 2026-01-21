@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Zap } from "lucide-react";
 
 export default function Logo() {
   return (
@@ -8,14 +8,9 @@ export default function Logo() {
       className="inline-flex shrink-0 items-center gap-2"
       aria-label="Stryxon"
     >
-      <Image
-        src="/images/stryxon-logo.png"
-        alt="Stryxon Logo"
-        width={32}
-        height={32}
-        className="h-8 w-auto"
-        priority
-      />
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-indigo-600 to-indigo-500 shadow-lg">
+        <Zap className="h-5 w-5 text-white" fill="white" />
+      </div>
       <span className="font-nacelle text-xl font-bold text-gray-200">
         Stryxon
       </span>
