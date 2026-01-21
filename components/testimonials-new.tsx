@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function Testimonials() {
   return (
@@ -21,8 +22,14 @@ export default function Testimonials() {
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
           <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2 bg-gray-900/50 border-indigo-500/20">
             <CardHeader>
-              <div className="flex items-center gap-2">
-                <Zap className="h-6 w-6 text-indigo-400" fill="currentColor" />
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/stryxon-logo.png"
+                  alt="Stryxon Logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 object-contain"
+                />
                 <span className="text-xl font-bold text-white">Stryxon</span>
               </div>
             </CardHeader>

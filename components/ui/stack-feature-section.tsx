@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { FaAws, FaDocker, FaPython, FaGitAlt, FaReact } from "react-icons/fa";
 import {
   SiKubernetes,
@@ -75,8 +76,14 @@ export default function StackFeatureSection() {
       <div className="relative w-full md:w-1/2 h-120 flex items-center justify-center md:justify-start overflow-hidden">
         <div className="relative w-200 h-200 md:translate-x-[50%] flex items-center justify-center">
           {/* Center Circle with Stryxon Logo */}
-          <div className="w-24 h-24 rounded-full bg-linear-to-br from-indigo-600 to-indigo-500 shadow-lg shadow-indigo-500/50 flex items-center justify-center">
-            <Zap className="w-12 h-12 text-white" fill="white" />
+          <div className="w-24 h-24 rounded-full bg-linear-to-br from-indigo-600 to-indigo-500 shadow-lg shadow-indigo-500/50 flex items-center justify-center p-3">
+            <Image
+              src="/images/stryxon-logo.png"
+              alt="Stryxon Logo"
+              width={48}
+              height={48}
+              className="w-full h-full object-contain"
+            />
           </div>
 
           {/* Generate Orbits */}

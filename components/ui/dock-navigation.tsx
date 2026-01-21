@@ -11,12 +11,21 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Dock, DockIcon, DockItem, DockLabel } from "@/components/ui/dock";
 
 const data = [
   {
     title: "Stryxon",
-    icon: <Zap className="h-full w-full text-indigo-400" fill="currentColor" />,
+    icon: (
+      <Image
+        src="/images/stryxon-logo.png"
+        alt="Stryxon"
+        width={24}
+        height={24}
+        className="h-full w-full object-contain"
+      />
+    ),
     href: "#hero",
   },
   {
