@@ -7,11 +7,11 @@ const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 setInterval(
   () => {
     const now = Date.now();
-    for (const [ip, data] of rateLimitMap.entries()) {
+    rateLimitMap.forEach((data, ip) => {
       if (now > data.resetTime) {
         rateLimitMap.delete(ip);
       }
-    }
+    });
   },
   10 * 60 * 1000,
 );
