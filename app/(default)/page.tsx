@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const InfiniteHero = dynamic(() => import("@/components/ui/infinite-hero"), {
   ssr: false,
@@ -38,6 +39,7 @@ const ContactForm = dynamic(() => import("@/components/contact-form"), {
 export default function Home() {
   return (
     <>
+      <WhatsAppButton />
       <section id="hero">
         <Suspense fallback={<div className="h-screen bg-black" />}>
           <InfiniteHero />
