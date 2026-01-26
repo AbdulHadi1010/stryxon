@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
+import Head from "next/head";
 
 const InfiniteHero = dynamic(() => import("@/components/ui/infinite-hero"), {
   ssr: false,

@@ -6,7 +6,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import DockNavigation from "@/components/ui/dock-navigation";
 import Footer from "@/components/ui/footer";
 
 function ErrorFallback({ error }: { error: Error }) {
@@ -43,8 +42,6 @@ export default function DefaultLayout({
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <DockNavigation />
-
       <main className="relative flex grow flex-col">{children}</main>
 
       <Footer />
