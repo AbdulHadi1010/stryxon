@@ -7,7 +7,19 @@ import Head from "next/head";
 
 const InfiniteHero = dynamic(() => import("@/components/ui/infinite-hero"), {
   ssr: false,
-  loading: () => <div className="h-screen bg-black" />,
+  loading: () => (
+    <div className="h-screen bg-black flex items-center justify-center">
+      <div className="text-white text-center max-w-4xl px-6">
+        <h1 className="text-6xl font-bold mb-6">
+          White-Label Web Development & Cloud Infrastructure Partner
+        </h1>
+        <p className="text-2xl text-gray-300">
+          Expert technical partner for agencies needing scalable web
+          applications
+        </p>
+      </div>
+    </div>
+  ),
 });
 
 const StackFeatureSection = dynamic(
