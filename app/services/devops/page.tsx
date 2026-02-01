@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 
 export default function DevOpsPage() {
   return (
+    <>
     <div className="min-h-screen bg-black text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
@@ -191,7 +192,7 @@ export default function DevOpsPage() {
         </section>
       </div>
     </div>
-    
     <Footer />
+    </>
   );
 }

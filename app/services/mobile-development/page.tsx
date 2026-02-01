@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 
 export default function MobileDevelopmentPage() {
   return (
+    <>
     <div className="min-h-screen bg-black text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
@@ -146,7 +147,7 @@ export default function MobileDevelopmentPage() {
         </section>
       </div>
     </div>
-    
     <Footer />
+    </>
   );
 }
