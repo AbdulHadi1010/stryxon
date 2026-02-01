@@ -57,16 +57,21 @@ export default function StackFeatureSection() {
           stack ensures reliability and performance.
         </p>
         <div className="flex items-center gap-3">
-          <Button className="bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50">
-            <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
+          <Button className="bg-linear-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white shadow-lg shadow-indigo-500/50 min-h-[48px] px-6">
+            <a
+              href="mailto:contact@stryxon.com?subject=Technical Audit Request"
+              aria-label="Book Technical Audit"
+            >
               Book Technical Audit
             </a>
           </Button>
           <Button
             variant="outline"
-            className="border-indigo-400/30 text-white hover:bg-indigo-500/10"
+            className="border-indigo-400/30 text-white hover:bg-indigo-500/10 min-h-[48px] px-6"
           >
-            <a href="#services">View Services</a>
+            <a href="#services" aria-label="View Services">
+              View Services
+            </a>
           </Button>
         </div>
       </div>

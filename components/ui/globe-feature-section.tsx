@@ -20,13 +20,16 @@ export default function GlobeFeatureSection() {
             </span>
           </h1>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
-              <Button className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
+            <a
+              href="mailto:contact@stryxon.com?subject=Technical Audit Request"
+              aria-label="Book Technical Audit"
+            >
+              <Button className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-indigo-600 to-indigo-500 px-8 py-4 min-h-[48px] text-sm font-semibold text-white transition hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-500/50">
                 Book Technical Audit <ArrowRight className="h-4 w-4" />
               </Button>
             </a>
-            <a href="#speed-checker">
-              <Button className="inline-flex items-center gap-2 rounded-full bg-gray-800 border border-indigo-500/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 hover:border-indigo-500/50">
+            <a href="#speed-checker" aria-label="Test Your Speed">
+              <Button className="inline-flex items-center gap-2 rounded-full bg-gray-800 border border-indigo-500/30 px-8 py-4 min-h-[48px] text-sm font-semibold text-white transition hover:bg-gray-700 hover:border-indigo-500/50">
                 Test Your Speed <ArrowRight className="h-4 w-4" />
               </Button>
             </a>

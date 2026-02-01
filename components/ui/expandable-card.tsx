@@ -68,7 +68,7 @@ export function ExpandableCard({
         {active && (
           <div
             className={cn(
-              "fixed inset-0 grid place-items-center z-100 sm:mt-16 before:pointer-events-none"
+              "fixed inset-0 grid place-items-center z-100 sm:mt-16 before:pointer-events-none",
             )}
           >
             <motion.div
@@ -76,7 +76,7 @@ export function ExpandableCard({
               ref={cardRef}
               className={cn(
                 "w-full max-w-212.5 h-full flex flex-col overflow-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] sm:rounded-t-3xl bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 relative",
-                classNameExpanded
+                classNameExpanded,
               )}
               {...props}
             >
@@ -155,12 +155,13 @@ export function ExpandableCard({
       <motion.div
         role="dialog"
         aria-labelledby={`card-title-${id}`}
+        aria-label={title}
         aria-modal="true"
         layoutId={`card-${title}-${id}`}
         onClick={() => setActive(true)}
         className={cn(
           "relative p-3 flex flex-col justify-between items-center bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
-          className
+          className,
         )}
       >
         <div className="flex gap-4 flex-col">
@@ -170,7 +171,7 @@ export function ExpandableCard({
               alt={title}
               width={512}
               height={448}
-              quality={95}
+              quality={75}
               className="w-64 h-56 rounded-lg object-cover object-center"
               loading="lazy"
             />
@@ -195,7 +196,7 @@ export function ExpandableCard({
               layoutId={`button-${title}-${id}`}
               className={cn(
                 "h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950  hover:bg-neutral-50 dark:hover:bg-neutral-950 dark:text-white/70 text-black/70 border border-gray-200/90 dark:border-zinc-900 hover:border-gray-300/90 hover:text-black dark:hover:text-white dark:hover:border-zinc-800 transition-colors duration-300  focus:outline-none cursor-pointer",
-                className
+                className,
               )}
             >
               <motion.div

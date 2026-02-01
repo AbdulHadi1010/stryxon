@@ -225,8 +225,12 @@ export default function InfiniteHero() {
           <>
             {/* Animated gradient background */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black animate-gradient-shift"
-              style={{ willChange: "background-position" }}
+              className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-black"
+              style={{
+                animation: "gradient-shift 20s ease infinite",
+                willChange: "transform, opacity",
+                transform: "translateZ(0)",
+              }}
             />
 
             {/* Diagonal animated streaks */}
@@ -332,7 +336,8 @@ export default function InfiniteHero() {
               <a href="mailto:contact@stryxon.com?subject=Technical Audit Request">
                 <button
                   type="button"
-                  className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 h-12 rounded-full font-semibold text-base text-white transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/50 cursor-pointer flex items-center gap-2"
+                  aria-label="Book Technical Audit"
+                  className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 min-h-[48px] rounded-full font-semibold text-base text-white transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/50 cursor-pointer flex items-center gap-2"
                 >
                   <span>Book Technical Audit</span>
                   <svg
@@ -354,7 +359,8 @@ export default function InfiniteHero() {
               <a href="#services">
                 <button
                   type="button"
-                  className="group relative px-6 py-3 h-12 rounded-full font-medium text-base text-white/90 transition-all duration-300 hover:bg-white/5 cursor-pointer"
+                  aria-label="View Capabilities"
+                  className="group relative px-8 py-4 min-h-[48px] rounded-full font-medium text-base text-white/90 transition-all duration-300 hover:bg-white/5 cursor-pointer"
                 >
                   View Capabilities
                 </button>

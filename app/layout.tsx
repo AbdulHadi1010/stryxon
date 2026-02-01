@@ -3,6 +3,8 @@ import "./css/style.css";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { DottedSurface } from "@/components/ui/dotted-surface";
 import Navbar from "@/components/ui/navbar";
@@ -133,7 +135,11 @@ export const metadata = {
     ],
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "UXfloyqbHZQde8FEnH2tGZ0J8T1BPb9X-M2mhzra79E",
+    other: {
+      "msvalidate.01": "C0549FAD2F7AC236A4797DB4D4E7AC27",
+      "yandex-verification": "0425af58e4fc7a5f",
+    },
   },
 };
 
@@ -380,6 +386,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://challenges.cloudflare.com" />
+        <link rel="preconnect" href="https://videos.pexels.com" />
+        <link rel="dns-prefetch" href="https://challenges.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://videos.pexels.com" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -399,6 +411,8 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
           </div>
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

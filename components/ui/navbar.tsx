@@ -219,7 +219,8 @@ export default function Navbar({
                 variant="ghost"
                 size="icon"
                 onClick={() => setOpenSearch(true)}
-                className="text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-white min-h-[44px] min-w-[44px]"
+                aria-label="Open search"
               >
                 <Search className="size-4" />
               </Button>
@@ -230,7 +231,8 @@ export default function Navbar({
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 hover:text-white min-h-[44px] min-w-[44px]"
+                    aria-label="Open menu"
                   >
                     <Menu className="size-4" />
                   </Button>

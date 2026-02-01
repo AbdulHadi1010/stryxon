@@ -38,57 +38,84 @@ export const metadata: Metadata = {
 export default function CloudInfrastructurePage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Cloud Infrastructure Services",
-    description:
-      "Enterprise cloud infrastructure solutions including AWS, Azure, Google Cloud deployment, serverless architecture, cloud migration, and DevOps automation.",
-    provider: {
-      "@type": "Organization",
-      name: "Stryxon Technologies",
-      url: "https://www.stryxon.com",
-    },
-    areaServed: "Worldwide",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Cloud Infrastructure Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "AWS Cloud Services",
-            description:
-              "Complete AWS infrastructure setup including EC2, Lambda, S3, RDS, CloudFront, and more",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.stryxon.com",
           },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Azure Cloud Solutions",
-            description:
-              "Microsoft Azure infrastructure deployment and management",
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://www.stryxon.com/#services",
           },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Google Cloud Platform",
-            description: "GCP infrastructure setup and optimization",
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Cloud Infrastructure",
+            item: "https://www.stryxon.com/services/cloud-infrastructure",
           },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Cloud Infrastructure Services",
+        description:
+          "Enterprise cloud infrastructure solutions including AWS, Azure, Google Cloud deployment, serverless architecture, cloud migration, and DevOps automation.",
+        provider: {
+          "@type": "Organization",
+          name: "Stryxon Technologies",
+          url: "https://www.stryxon.com",
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Cloud Migration",
-            description:
-              "Seamless migration from on-premise to cloud infrastructure",
-          },
+        areaServed: "Worldwide",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Cloud Infrastructure Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "AWS Cloud Services",
+                description:
+                  "Complete AWS infrastructure setup including EC2, Lambda, S3, RDS, CloudFront, and more",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Azure Cloud Solutions",
+                description:
+                  "Microsoft Azure infrastructure deployment and management",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Google Cloud Platform",
+                description: "GCP infrastructure setup and optimization",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Cloud Migration",
+                description:
+                  "Seamless migration from on-premise to cloud infrastructure",
+              },
+            },
+          ],
         },
-      ],
-    },
+      },
+    ],
   };
 
   return (

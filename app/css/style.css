@@ -96,10 +96,12 @@
   @keyframes gradient-shift {
     0%,
     100% {
-      background-position: 0% 50%;
+      transform: scale(1) translateZ(0);
+      opacity: 0.6;
     }
     50% {
-      background-position: 100% 50%;
+      transform: scale(1.05) translateZ(0);
+      opacity: 0.8;
     }
   }
 
@@ -171,7 +173,7 @@
 
 .animate-gradient-shift {
   animation: gradient-shift 15s ease infinite;
-  background-size: 200% 200%;
+  will-change: transform, opacity;
 }
 
 .animate-pulse-slow {
