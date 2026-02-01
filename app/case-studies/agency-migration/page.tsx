@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Footer from "@/components/ui/footer";
 import {
   ArrowRight,
   TrendingUp,
@@ -1015,6 +1016,8 @@ export default function CaseStudyPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

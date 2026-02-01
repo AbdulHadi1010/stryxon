@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "AI Engineering & Machine Learning Services | Stryxon Technologies",
@@ -386,6 +387,8 @@ export default function AIEngineeringPage() {
           </section>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

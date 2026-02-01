@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 import {
   Book,
   Code,
@@ -392,6 +393,8 @@ export default function GlossaryPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

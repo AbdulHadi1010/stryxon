@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Timeline } from "@/components/ui/timeline";
 import { Cloud, Cpu, Code, Smartphone, Zap, Database } from "lucide-react";
 import Image from "next/image";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "About Stryxon Technologies - White-Label Web Development Partner",
@@ -525,6 +526,8 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

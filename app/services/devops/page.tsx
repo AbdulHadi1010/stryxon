@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "DevOps Services - CI/CD, Automation, Infrastructure | Stryxon",
@@ -190,5 +191,7 @@ export default function DevOpsPage() {
         </section>
       </div>
     </div>
+    
+    <Footer />
   );
 }

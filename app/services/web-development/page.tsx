@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "Web Development Services - React, Next.js, Custom Websites | Stryxon",
@@ -307,5 +308,7 @@ export default function WebDevelopmentPage() {
         </section>
       </div>
     </div>
+    
+    <Footer />
   );
 }

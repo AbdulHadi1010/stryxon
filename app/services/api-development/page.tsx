@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "API Development & Integration Services | Stryxon Technologies",
@@ -144,5 +145,7 @@ export default function APIDevelopmentPage() {
         </section>
       </div>
     </div>
+    
+    <Footer />
   );
 }

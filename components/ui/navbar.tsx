@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import {
   Cloud,
   Code,
@@ -43,8 +45,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import Link from "next/link";
-import Image from "next/image";
 
 interface MenuItem {
   title: string;
@@ -71,7 +71,7 @@ interface NavbarProps {
 export default function Navbar({
   logo = {
     url: "/",
-    src: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=100&h=100&fit=crop", // Placeholder - replace with your actual logo
+    src: "/images/logo.png",
     alt: "Stryxon Technologies logo",
     title: "Stryxon",
   },
@@ -125,6 +125,10 @@ export default function Navbar({
       url: "/about",
     },
     {
+      title: "Blogs",
+      url: "https://blog.stryxon.com",
+    },
+    {
       title: "Speed Checker",
       url: "/#speed-checker",
     },
@@ -156,7 +160,13 @@ export default function Navbar({
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             <Link href={logo.url} className="flex items-center gap-2">
-              <Zap className="w-8 h-8 text-indigo-400" fill="currentColor" />
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-white">{logo.title}</span>
             </Link>
             <div className="flex items-center">
@@ -194,7 +204,13 @@ export default function Navbar({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <Link href={logo.url} className="flex items-center gap-2">
-              <Zap className="w-8 h-8 text-indigo-400" fill="currentColor" />
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-white">{logo.title}</span>
             </Link>
             <div className="flex items-center gap-2">
@@ -223,9 +239,12 @@ export default function Navbar({
                   <SheetHeader>
                     <SheetTitle>
                       <Link href={logo.url} className="flex items-center gap-2">
-                        <Zap
-                          className="w-8 h-8 text-indigo-400"
-                          fill="currentColor"
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          width={32}
+                          height={32}
+                          className="w-8 h-8"
                         />
                         <span className="text-xl font-bold text-white">
                           {logo.title}

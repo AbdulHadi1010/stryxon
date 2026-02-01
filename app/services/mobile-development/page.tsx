@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "Mobile App Development - iOS, Android, React Native | Stryxon",
@@ -145,5 +146,7 @@ export default function MobileDevelopmentPage() {
         </section>
       </div>
     </div>
+    
+    <Footer />
   );
 }

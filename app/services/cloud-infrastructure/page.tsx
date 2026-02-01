@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title:
@@ -396,6 +397,8 @@ export default function CloudInfrastructurePage() {
           </section>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

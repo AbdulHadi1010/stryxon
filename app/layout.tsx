@@ -112,7 +112,25 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/images/stryxon-logo.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon-16x16.png",
+      },
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+      },
+    ],
   },
   verification: {
     google: "your-google-verification-code",
@@ -130,7 +148,7 @@ export default function RootLayout({
     name: "Stryxon Technologies",
     alternateName: "Stryxon",
     url: "https://www.stryxon.com",
-    logo: "https://www.stryxon.com/images/stryxon-logo.png",
+    logo: "https://www.stryxon.com/images/logo.png",
     description:
       "White-label web development agency specializing in cloud infrastructure, AI agents, and custom software solutions. Expert technical partner for agencies needing scalable web applications.",
     foundingDate: "2020",
