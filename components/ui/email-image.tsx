@@ -14,9 +14,5 @@ export default function EmailImage({ className = "" }: { className?: string }) {
     setEmail(`${user}@${domain}.${tld}`);
   }, []);
 
-  return (
-    <span className={className} aria-label="Email address">
-      {email}
-    </span>
-  );
+  return <span className={className}>{email}</span>;
 }

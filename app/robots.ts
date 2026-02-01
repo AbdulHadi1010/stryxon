@@ -6,16 +6,16 @@ export default function robots() {
         allow: "/",
         disallow: ["/api/"],
       },
+      // Block AI content scrapers
       {
         userAgent: [
           "ChatGPT-User",
           "GPTBot",
           "Claude-Web",
           "anthropic-ai",
-          "Bingbot",
-          "Googlebot",
+          "CCBot",
         ],
-        allow: "/",
+        disallow: ["/"],
       },
     ],
     sitemap: "https://www.stryxon.com/sitemap.xml",

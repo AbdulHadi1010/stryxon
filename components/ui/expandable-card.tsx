@@ -154,7 +154,6 @@ export function ExpandableCard({
 
       <motion.div
         role="dialog"
-        aria-labelledby={`card-title-${id}`}
         aria-label={title}
         aria-modal="true"
         layoutId={`card-${title}-${id}`}
