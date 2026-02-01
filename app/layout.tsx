@@ -87,7 +87,7 @@ export const metadata = {
       "Expert white-label web development agency specializing in cloud infrastructure, AI agents, and custom software solutions. Your trusted technical partner for scalable, high-performance web applications.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Stryxon Technologies - White-Label Technical Partner",
@@ -99,7 +99,7 @@ export const metadata = {
     title: "Stryxon Technologies - White-Label Web Development Partner",
     description:
       "Expert white-label web development agency specializing in cloud infrastructure, AI agents, and custom software solutions.",
-    images: ["/images/og-image.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
