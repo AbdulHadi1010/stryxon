@@ -129,6 +129,10 @@ export default function Navbar({
       url: "https://blog.stryxon.com",
     },
     {
+      title: "Projects",
+      url: "https://blog.stryxon.com/projects",
+    },
+    {
       title: "Speed Checker",
       url: "/#speed-checker",
     },
