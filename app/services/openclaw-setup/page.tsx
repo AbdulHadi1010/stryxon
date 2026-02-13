@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/footer";
+import TerminalMockup from "@/components/terminal-mockup";
 import {
   Shield,
   Server,
@@ -10,6 +11,10 @@ import {
   Zap,
   Clock,
   HeadphonesIcon,
+  Terminal,
+  ArrowRight,
+  Database,
+  RefreshCw,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -46,48 +51,15 @@ export const metadata: Metadata = {
 export default function OpenClawSetupPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.stryxon.com",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: "https://www.stryxon.com/#services",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "OpenClaw Setup",
-            item: "https://www.stryxon.com/services/openclaw-setup",
-          },
-        ],
-      },
-      {
-        "@type": "Service",
-        name: "OpenClaw AI Agent Setup & Hosting",
-        description:
-          "Professional OpenClaw (Clawdbot/Moltbot) setup and secure VPS hosting. Done-for-you installation, configuration, and ongoing support.",
-        provider: {
-          "@type": "Organization",
-          name: "Stryxon Technologies",
-          url: "https://www.stryxon.com",
-        },
-        areaServed: "Worldwide",
-        offers: {
-          "@type": "Offer",
-          priceRange: "$$$",
-          availability: "https://schema.org/InStock",
-        },
-      },
-    ],
+    "@type": "Service",
+    name: "OpenClaw AI Agent Setup & Hosting",
+    description:
+      "Professional OpenClaw AI agent setup with secure VPS hosting. Done-for-you installation in 24-48 hours with enterprise-grade security.",
+    provider: {
+      "@type": "Organization",
+      name: "Stryxon Technologies",
+      url: "https://www.stryxon.com",
+    },
   };
 
   return (
@@ -97,336 +69,492 @@ export default function OpenClawSetupPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen bg-black text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-indigo-500/10 mb-6">
-              <Shield className="w-10 h-10 text-indigo-400" />
-            </div>
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Secure OpenClaw AI Agent Setup & Hosting
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Skip the terminal errors, naming confusion, and malware risks. Get
-              a production-ready OpenClaw instance configured by experts in
-              24-48 hours.
-            </p>
-          </div>
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid lg:grid-cols-2">
+              {/* Left: Headline */}
+              <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
+                <div className="mb-6">
+                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    AI Agent Infrastructure
+                  </span>
+                </div>
+                <h1 className="text-6xl md:text-8xl font-medium tracking-tighter leading-[0.9] mb-8">
+                  <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                    SECURE
+                  </span>
+                  <br />
+                  <span className="text-white">OPENCLAW</span>
+                  <br />
+                  <span className="text-white">HOSTING</span>
+                </h1>
+                <p className="text-base text-zinc-400 leading-relaxed mb-12 max-w-lg">
+                  Skip terminal errors, naming confusion (Clawdbot/Moltbot), and
+                  malware risks. Get a production-ready OpenClaw AI agent on
+                  secure VPS infrastructure in 24-48 hours.
+                </p>
+                <div className="flex items-center">
+                  <Link
+                    href="/#contact?source=openclaw-hero"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-medium uppercase tracking-widest hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Get Started Now
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
 
-          {/* Pain Points Section */}
-          <section className="mb-16 bg-red-900/10 border border-red-500/20 rounded-xl p-8">
-            <div className="flex items-start gap-4 mb-6">
-              <AlertTriangle className="w-8 h-8 text-red-400 flex-shrink-0 mt-1" />
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-red-400">
-                  Why DIY Installation Is Risky
-                </h2>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>Naming Confusion:</strong> Originally Clawdbot →
-                      renamed to Moltbot → now OpenClaw. Old tutorials reference
-                      wrong names.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>Terminal Errors:</strong> Python version
-                      conflicts, missing dependencies, permission issues on
-                      Windows/macOS/Linux.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>Malware Risks:</strong> Fake browser extensions
-                      and unofficial GitHub forks containing data-stealing code.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>Uptime Issues:</strong> Running on personal
-                      laptops means OpenClaw stops when you close the lid.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>No Support:</strong> When something breaks at 2am,
-                      you're debugging alone in Discord forums.
-                    </span>
-                  </li>
-                </ul>
+              {/* Right: Terminal Mockup */}
+              <div className="p-16 lg:p-24 bg-zinc-950 border-r border-b border-zinc-800 flex items-center">
+                <div className="w-full">
+                  <TerminalMockup
+                    title="openclaw-status.sh"
+                    variant="success"
+                    lines={[
+                      "$ sudo systemctl status openclaw",
+                      "● openclaw.service - OpenClaw AI Agent",
+                      "   Loaded: loaded (/etc/systemd/system/openclaw.service)",
+                      "   Active: active (running) since Thu 2026-02-13 14:32:11 UTC",
+                      "",
+                      "✅ OpenClaw running on https://your-domain.com",
+                      "✅ Auto-restart enabled via systemd",
+                      "✅ SSL certificate: 89 days remaining",
+                      "✅ Firewall: SSH (22), HTTPS (443) only",
+                      "✅ Daily backups: 03:00 UTC",
+                    ]}
+                  />
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Solution Section */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Our Done-For-You Solution
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+        {/* Metrics Bar */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
               {[
-                {
-                  icon: <Server className="w-6 h-6" />,
-                  title: "Secure VPS Hosting",
-                  description:
-                    "We provision a hardened Ubuntu 24.04 VPS on AWS/DigitalOcean with automatic backups, firewall rules, and fail2ban security.",
-                },
-                {
-                  icon: <Lock className="w-6 h-6" />,
-                  title: "Official Source Only",
-                  description:
-                    "Direct installation from verified OpenClaw GitHub repository. Zero risk of malware or tampered code.",
-                },
-                {
-                  icon: <CheckCircle className="w-6 h-6" />,
-                  title: "Correct Dependencies",
-                  description:
-                    "We handle Python 3.11+, Node.js 20+, all npm packages, environment variables, and API key configuration.",
-                },
-                {
-                  icon: <Zap className="w-6 h-6" />,
-                  title: "Auto-Start on Boot",
-                  description:
-                    "Systemd service configured so OpenClaw restarts automatically if the server reboots. 99.9% uptime.",
-                },
-                {
-                  icon: <Clock className="w-6 h-6" />,
-                  title: "24-48 Hour Delivery",
-                  description:
-                    "From payment to production-ready OpenClaw instance in under 2 business days. Fast-tracked setup available.",
-                },
-                {
-                  icon: <HeadphonesIcon className="w-6 h-6" />,
-                  title: "30-Day Support",
-                  description:
-                    "Telegram/Discord support for configuration tweaks, API key updates, and troubleshooting. No extra charge.",
-                },
-              ].map((item, index) => (
+                { label: "Setup Time", value: "24-48h" },
+                { label: "Uptime SLA", value: "99.9%" },
+                { label: "Zero Config", value: "Done For You" },
+                { label: "Guarantee", value: "30 Days" },
+              ].map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/50 border border-indigo-500/20 rounded-xl p-6 hover:border-indigo-500/40 transition-all"
+                  className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all group"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="text-indigo-400">{item.icon}</div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-indigo-400 transition-colors">
+                    {metric.label}
                   </div>
-                  <p className="text-gray-400">{item.description}</p>
+                  <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
+                    {metric.value}
+                  </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* What's Included */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              What's Included
-            </h2>
-            <div className="bg-gray-900/30 border border-indigo-500/20 rounded-xl p-8">
-              <ul className="space-y-4">
-                {[
-                  "✓ VPS server provisioning (2GB RAM, 2 vCPU, 50GB SSD)",
-                  "✓ Latest OpenClaw installation from official repository",
-                  "✓ SSL/TLS certificate setup for secure connections",
-                  "✓ Environment configuration (Anthropic API, Discord webhooks, etc.)",
-                  "✓ Systemd service for automatic restart on crash/reboot",
-                  "✓ UFW firewall with SSH key-only access (no password login)",
-                  "✓ Daily automated backups to off-site storage",
-                  "✓ Performance monitoring with Netdata or Grafana",
-                  "✓ Complete documentation: SSH access, how to update, logs location",
-                  "✓ 30 days of Telegram/Discord support for any issues",
-                ].map((item, index) => (
-                  <li
-                    key={index}
-                    className="text-gray-300 flex items-start gap-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Description */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <p className="text-lg text-zinc-400 leading-relaxed max-w-5xl">
+                We configure OpenClaw (formerly Clawdbot/Moltbot) on hardened
+                Ubuntu VPS with enterprise security: firewall, auto-restart,
+                SSL, daily backups. Skip the Python version conflicts and
+                malware-laden browser extensions. Production-ready in 24-48
+                hours.
+              </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Pricing */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Simple, Transparent Pricing
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  One-Time Setup
-                </h3>
-                <p className="text-5xl font-bold text-indigo-400 mb-4">$299</p>
-                <p className="text-gray-400 mb-6">
-                  + VPS hosting ($12-20/month paid directly to provider)
-                </p>
-                <ul className="text-left text-gray-300 space-y-2 text-sm">
-                  <li>✓ Full OpenClaw installation</li>
-                  <li>✓ Security hardening</li>
-                  <li>✓ 30-day support</li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 border-2 border-indigo-500 rounded-xl p-8 text-center relative">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  RECOMMENDED
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Managed Hosting
-                </h3>
-                <p className="text-5xl font-bold text-indigo-400 mb-4">
-                  $99
-                  <span className="text-lg text-gray-400">/month</span>
-                </p>
-                <p className="text-gray-400 mb-6">
-                  Includes VPS hosting + ongoing maintenance
-                </p>
-                <ul className="text-left text-gray-300 space-y-2 text-sm">
-                  <li>✓ Everything in One-Time Setup</li>
-                  <li>✓ OpenClaw updates applied weekly</li>
-                  <li>✓ 24/7 uptime monitoring</li>
-                  <li>✓ Priority support (4-hour response)</li>
-                  <li>✓ Monthly performance reports</li>
-                </ul>
-              </div>
+        {/* Features Grid - Shuffled to top */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                  What's Included
+                </span>
+              </h2>
             </div>
-          </section>
 
-          {/* Process */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Setup Process
-            </h2>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3">
               {[
                 {
-                  step: "1",
-                  title: "Submit Form Below",
+                  icon: Server,
+                  title: "Secure VPS Hosting",
                   description:
-                    "Tell us your OpenClaw use case, preferred VPS provider, and timezone.",
-                  time: "5 minutes",
+                    "Hardened Ubuntu 24.04 LTS on AWS/DigitalOcean/Vultr. UFW firewall, fail2ban intrusion prevention, SSH key-only auth, automated security patches. Your choice of region (US/EU/Asia).",
                 },
                 {
-                  step: "2",
-                  title: "Initial Consultation",
+                  icon: Lock,
+                  title: "SSL & Domain Setup",
                   description:
-                    "We schedule a 30-minute call to gather API keys, configure Discord webhooks, and answer questions.",
-                  time: "30 minutes",
+                    "Free Let's Encrypt SSL certificate with auto-renewal. Point your domain (or use our subdomain). HTTPS-only with HTTP→HTTPS redirect. A+ SSL Labs rating guaranteed.",
                 },
                 {
-                  step: "3",
-                  title: "VPS Provisioning",
+                  icon: RefreshCw,
+                  title: "Auto-Restart & Monitoring",
                   description:
-                    "We spin up a secure Ubuntu server, install OpenClaw, configure environment, and run full test suite.",
-                  time: "12-24 hours",
+                    "Systemd service with automatic restart on crashes. UptimeRobot monitoring with SMS/email alerts. Recover from failures in <2 minutes. 99.9% uptime SLA.",
                 },
                 {
-                  step: "4",
-                  title: "Handoff & Training",
+                  icon: Database,
+                  title: "Daily Backups",
                   description:
-                    "You receive SSH credentials, documentation, and a 15-minute walkthrough video showing how to monitor/update OpenClaw.",
-                  time: "15 minutes",
+                    "Automated daily backups to S3/Backblaze. 7-day retention. One-click restore via control panel. Your data survives server failures or accidental deletions.",
                 },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="flex gap-6 items-start bg-gray-900/30 border border-gray-800 rounded-xl p-6"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold text-xl">
-                    {item.step}
-                  </div>
-                  <div className="flex-grow">
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {item.title}
+                {
+                  icon: Shield,
+                  title: "Security Hardening",
+                  description:
+                    "Fail2ban blocks brute-force attacks, non-root user with sudo, SSH on custom port, open ports limited to 22/443, automatic unattended-upgrades for security patches.",
+                },
+                {
+                  icon: HeadphonesIcon,
+                  title: "30-Day Support",
+                  description:
+                    "Email/Slack support for configuration questions, troubleshooting, and minor tweaks. Response within 4 hours M-F. Extend support for $200/month after 30 days.",
+                },
+              ].map((feature, index) => {
+                const Icon = feature.icon;
+                const isRightMost = (index + 1) % 3 === 0;
+                const isBottomRow = index >= 3;
+
+                return (
+                  <div
+                    key={index}
+                    className={`p-12 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all cursor-default group ${
+                      !isRightMost ? "border-r border-zinc-800" : ""
+                    } ${!isBottomRow ? "border-b border-zinc-800" : "border-b border-zinc-800"}`}
+                  >
+                    <Icon
+                      className="w-6 h-6 text-indigo-400 mb-8 group-hover:text-blue-400 transition-colors"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
+                      {feature.title}
                     </h3>
-                    <p className="text-gray-400 mb-2">{item.description}</p>
-                    <p className="text-sm text-indigo-400">
-                      Estimated time: {item.time}
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Pain Points - Shuffled after Features */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">
+                  Why DIY Installation Fails
+                </span>
+              </h2>
+            </div>
+
+            <div className="border-r border-b border-zinc-800">
+              {[
+                {
+                  title: "Naming Confusion",
+                  description:
+                    "Originally Clawdbot → renamed to Moltbot → now OpenClaw. Old tutorials reference wrong repository names and outdated commands.",
+                },
+                {
+                  title: "Terminal Errors",
+                  description:
+                    "Python 3.10 vs 3.11 conflicts, missing pip dependencies, permission issues. Different errors on Windows/macOS/Linux.",
+                },
+                {
+                  title: "Malware Risks",
+                  description:
+                    "Fake browser extensions and unofficial GitHub forks containing data-stealing code. Hard to verify authenticity.",
+                },
+                {
+                  title: "Uptime Issues",
+                  description:
+                    "Running on personal laptops means OpenClaw stops when you close the lid or lose WiFi. Not production-ready.",
+                },
+                {
+                  title: "No Support",
+                  description:
+                    "When something breaks at 2am, you're debugging alone in Discord forums with conflicting advice.",
+                },
+              ].map((pain, index) => (
+                <div
+                  key={index}
+                  className="p-12 flex items-start hover:bg-gradient-to-r hover:from-red-900/10 hover:to-transparent transition-all group"
+                >
+                  <div className="w-6 h-6 border border-red-500/50 flex items-center justify-center shrink-0 mr-6 mt-1 group-hover:border-red-400 transition-colors">
+                    <div className="text-red-400 text-xs">✗</div>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-white mb-2">
+                      {pain.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      {pain.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* FAQ */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
+        {/* Pricing - Shuffled before Process */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                  Pricing
+                </span>
+              </h2>
+            </div>
+
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16">
+                <div className="pb-12 border-b border-zinc-800 mb-12">
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    OpenClaw Setup + VPS Hosting
+                  </div>
+                  <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text mb-4">
+                    $500
+                  </div>
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    One-time setup · 24-48h delivery
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 pb-12 border-b border-zinc-800 mb-12">
+                  {[
+                    "OpenClaw installation & configuration",
+                    "Secure Ubuntu VPS (your choice of provider)",
+                    "SSL certificate with auto-renewal",
+                    "Domain/subdomain setup",
+                    "Firewall & security hardening",
+                    "Auto-restart with systemd",
+                    "Daily backups to cloud storage",
+                    "30 days email/Slack support",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start py-3">
+                      <div className="w-1 h-1 bg-indigo-400 mt-2 mr-4 shrink-0" />
+                      <span className="text-sm text-zinc-400">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mb-8">
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-2">
+                    VPS Hosting Costs (Pay Provider Directly)
+                  </div>
+                  <p className="text-sm text-zinc-400">
+                    $12-25/month for DigitalOcean/Vultr droplet (2GB RAM, 1
+                    CPU). We recommend providers but you pay them directly and
+                    retain full control.
+                  </p>
+                </div>
+
+                <div>
+                  <Link
+                    href="/#contact?source=openclaw-pricing"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-medium uppercase tracking-widest hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Timeline */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                  How It Works
+                </span>
+              </h2>
+            </div>
+
+            <div>
               {[
                 {
-                  question: "Can I use my own VPS provider?",
-                  answer:
-                    "Yes! We support AWS, DigitalOcean, Linode, Vultr, and Hetzner. You pay the provider directly; we just configure it.",
+                  phase: "Hour 0-2",
+                  title: "Server Provisioning",
+                  description:
+                    "You choose VPS provider (DigitalOcean, Vultr, AWS, Linode) and region. We spin up Ubuntu 24.04 LTS droplet, configure SSH keys, set up firewall (UFW), install fail2ban.",
                 },
                 {
-                  question: "What if I already started installing OpenClaw?",
-                  answer:
-                    "We can take over from any stage. If your current setup is broken, we'll start fresh on a new VPS.",
+                  phase: "Hour 2-12",
+                  title: "OpenClaw Configuration",
+                  description:
+                    "Clone official OpenClaw repository, install Python dependencies in virtual environment, configure systemd service for auto-restart, set environment variables (API keys). Test functionality.",
                 },
                 {
-                  question: "Do I need to provide API keys?",
-                  answer:
-                    "Yes. You need your own Anthropic API key (Claude) and any other service keys OpenClaw requires. We'll guide you through obtaining them.",
+                  phase: "Hour 12-24",
+                  title: "Production Hardening",
+                  description:
+                    "Install and configure SSL with Let's Encrypt, point your domain (or use our subdomain), configure Nginx reverse proxy, set up daily backups, enable monitoring. Deliverable: Production URL with dashboard access.",
                 },
-                {
-                  question: "What happens after 30 days of support?",
-                  answer:
-                    "OpenClaw will keep running indefinitely. If you need help later, we offer $50/hour ad-hoc support or switch to managed hosting.",
-                },
-                {
-                  question: "Can you migrate my existing OpenClaw?",
-                  answer:
-                    "Yes. We can migrate chat history, custom prompts, and configurations from your laptop to the new VPS.",
-                },
-              ].map((item, index) => (
+              ].map((step, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/30 border border-gray-800 rounded-xl p-6"
+                  className="grid lg:grid-cols-12 border-r border-b border-zinc-800 hover:bg-gradient-to-r hover:from-indigo-900/10 hover:to-transparent transition-all group"
                 >
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-gray-400">{item.answer}</p>
+                  <div className="lg:col-span-2 p-12 lg:border-r border-zinc-800">
+                    <div className="text-6xl font-medium tracking-tighter bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-transparent bg-clip-text group-hover:from-indigo-500/40 group-hover:to-purple-500/40 transition-all">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                  </div>
+                  <div className="lg:col-span-10 p-12">
+                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                      {step.phase}
+                    </div>
+                    <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* CTA Section */}
-          <section className="text-center bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-indigo-500/30 rounded-2xl p-12">
-            <h2 className="text-4xl font-bold mb-4 text-white">
-              Skip the Headaches. Get OpenClaw Running Today.
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Stop wrestling with Python versions and terminal errors. Let our
-              infrastructure experts handle it while you focus on using
-              OpenClaw.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-lg shadow-indigo-500/50"
-            >
-              Get Started - Free Consultation
-            </Link>
-            <p className="text-sm text-gray-400 mt-4">
-              24-48 hour delivery · 30-day money-back guarantee · No long-term
-              contracts
-            </p>
-          </section>
-        </div>
+        {/* Guarantee */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                  Service Guarantee
+                </span>
+              </h2>
+            </div>
+
+            <div className="border-r border-b border-zinc-800">
+              {[
+                "24-48 hour setup guarantee. If we miss deadline, get $100 credit toward future services.",
+                "99.9% uptime SLA after initial setup. We monitor 24/7 and auto-restart on failures.",
+                "Secure by default. Firewall configured, SSL enabled, fail2ban active, automatic security patches.",
+                "30-day money-back guarantee. If OpenClaw doesn't work as expected, full refund—no questions asked.",
+                "Daily backups for 7 days. One-click restore if anything breaks. Your data is safe.",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="p-12 flex items-start hover:bg-gradient-to-r hover:from-indigo-900/10 hover:to-transparent transition-all group"
+                >
+                  <div className="w-6 h-6 border border-indigo-500/50 flex items-center justify-center shrink-0 mr-6 mt-1 group-hover:border-indigo-400 transition-colors">
+                    <div className="w-2 h-2 bg-indigo-400" />
+                  </div>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                  Common Questions
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              {[
+                {
+                  q: "What's the difference between OpenClaw, Clawdbot, and Moltbot?",
+                  a: "Same project, different names. Started as Clawdbot, renamed to Moltbot, now called OpenClaw. We use the official OpenClaw repository and terminology.",
+                },
+                {
+                  q: "Can I use my own VPS provider?",
+                  a: "Yes. We support DigitalOcean, Vultr, Linode, AWS Lightsail, and Hetzner. You create the account, we do the configuration. You retain full control and billing.",
+                },
+                {
+                  q: "What if I already have OpenClaw running locally?",
+                  a: "We can migrate your existing configuration to VPS. Provide your current setup and API keys, we'll replicate it on the server with proper security.",
+                },
+                {
+                  q: "Do you provide ongoing support after 30 days?",
+                  a: "Yes, for $200/month you get priority email/Slack support, monitoring, and minor configuration changes. Not required but recommended for businesses.",
+                },
+                {
+                  q: "What happens if OpenClaw updates to a new version?",
+                  a: "We provide upgrade instructions. If you have active support, we handle upgrades for you. Major version updates may require additional configuration.",
+                },
+              ].map((faq, index) => (
+                <div
+                  key={index}
+                  className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/10 hover:to-purple-900/10 transition-all"
+                >
+                  <h3 className="text-lg font-semibold text-white tracking-wide mb-6">
+                    {faq.q}
+                  </h3>
+                  <p className="text-base text-zinc-400 leading-relaxed max-w-3xl">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section>
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16 bg-gradient-to-br from-indigo-900/10 to-purple-900/10">
+                <div className="pb-12 border-b border-zinc-800 mb-12 text-center">
+                  <h2 className="text-4xl font-medium tracking-tighter uppercase mb-6">
+                    <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                      Skip The Setup Headaches
+                    </span>
+                  </h2>
+                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                    Get OpenClaw running on secure VPS infrastructure in 24-48
+                    hours. No terminal errors, no malware risks, no naming
+                    confusion.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <Link
+                    href="/#contact?source=openclaw-final-cta"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-medium uppercase tracking-widest hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Get Started Now
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                    24-48h delivery · 30-day guarantee
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <Footer />

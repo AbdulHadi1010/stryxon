@@ -1,11 +1,9 @@
 import { MetadataRoute } from "next";
-
-// TODO: Uncomment after Prisma setup
-// import { prisma } from "@/lib/prisma";
+import { getPublishedCaseStudies } from "@/lib/case-studies";
 
 /**
  * Dynamic sitemap generator for stryxon.com
- * Automatically includes database content (courses, templates, case studies)
+ * Automatically includes case studies from local MDX files
  * SEO Best Practice: Keep blog subdomain separate with its own sitemap
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -69,80 +67,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // ============================================================================
-  // DYNAMIC DATABASE ROUTES - Fetched from Prisma
+  // DYNAMIC CASE STUDY ROUTES - From Local MDX Files
   // ============================================================================
 
   let dynamicRoutes: MetadataRoute.Sitemap = [];
 
   try {
-    // TODO: Uncomment after Prisma setup and database schema is ready
-    /*
-    // Fetch published courses
-    const courses = await prisma.course.findMany({
-      where: { published: true },
-      select: { 
-        slug: true, 
-        updatedAt: true,
-        // Or id: true if using ID-based URLs
-      },
-    });
+    // Fetch all published case studies from /content/case-studies/
+    const caseStudies = await getPublishedCaseStudies();
 
-    const courseRoutes: MetadataRoute.Sitemap = courses.map((course) => ({
-      url: `${baseUrl}/courses/${course.slug}`, // or course.id
-      lastModified: course.updatedAt,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }));
-
-    // Fetch published templates
-    const templates = await prisma.template.findMany({
-      where: { published: true },
-      select: { 
-        slug: true, 
-        updatedAt: true,
-        // Or id: true if using ID-based URLs
-      },
-    });
-
-    const templateRoutes: MetadataRoute.Sitemap = templates.map((template) => ({
-      url: `${baseUrl}/templates/${template.slug}`, // or template.id
-      lastModified: template.updatedAt,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }));
-
-    // Fetch case studies (if dynamic in database)
-    const caseStudies = await prisma.caseStudy.findMany({
-      where: { published: true },
-      select: { 
-        slug: true, 
-        updatedAt: true,
-      },
-    });
-
-    const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((study) => ({
+    dynamicRoutes = caseStudies.map((study) => ({
       url: `${baseUrl}/case-studies/${study.slug}`,
-      lastModified: study.updatedAt,
+      lastModified: new Date(study.frontmatter.date), // Use date from frontmatter
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.9, // High priority for portfolio content
     }));
-
-    dynamicRoutes = [...courseRoutes, ...templateRoutes, ...caseStudyRoutes];
-    */
-
-    // TEMPORARY: Hardcoded case study until database is ready
-    dynamicRoutes = [
-      {
-        url: `${baseUrl}/case-studies/agency-migration`,
-        lastModified: new Date("2026-02-01"),
-        changeFrequency: "monthly",
-        priority: 0.9,
-      },
-    ];
   } catch (error) {
-    // Graceful degradation: If database fails, sitemap still works
-    console.error("Sitemap generation - Database fetch failed:", error);
-    // Return static routes only
+    // Graceful degradation: If filesystem read fails, sitemap still works
+    // Only static routes will be included (Home, Services, About, Contact)
+    console.error("Sitemap generation - Case studies fetch failed:", error);
+    console.warn("Falling back to static routes only");
+    // dynamicRoutes remains empty array, sitemap continues without case studies
   }
 
   // ============================================================================

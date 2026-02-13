@@ -1,36 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/footer";
+import {
+  ArrowRight,
+  Server,
+  Shield,
+  Activity,
+  Lock,
+  Zap,
+  Database,
+  Network,
+  Code,
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title:
-    "Cloud Infrastructure Services - AWS, Azure, Google Cloud | Stryxon Technologies",
+  title: "Enterprise Cloud Infrastructure | Multi-Region AWS & GCP | Stryxon",
   description:
-    "Expert cloud infrastructure services including AWS, Azure, Google Cloud deployment, serverless architecture, cloud migration, DevOps automation, and scalable cloud solutions. White-label cloud infrastructure partner.",
+    "Terraform-managed multi-region cloud infrastructure for high-traffic production systems. 99.99% uptime SLA, auto-scaling, zero-downtime deployments. Built for enterprises that can't afford failure.",
   keywords: [
-    "cloud infrastructure services",
-    "AWS cloud services",
-    "Azure cloud solutions",
-    "Google Cloud Platform",
-    "cloud migration services",
-    "serverless architecture",
-    "cloud computing services",
-    "cloud deployment",
-    "infrastructure as code",
-    "cloud automation",
-    "Kubernetes services",
-    "Docker containerization",
-    "cloud security services",
-    "cloud cost optimization",
-    "multi-cloud architecture",
+    "enterprise cloud infrastructure",
+    "multi-region AWS architecture",
+    "Terraform infrastructure as code",
+    "Kubernetes orchestration",
+    "high availability infrastructure",
+    "cloud infrastructure design",
+    "auto-scaling cloud systems",
   ],
   alternates: {
     canonical: "https://www.stryxon.com/services/cloud-infrastructure",
   },
   openGraph: {
-    title: "Cloud Infrastructure Services - AWS, Azure, Google Cloud",
+    title: "Enterprise Cloud Infrastructure | Multi-Region AWS & GCP",
     description:
-      "Enterprise cloud infrastructure solutions with AWS, Azure, and Google Cloud. Scalable, secure, and cost-effective cloud deployment services.",
+      "Terraform-managed multi-region cloud infrastructure. 99.99% uptime, auto-scaling, zero-downtime deployments.",
     url: "https://www.stryxon.com/services/cloud-infrastructure",
   },
 };
@@ -38,84 +40,15 @@ export const metadata: Metadata = {
 export default function CloudInfrastructurePage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.stryxon.com",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: "https://www.stryxon.com/#services",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "Cloud Infrastructure",
-            item: "https://www.stryxon.com/services/cloud-infrastructure",
-          },
-        ],
-      },
-      {
-        "@type": "Service",
-        name: "Cloud Infrastructure Services",
-        description:
-          "Enterprise cloud infrastructure solutions including AWS, Azure, Google Cloud deployment, serverless architecture, cloud migration, and DevOps automation.",
-        provider: {
-          "@type": "Organization",
-          name: "Stryxon Technologies",
-          url: "https://www.stryxon.com",
-        },
-        areaServed: "Worldwide",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Cloud Infrastructure Services",
-          itemListElement: [
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "AWS Cloud Services",
-                description:
-                  "Complete AWS infrastructure setup including EC2, Lambda, S3, RDS, CloudFront, and more",
-              },
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Azure Cloud Solutions",
-                description:
-                  "Microsoft Azure infrastructure deployment and management",
-              },
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Google Cloud Platform",
-                description: "GCP infrastructure setup and optimization",
-              },
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Cloud Migration",
-                description:
-                  "Seamless migration from on-premise to cloud infrastructure",
-              },
-            },
-          ],
-        },
-      },
-    ],
+    "@type": "Service",
+    name: "Enterprise Cloud Infrastructure",
+    description:
+      "Multi-region AWS & GCP infrastructure for high-traffic production systems. Terraform-managed, auto-scaling, 99.99% uptime SLA.",
+    provider: {
+      "@type": "Organization",
+      name: "Stryxon Technologies",
+      url: "https://www.stryxon.com",
+    },
   };
 
   return (
@@ -124,305 +57,472 @@ export default function CloudInfrastructurePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="min-h-screen bg-black text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Cloud Infrastructure Services
-            </h1>
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Enterprise-grade cloud infrastructure on AWS, Azure, and Google
-              Cloud Platform. Scalable, secure, and cost-optimized cloud
-              solutions for modern businesses.
-            </p>
-          </div>
 
-          {/* Key Services */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Our Cloud Services
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section - Left-aligned headline with terminal visualization */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid lg:grid-cols-2">
+              {/* Left: Massive Headline */}
+              <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
+                <div className="mb-6">
+                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    Infrastructure Engineering
+                  </span>
+                </div>
+                <h1 className="text-6xl md:text-8xl font-medium tracking-tighter leading-[0.9] mb-8">
+                  <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                    ENTERPRISE
+                  </span>
+                  <br />
+                  <span className="text-white">CLOUD</span>
+                  <br />
+                  <span className="text-white">INFRASTRUCTURE</span>
+                </h1>
+                <p className="text-base text-zinc-400 leading-relaxed mb-12 max-w-lg">
+                  Multi-region AWS & GCP architecture for high-traffic
+                  production systems. Terraform-managed infrastructure-as-code,
+                  zero-downtime deployments, 99.99% uptime SLA.
+                </p>
+                <div className="flex items-center">
+                  <Link
+                    href="/#contact?source=cloud-infrastructure-hero"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-medium uppercase tracking-widest hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Request Architecture Review
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: Terminal Visualization */}
+              <div className="p-16 lg:p-24 bg-zinc-950 border-r border-b border-zinc-800 flex items-center">
+                <div className="w-full border border-zinc-800 bg-black">
+                  {/* Terminal Header */}
+                  <div className="border-b border-zinc-800 px-4 py-3 flex items-center">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 border border-zinc-800" />
+                      <div className="w-3 h-3 border border-zinc-800" />
+                      <div className="w-3 h-3 border border-zinc-800" />
+                    </div>
+                    <span className="ml-4 font-mono text-xs text-zinc-500">
+                      terraform apply
+                    </span>
+                  </div>
+
+                  {/* Terminal Content */}
+                  <div className="p-6 font-mono text-xs">
+                    <div className="space-y-1">
+                      <div className="text-zinc-600">
+                        $ terraform apply -auto-approve
+                      </div>
+                      <div className="text-zinc-500">
+                        aws_vpc.main: Creating...
+                      </div>
+                      <div className="text-zinc-500">
+                        aws_vpc.main: Creation complete [id=vpc-0a1b2c3d]
+                      </div>
+                      <div className="text-zinc-500">
+                        aws_subnet.public_us_east_1a: Creating...
+                      </div>
+                      <div className="text-zinc-500">
+                        aws_eks_cluster.main: Creating...
+                      </div>
+                      <div className="text-zinc-500">
+                        aws_rds_instance.primary: Creating...
+                      </div>
+                      <div className="h-2" />
+                      <div className="text-zinc-400">
+                        Apply complete! Resources: 47 added, 0 changed, 0
+                        destroyed.
+                      </div>
+                      <div className="h-4" />
+                      <div className="text-white">
+                        ✓ Multi-region deployment complete
+                      </div>
+                      <div className="text-white">✓ Auto-scaling enabled</div>
+                      <div className="text-white">✓ 99.99% uptime achieved</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics Bar - Blueprint Grid */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
               {[
-                {
-                  title: "AWS Cloud Services",
-                  description:
-                    "Complete AWS infrastructure including EC2, Lambda, S3, RDS, CloudFront, ECS, EKS, and more. Certified AWS experts.",
-                  keywords: "EC2, Lambda, S3, RDS, CloudFront",
-                },
-                {
-                  title: "Azure Cloud Solutions",
-                  description:
-                    "Microsoft Azure deployment with App Services, Azure Functions, Cosmos DB, Azure Storage, and AKS.",
-                  keywords: "App Services, Azure Functions, AKS",
-                },
-                {
-                  title: "Google Cloud Platform",
-                  description:
-                    "GCP infrastructure with Compute Engine, Cloud Functions, Cloud Storage, BigQuery, and GKE.",
-                  keywords: "Compute Engine, Cloud Functions, GKE",
-                },
-                {
-                  title: "Serverless Architecture",
-                  description:
-                    "Build scalable applications with AWS Lambda, Azure Functions, Google Cloud Functions. Pay only for what you use.",
-                  keywords: "Lambda, Functions, Serverless",
-                },
-                {
-                  title: "Cloud Migration Services",
-                  description:
-                    "Migrate from on-premise to cloud or between cloud providers with zero downtime. Assessment, planning, and execution.",
-                  keywords: "Migration, On-premise, Hybrid Cloud",
-                },
-                {
-                  title: "Infrastructure as Code",
-                  description:
-                    "Automated infrastructure deployment with Terraform, CloudFormation, ARM templates, and Pulumi.",
-                  keywords: "Terraform, IaC, CloudFormation",
-                },
-                {
-                  title: "Container Orchestration",
-                  description:
-                    "Kubernetes (EKS, AKS, GKE), Docker Swarm, and container registry management for microservices.",
-                  keywords: "Kubernetes, Docker, Containers",
-                },
-                {
-                  title: "Cloud Security",
-                  description:
-                    "Security best practices including IAM, VPC, encryption, compliance (SOC 2, HIPAA, GDPR), and monitoring.",
-                  keywords: "Security, Compliance, Encryption",
-                },
-                {
-                  title: "Cost Optimization",
-                  description:
-                    "Reduce cloud costs by 30-50% through rightsizing, reserved instances, spot instances, and auto-scaling.",
-                  keywords: "Cost Reduction, Optimization",
-                },
-              ].map((service, index) => (
+                { label: "Uptime Guarantee", value: "99.99%" },
+                { label: "Multi-Region", value: "3+ Zones" },
+                { label: "Auto-Scaling", value: "Real-time" },
+                { label: "Cost Savings", value: "40-60%" },
+              ].map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/50 border border-indigo-500/20 rounded-xl p-6 hover:border-indigo-500/40 transition-all"
+                  className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all group"
                 >
-                  <h3 className="text-xl font-semibold mb-3 text-white">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4">{service.description}</p>
-                  <div className="text-sm text-indigo-400">
-                    {service.keywords}
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-purple-400 transition-colors">
+                    {metric.label}
+                  </div>
+                  <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                    {metric.value}
                   </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Technologies */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Cloud Technologies We Use
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                "AWS EC2",
-                "AWS Lambda",
-                "AWS S3",
-                "AWS RDS",
-                "AWS CloudFront",
-                "AWS ECS",
-                "AWS EKS",
-                "Azure App Service",
-                "Azure Functions",
-                "Azure AKS",
-                "Azure Cosmos DB",
-                "Google Cloud Run",
-                "Google Cloud Functions",
-                "GKE",
-                "BigQuery",
-                "Terraform",
-                "Docker",
-                "Kubernetes",
-                "Ansible",
-                "CloudFormation",
-                "Redis",
-                "PostgreSQL",
-                "MongoDB",
-                "Nginx",
-                "CloudFlare",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-5 py-2 bg-indigo-600/20 border border-indigo-500/30 rounded-full text-sm font-medium"
-                >
-                  {tech}
+        {/* Description */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <p className="text-lg text-zinc-400 leading-relaxed max-w-5xl">
+                We architect fault-tolerant, auto-scaling cloud infrastructure
+                for companies processing millions of requests per day.
+                Terraform-managed infrastructure-as-code, zero-downtime
+                deployments, and 99.99% uptime SLAs. Built for enterprises that
+                can't afford downtime.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Capabilities Grid - 3x3 Perfect Blueprint Grid */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            {/* Section Header */}
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                  Technical Capabilities
                 </span>
-              ))}
+              </h2>
             </div>
-          </section>
 
-          {/* Benefits */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Why Choose Our Cloud Services?
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 border border-indigo-500/20 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold mb-4">🚀 Scalability</h3>
-                <p className="text-gray-300">
-                  Auto-scaling infrastructure that grows with your business.
-                  Handle traffic spikes from 100 to 1M users seamlessly.
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/20 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold mb-4">🔒 Security</h3>
-                <p className="text-gray-300">
-                  Enterprise-grade security with encryption, compliance
-                  certifications, DDoS protection, and 24/7 monitoring.
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border border-blue-500/20 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold mb-4">
-                  💰 Cost Efficiency
-                </h3>
-                <p className="text-gray-300">
-                  Reduce costs by 30-50% through optimization, reserved
-                  instances, and efficient resource allocation.
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 border border-green-500/20 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold mb-4">⚡ Performance</h3>
-                <p className="text-gray-300">
-                  99.99% uptime SLA, global CDN, sub-100ms response times, and
-                  optimized database queries.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Process */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Our Cloud Implementation Process
-            </h2>
-            <div className="space-y-6">
+            {/* 3x3 Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3">
               {[
                 {
-                  step: "1",
-                  title: "Discovery & Assessment",
+                  icon: Network,
+                  title: "Multi-Region Architecture",
                   description:
-                    "Analyze current infrastructure, requirements, and goals. Create cloud migration roadmap.",
+                    "Deploy across AWS us-east-1, eu-west-1, ap-southeast-1 with Route53 geo-routing, CloudFront CDN, automatic failover. Single region failure? Users never notice.",
                 },
                 {
-                  step: "2",
-                  title: "Architecture Design",
+                  icon: Code,
+                  title: "Infrastructure as Code",
                   description:
-                    "Design scalable, secure cloud architecture. Select optimal services and pricing models.",
+                    "100% Terraform-managed. Every resource in Git. No manual console changes. Versioned, auditable, reproducible. Spin up staging in 8 minutes.",
                 },
                 {
-                  step: "3",
-                  title: "Implementation",
+                  icon: Server,
+                  title: "Kubernetes Orchestration",
                   description:
-                    "Deploy infrastructure using IaC. Configure security, networking, and monitoring.",
+                    "EKS/GKE clusters with Helm, HPA, cluster autoscaling, service mesh (Istio), zero-downtime rolling deployments. Handle 10x traffic spikes automatically.",
                 },
                 {
-                  step: "4",
-                  title: "Migration & Testing",
+                  icon: Database,
+                  title: "Database High Availability",
                   description:
-                    "Migrate applications with zero downtime. Comprehensive testing and validation.",
+                    "RDS Multi-AZ with read replicas, automated backups, point-in-time recovery. ElastiCache Redis. DynamoDB global tables. Sub-10ms latency globally.",
                 },
                 {
-                  step: "5",
-                  title: "Optimization",
+                  icon: Activity,
+                  title: "Observability Stack",
                   description:
-                    "Performance tuning, cost optimization, and security hardening.",
+                    "Prometheus + Grafana for metrics, ELK for logs, Jaeger for distributed tracing, PagerDuty alerting. Know exactly what's happening 24/7.",
                 },
                 {
-                  step: "6",
-                  title: "Ongoing Support",
+                  icon: Shield,
+                  title: "Security & Compliance",
                   description:
-                    "24/7 monitoring, maintenance, updates, and scaling as needed.",
+                    "VPC isolation, security groups, IAM least-privilege, AWS Secrets Manager, WAF, GuardDuty threat detection. SOC 2 and HIPAA-ready architecture.",
                 },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="flex gap-6 items-start bg-gray-900/30 border border-gray-800 rounded-xl p-6"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-2xl font-bold">
-                    {item.step}
+                {
+                  icon: Zap,
+                  title: "CI/CD Pipelines",
+                  description:
+                    "GitHub Actions with automated testing, Docker builds, security scanning (Snyk), blue-green deployments, automatic rollbacks. 20+ deploys/day safely.",
+                },
+                {
+                  icon: Lock,
+                  title: "Cost Optimization",
+                  description:
+                    "Reserved instances, Spot for batch jobs, S3 lifecycle policies, CloudWatch cost anomaly detection. Typical savings: 40-60% vs defaults.",
+                },
+                {
+                  icon: Server,
+                  title: "Disaster Recovery",
+                  description:
+                    "Automated backups to S3 Glacier, cross-region replication, tested recovery runbooks. RTO <4hrs, RPO <15min. Data survives AWS region outages.",
+                },
+              ].map((capability, index) => {
+                const Icon = capability.icon;
+                const isRightMost = (index + 1) % 3 === 0;
+                const isBottomRow = index >= 6;
+
+                return (
+                  <div
+                    key={index}
+                    className={`p-12 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all cursor-default group ${
+                      !isRightMost ? "border-r border-zinc-800" : ""
+                    } ${!isBottomRow ? "border-b border-zinc-800" : "border-b border-zinc-800"}`}
+                  >
+                    <Icon
+                      className="w-6 h-6 text-purple-400 mb-8 group-hover:text-indigo-400 transition-colors"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
+                      {capability.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      {capability.description}
+                    </p>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-400">{item.description}</p>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Process Timeline */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                  Implementation Process
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              {[
+                {
+                  phase: "Week 1-2",
+                  title: "Architecture Design & Review",
+                  description:
+                    "Deep-dive technical assessment. Document current infrastructure, identify bottlenecks, design multi-region architecture with Terraform modules. Review with your team. Deliverable: 50+ page design document with diagrams, cost projections, migration roadmap.",
+                },
+                {
+                  phase: "Week 3-6",
+                  title: "Infrastructure Provisioning",
+                  description:
+                    "Execute Terraform deployments: VPCs, subnets, security groups, EKS/GKE clusters, RDS databases, Redis caches, S3 buckets, CloudFront distributions, monitoring stack. Configure CI/CD pipelines. Deliverable: Fully provisioned staging + production environments.",
+                },
+                {
+                  phase: "Week 7-8",
+                  title: "Migration & Cutover",
+                  description:
+                    "Blue-green deployment strategy. Migrate databases with AWS DMS (zero downtime). Route 10% traffic to new infrastructure, monitor, gradually increase to 100%. Rollback plan ready. Deliverable: Production on new infrastructure, old decommissioned, 30-day support.",
+                },
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  className="grid lg:grid-cols-12 border-r border-b border-zinc-800 hover:bg-gradient-to-r hover:from-indigo-900/10 hover:to-transparent transition-all group"
+                >
+                  <div className="lg:col-span-2 p-12 lg:border-r border-zinc-800">
+                    <div className="text-6xl font-medium tracking-tighter bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-transparent bg-clip-text group-hover:from-indigo-500/40 group-hover:to-purple-500/40 transition-all">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                  </div>
+                  <div className="lg:col-span-10 p-12">
+                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                      {step.phase}
+                    </div>
+                    <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                      {step.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* FAQ */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
+        {/* Pricing */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                  Investment
+                </span>
+              </h2>
+            </div>
+
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16">
+                <div className="pb-12 border-b border-zinc-800 mb-12">
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    Enterprise Cloud Infrastructure
+                  </div>
+                  <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mb-4">
+                    $25,000
+                  </div>
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    One-time · 8-week delivery
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 pb-12 border-b border-zinc-800 mb-12">
+                  {[
+                    "Complete multi-region AWS/GCP architecture design",
+                    "100% Terraform-managed infrastructure provisioning",
+                    "Kubernetes cluster setup with auto-scaling",
+                    "Database migration with zero-downtime strategy",
+                    "CI/CD pipeline configuration (GitHub Actions/GitLab)",
+                    "Observability stack (Prometheus, Grafana, ELK)",
+                    "Security audit & compliance (SOC 2/HIPAA-ready)",
+                    "30 days post-launch operational support",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start py-3">
+                      <div className="w-1 h-1 bg-purple-400 mt-2 mr-4 shrink-0" />
+                      <span className="text-sm text-zinc-400">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <Link
+                    href="/#contact?source=cloud-infrastructure-pricing"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-medium uppercase tracking-widest hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Request Proposal
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Guarantee */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                  Service Level Agreement
+                </span>
+              </h2>
+            </div>
+
+            <div className="border-r border-b border-zinc-800">
+              {[
+                "99.99% uptime SLA measured over 30-day period post-launch",
+                "Infrastructure-as-code with 100% Terraform coverage (no manual console changes)",
+                "Multi-region failover tested with chaos engineering (random AZ/region shutdowns)",
+                "Cost optimization delivering 40-60% savings vs. current infrastructure",
+                "30-day operational support with 4-hour response SLA",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="p-12 flex items-start hover:bg-gradient-to-r hover:from-indigo-900/10 hover:to-transparent transition-all group"
+                >
+                  <div className="w-6 h-6 border border-purple-500/50 flex items-center justify-center shrink-0 mr-6 mt-1 group-hover:border-purple-400 transition-colors">
+                    <div className="w-2 h-2 bg-purple-400" />
+                  </div>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                  Technical FAQ
+                </span>
+              </h2>
+            </div>
+
+            <div>
               {[
                 {
-                  q: "Which cloud provider should I choose - AWS, Azure, or Google Cloud?",
-                  a: "It depends on your specific needs. AWS has the most comprehensive services and market share. Azure integrates well with Microsoft products. Google Cloud excels in data analytics and machine learning. We recommend AWS for most projects due to maturity and ecosystem, but can implement on any platform based on your requirements.",
+                  q: "Do you work with AWS, GCP, or Azure?",
+                  a: "We specialize in AWS and GCP. For Azure, we partner with certified architects. Most enterprises choose AWS for maturity or GCP for Kubernetes/ML workloads.",
                 },
                 {
-                  q: "How much does cloud infrastructure cost?",
-                  a: "Cloud costs vary based on usage. Small applications start at $100-500/month. Medium applications: $1,000-5,000/month. Enterprise solutions: $10,000+/month. We implement cost optimization strategies to reduce expenses by 30-50% through reserved instances, rightsizing, and auto-scaling.",
+                  q: "What if our application isn't containerized?",
+                  a: "We handle containerization as part of the project. Dockerfiles, multi-stage builds, security scanning. Turn your monolith into 12-factor app. Adds 1-2 weeks to timeline.",
                 },
                 {
-                  q: "How long does cloud migration take?",
-                  a: "Simple migrations: 2-4 weeks. Complex enterprise migrations: 2-6 months. We create detailed migration plans with minimal downtime. Most migrations happen in phases to reduce risk and ensure business continuity.",
+                  q: "Can you take over existing infrastructure?",
+                  a: "Yes. We call this 'Terraform Import' - reverse-engineer your existing AWS resources into Terraform state. Typical import project: 2-3 weeks, $8,000 fixed price.",
                 },
                 {
-                  q: "Is cloud infrastructure secure?",
-                  a: "Yes, cloud infrastructure is typically more secure than on-premise solutions. Cloud providers invest billions in security. We implement additional layers including encryption, IAM, VPC isolation, DDoS protection, and compliance certifications (SOC 2, HIPAA, GDPR).",
+                  q: "What happens after 8 weeks and 30-day support?",
+                  a: "You own the infrastructure. Complete documentation, runbooks, and Terraform code provided. Ongoing support: $5,000/month retainer (includes on-call, security patching, scaling).",
                 },
                 {
-                  q: "What is serverless architecture and should I use it?",
-                  a: "Serverless lets you run code without managing servers. You pay only for execution time. Benefits: lower costs, automatic scaling, no server maintenance. Ideal for APIs, event-driven applications, and variable workloads. We recommend serverless for 70% of modern applications.",
+                  q: "Do you handle regulatory compliance (HIPAA, SOC 2)?",
+                  a: "We design architectures meeting technical requirements for HIPAA and SOC 2. For formal audits/certifications, we partner with compliance firms. Architecture prep included; audit fees separate.",
                 },
               ].map((faq, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/30 border border-gray-800 rounded-xl p-6"
+                  className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/10 hover:to-purple-900/10 transition-all"
                 >
-                  <h3 className="text-xl font-semibold mb-3 text-white">
+                  <h3 className="text-lg font-semibold text-white tracking-wide mb-6">
                     {faq.q}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">{faq.a}</p>
+                  <p className="text-base text-zinc-400 leading-relaxed max-w-3xl">
+                    {faq.a}
+                  </p>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* CTA */}
-          <section className="text-center bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border border-indigo-500/30 rounded-2xl p-12">
-            <h2 className="text-4xl font-bold mb-4">
-              Ready to Move to the Cloud?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Get a free cloud infrastructure consultation and quote
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <Link
-                href="/#contact"
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold rounded-full hover:scale-105 transition-transform"
-              >
-                Get Free Consultation
-              </Link>
-              <Link
-                href="/#speed-checker"
-                className="px-8 py-4 bg-gray-800 border border-indigo-500/30 text-white font-semibold rounded-full hover:bg-gray-700 transition-all"
-              >
-                Check Your Speed
-              </Link>
+        {/* Final CTA */}
+        <section>
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16 bg-gradient-to-br from-indigo-900/10 to-purple-900/10">
+                <div className="pb-12 border-b border-zinc-800 mb-12 text-center">
+                  <h2 className="text-4xl font-medium tracking-tighter uppercase mb-6">
+                    <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                      Ready to Deploy?
+                    </span>
+                  </h2>
+                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                    Schedule a 30-minute technical consultation to discuss
+                    infrastructure requirements and receive a customized
+                    architecture proposal.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <Link
+                    href="/#contact?source=cloud-infrastructure-final-cta"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-medium uppercase tracking-widest hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/50"
+                  >
+                    Schedule Consultation
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                    Response within 24 hours · No obligation
+                  </p>
+                </div>
+              </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
 
       <Footer />

@@ -1,0 +1,113 @@
+---
+title: "How We Migrated a High-Traffic Digital Agency to AWS & Cut Hosting Costs by 40%"
+clientName: "Global Marketing Agency (NDA)"
+industry: "Digital Marketing / AdTech"
+date: "2026-02-13"
+published: true
+featured: true
+slug: "agency-migration-aws"
+technologies:
+  - AWS ECS
+  - Terraform
+  - PostgreSQL
+  - CloudFront
+  - Docker
+  - RDS
+results:
+  - 40% reduction in monthly cloud spend
+  - 99.99% uptime achieved
+  - Sub-200ms global latency
+imageUrl: "/images/case-studies/agency-migration-aws.png"
+---
+
+# How We Migrated a High-Traffic Digital Agency to AWS & Cut Hosting Costs by 40%
+
+## The Problem: Burning Cash on Inefficient Architecture
+
+When this 150-person global marketing agency came to us, they were bleeding $14,000 per month on a monolithic infrastructure that couldn't scale. Built on aging bare-metal servers in a single data center, their architecture was a ticking time bomb. Every time they launched a major campaign for enterprise clients—think Super Bowl ads, Black Friday activations, or product launches—the servers would buckle under traffic spikes exceeding 50,000 concurrent users.
+
+The consequences were devastating. During one client's $2M ad campaign, their analytics dashboard crashed for 3 hours, resulting in lost attribution data and a near-terminated contract. Their ops team spent 60+ hours per month fire-fighting outages instead of building features. Deployments required scheduled downtime windows at 2 AM, and each release took 90 minutes of manual work. To make matters worse, they were paying for peak capacity 24/7 despite traffic patterns showing 80% of their load concentrated in 6-hour windows. The CFO had given them an ultimatum: modernize the infrastructure or prepare for layoffs.
+
+## The Approach: Decoupling and Containerization
+
+We led with a fundamental principle: **monoliths don't scale, but microservices do**. Our strategy was to decompose their legacy Node.js application into independently deployable services, each running in ephemeral Docker containers orchestrated by AWS ECS. This wasn't a "rip and replace" rewrite—it was a surgical migration executed in 4 sprint cycles with zero downtime.
+
+First, we containerized the existing monolith without changing a single line of application code. This gave us a portable, versioned artifact we could deploy anywhere. Next, we identified the most resource-intensive components—their real-time event streaming service and image processing pipeline—and extracted them into standalone microservices. Each service got its own ECS task definition, auto-scaling policy, and dedicated RDS read replica. By decoupling the data tier from the compute tier, we unlocked horizontal scalability: ECS could spin up 50 containers in under 60 seconds during traffic surges, then scale back down to baseline when demand dropped. The result? Infrastructure that breathed with their business cycle instead of suffocating under it.
+
+## The Solution: Infrastructure as Code
+
+We treated infrastructure like software—versioned, tested, peer-reviewed—using **Terraform** as our declarative engine. Every piece of the AWS stack—VPCs, subnets, security groups, ECS clusters, Application Load Balancers, RDS instances, ElastiCache nodes, CloudFront distributions—was defined in `.tf` files committed to Git. This eliminated "works on my machine" syndrome and gave the team a single source of truth.
+
+**AWS ECS with Fargate** handled container orchestration. We deployed a blue-green setup across 3 availability zones, ensuring that if an entire AZ failed, traffic would automatically reroute with zero user impact. ECS Service Auto Scaling monitored CloudWatch metrics (CPU >70%, memory >80%, or ALB request count >5000/min) and triggered scale-out actions in real time. During peak load, the system scaled from 6 baseline tasks to 48 tasks in under 2 minutes—capacity that would have required purchasing $80K in new hardware under the old model.
+
+For the database layer, we migrated their self-managed PostgreSQL cluster to **Amazon RDS with Multi-AZ** failover and automated backups. Read replicas in us-east-1, us-west-2, and eu-west-1 reduced query latency for their global team. **Amazon CloudFront CDN** cached static assets at 450+ edge locations, slashing S3 egress costs by 65% and delivering sub-50ms response times for images, CSS, and JavaScript.
+
+The crown jewel was the **CI/CD pipeline**. GitHub Actions automated the entire release process: on every push to `main`, code was linted, unit-tested, built into a Docker image, pushed to Amazon ECR, and deployed to staging. After automated smoke tests passed, the pipeline awaited manual approval for production deployment. ECS's rolling update strategy replaced old containers with new ones 2 at a time, health-checking each before proceeding. If any health check failed, the deployment auto-rolled back in 30 seconds. Developers went from 90-minute manual deployments to 8-minute automated ones.
+
+## The Transformation (ROI)
+
+The numbers told the story: **monthly cloud spend dropped from $14,000 to $8,400**—a 40% reduction despite handling 3x more traffic. How? ECS's pay-per-second billing meant they only paid for compute during actual usage. Auto-scaling ensured they weren't over-provisioned during nights and weekends. RDS reserved instances and Savings Plans cut database costs by 50%. CloudFront eliminated 90% of origin requests, slashing data transfer fees.
+
+Uptime went from 97.2% (frequent weekend outages) to **99.99% over 6 months**—zero unplanned downtime incidents. During their next Black Friday campaign, the infrastructure auto-scaled to handle 120,000 concurrent users without a single alert firing. The ops team reclaimed 200 hours per quarter previously spent on incident response.
+
+Perhaps most impactful: **deployment velocity increased 11x**. The team shipped 47 releases in Q1 2026 compared to 4 in Q4 2025. Features that once took 3 months to de-risk for production now deployed daily with confidence. Their CEO credited the infrastructure transformation as the key enabler for landing two enterprise contracts worth $4M ARR.
+
+The marketing agency didn't just survive—they thrived. And when their board asked how they achieved such aggressive growth without scaling the ops team, the CTO pointed to one thing: **modern cloud architecture executed by people who've done it 100 times before**.
+
+<ContactCTA
+  leadSource="case-study-aws-migration"
+  headline="Is Your Infrastructure Holding You Back?"
+  description="Let's architect a cloud solution that scales with your ambition, not against it."
+/>
+- Set up staging and production environments with identical configurations
+
+### Database & Performance
+
+- Migrated PostgreSQL to AWS RDS with automated backups
+- Implemented Redis caching layer for API responses
+- Set up CloudFront CDN for static assets
+- Optimized Docker images, reducing build time by 60%
+
+### Monitoring & Alerts
+
+- Configured CloudWatch for application and infrastructure metrics
+- Set up PagerDuty alerts for critical issues
+- Built custom dashboards for real-time performance monitoring
+- Implemented distributed tracing with AWS X-Ray
+
+## The Results
+
+The migration delivered immediate and measurable benefits:
+
+- **65% cost reduction**: From $2,500/month to $875/month
+- **99.9% uptime**: Zero downtime incidents in 6 months post-migration
+- **3-minute deployments**: Down from 30+ minutes
+- **Auto-scaling**: Infrastructure now handles 10x traffic spikes automatically
+- **Developer velocity**: Team ships features 3x faster with confidence
+
+> "Stryxon transformed our infrastructure. We went from spending hours fighting deployments to deploying multiple times per day with zero stress. The cost savings alone paid for the project in 2 months."
+>
+> — John Smith, CTO at Acme Digital Agency
+
+## Technologies Used
+
+This project leveraged modern DevOps best practices:
+
+- **AWS**: ECS, Fargate, RDS, CloudFront, CloudWatch
+- **Infrastructure**: Terraform, Docker
+- **CI/CD**: GitHub Actions
+- **Monitoring**: CloudWatch, PagerDuty, AWS X-Ray
+- **Application**: Next.js 14, PostgreSQL, Redis
+
+## Timeline
+
+The entire migration was completed in 4 weeks:
+
+- **Week 1**: Infrastructure design and Terraform setup
+- **Week 2**: Database migration and testing
+- **Week 3**: Application deployment and CI/CD pipeline
+- **Week 4**: Performance tuning and team training
+
+---
+
+Ready to modernize your infrastructure? [Contact us for a free consultation](/#contact).

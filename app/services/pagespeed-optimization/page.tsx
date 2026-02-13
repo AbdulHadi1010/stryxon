@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/footer";
+import LighthouseScoreMockup from "@/components/lighthouse-mockup";
 import {
   Zap,
   TrendingUp,
@@ -49,48 +50,15 @@ export const metadata: Metadata = {
 export default function PageSpeedOptimizationPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.stryxon.com",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: "https://www.stryxon.com/#services",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "PageSpeed Optimization",
-            item: "https://www.stryxon.com/services/pagespeed-optimization",
-          },
-        ],
-      },
-      {
-        "@type": "Service",
-        name: "PageSpeed & Core Web Vitals Optimization",
-        description:
-          "Professional Next.js performance optimization service. Guaranteed 90+ PageSpeed scores with Core Web Vitals improvements for better SEO and conversions.",
-        provider: {
-          "@type": "Organization",
-          name: "Stryxon Technologies",
-          url: "https://www.stryxon.com",
-        },
-        areaServed: "Worldwide",
-        offers: {
-          "@type": "Offer",
-          priceRange: "$$$",
-          availability: "https://schema.org/InStock",
-        },
-      },
-    ],
+    "@type": "Service",
+    name: "PageSpeed & Core Web Vitals Optimization",
+    description:
+      "Professional Next.js performance optimization service. Guaranteed 90+ PageSpeed scores with Core Web Vitals improvements for better SEO and conversions.",
+    provider: {
+      "@type": "Organization",
+      name: "Stryxon Technologies",
+      url: "https://www.stryxon.com",
+    },
   };
 
   return (
@@ -100,496 +68,523 @@ export default function PageSpeedOptimizationPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen bg-black text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 mb-6">
-              <Zap className="w-10 h-10 text-green-400" />
-            </div>
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-              Guaranteed 90+ Core Web Vitals for Next.js
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Your slow website is costing you conversions. We fix mobile
-              performance, eliminate layout shifts, and optimize server-side
-              rendering to achieve 90+ PageSpeed scores in 2-3 weeks.
-            </p>
-          </div>
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid lg:grid-cols-2">
+              {/* Left: Headlines */}
+              <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
+                <div className="mb-6">
+                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    Performance Engineering
+                  </span>
+                </div>
+                <h1 className="text-6xl md:text-8xl font-medium tracking-tighter leading-[0.9] mb-8">
+                  <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                    GUARANTEED
+                  </span>
+                  <br />
+                  <span className="text-white">90+ PAGESPEED</span>
+                  <br />
+                  <span className="text-white">SCORES</span>
+                </h1>
+                <p className="text-base text-zinc-400 leading-relaxed mb-12 max-w-lg">
+                  Fix layout shifts, eliminate mobile performance issues,
+                  optimize Core Web Vitals (LCP, FID, CLS). From 65 to 98 in 2-3
+                  weeks. Guaranteed results or full refund.
+                </p>
+                <div className="flex items-center">
+                  <Link
+                    href="/#contact?source=pagespeed-hero"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-medium uppercase tracking-widest hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/50"
+                  >
+                    Request Free Audit
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
 
-          {/* Before & After Section */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-400">
-              Real Results: Before & After
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Before */}
-              <div className="bg-red-900/20 border-2 border-red-500/30 rounded-xl p-8">
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-red-500/20 mb-4">
-                    <span className="text-4xl font-bold text-red-400">65</span>
+              {/* Right: Lighthouse Mockup */}
+              <div className="p-16 lg:p-24 bg-zinc-950 border-r border-b border-zinc-800 flex items-center justify-center">
+                <LighthouseScoreMockup variant="desktop" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics Bar */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {[
+                { label: "Average Improvement", value: "65→98" },
+                { label: "Delivery Time", value: "2-3 Weeks" },
+                { label: "Success Rate", value: "100%" },
+                { label: "Refund Guarantee", value: "Full" },
+              ].map((metric, index) => (
+                <div
+                  key={index}
+                  className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-green-900/20 hover:to-emerald-900/20 transition-all group"
+                >
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-emerald-400 transition-colors">
+                    {metric.label}
                   </div>
-                  <h3 className="text-2xl font-bold text-red-400 mb-2">
-                    BEFORE
+                  <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-green-400 to-emerald-400 text-transparent bg-clip-text">
+                    {metric.value}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Description */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <p className="text-lg text-zinc-400 leading-relaxed max-w-5xl">
+                Your slow website is hemorrhaging conversions. Every 100ms delay
+                costs 1% in sales. We fix mobile performance, eliminate layout
+                shifts, and optimize server-side rendering to achieve 90+
+                PageSpeed scores. Measurable results in 2-3 weeks, guaranteed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Timeline - Shuffled to top */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  Optimization Process
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              {[
+                {
+                  phase: "Week 1",
+                  title: "Performance Audit & Baseline",
+                  description:
+                    "Run Lighthouse audits on mobile + desktop. Identify bottlenecks: unoptimized images, render-blocking scripts, layout shifts, slow server responses. Document current Core Web Vitals (LCP, FID, CLS). Deliverable: 20-page audit report with before screenshots and optimization roadmap.",
+                },
+                {
+                  phase: "Week 2",
+                  title: "Implementation & Testing",
+                  description:
+                    "Execute optimizations: next/image conversion, bundle splitting, CDN setup, font subsetting, lazy loading, SSR caching. Fix layout shifts with width/height attributes. Deploy to staging. Deliverable: Staging environment showing 90+ PageSpeed score with side-by-side comparison.",
+                },
+                {
+                  phase: "Week 3",
+                  title: "Production Deploy & Monitoring",
+                  description:
+                    "Deploy to production after QA sign-off. Monitor Core Web Vitals for 7 days with Real User Monitoring (RUM). Provide performance checklist for your team. Deliverable: Production at 90+ score, monitoring dashboard access, maintenance documentation.",
+                },
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  className="grid lg:grid-cols-12 border-r border-b border-zinc-800 hover:bg-gradient-to-r hover:from-green-900/10 hover:to-transparent transition-all group"
+                >
+                  <div className="lg:col-span-2 p-12 lg:border-r border-zinc-800">
+                    <div className="text-6xl font-medium tracking-tighter bg-gradient-to-br from-green-500/20 to-emerald-500/20 text-transparent bg-clip-text group-hover:from-green-500/40 group-hover:to-emerald-500/40 transition-all">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                  </div>
+                  <div className="lg:col-span-10 p-12">
+                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                      {step.phase}
+                    </div>
+                    <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technical Capabilities - Shuffled before Before/After */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  What We Optimize
+                </span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {[
+                {
+                  icon: Server,
+                  title: "Server-Side Rendering",
+                  description:
+                    "Optimize Next.js SSR/SSG/ISR strategies. Implement Redis caching, edge caching with Vercel/CloudFlare. Reduce Time to First Byte (TTFB) by 60-80%. Dynamic content? We cache smartly.",
+                },
+                {
+                  icon: ImageIcon,
+                  title: "Image Optimization",
+                  description:
+                    "Convert all images to next/image with WebP/AVIF formats, lazy loading, blur placeholders. Eliminate Cumulative Layout Shift (CLS) with explicit dimensions. Typical savings: 70% file size reduction.",
+                },
+                {
+                  icon: FileCode,
+                  title: "Bundle Size Reduction",
+                  description:
+                    "Code-splitting with dynamic imports, tree-shaking, remove unused dependencies. Defer non-critical JavaScript. Lazy load components. Reduce bundle from 800KB to 200KB typical.",
+                },
+                {
+                  icon: Database,
+                  title: "Font & CSS Optimization",
+                  description:
+                    "Self-host Google Fonts, subset characters, preload critical fonts. Inline critical CSS, defer non-critical styles. Eliminate render-blocking resources. Font swap strategy to prevent FOIT.",
+                },
+                {
+                  icon: Zap,
+                  title: "Third-Party Scripts",
+                  description:
+                    "Defer analytics (Google Analytics, Facebook Pixel), lazy load chat widgets, optimize consent managers. Use Partytown for heavy scripts. Reduce main thread blocking by 90%.",
+                },
+                {
+                  icon: Gauge,
+                  title: "Core Web Vitals Tuning",
+                  description:
+                    "Fix Largest Contentful Paint (LCP < 2.5s), First Input Delay (FID < 100ms), Cumulative Layout Shift (CLS < 0.1). Monitor with Real User Monitoring. Achieve 'Good' across all metrics.",
+                },
+              ].map((capability, index) => {
+                const Icon = capability.icon;
+                const isRightMost = (index + 1) % 3 === 0;
+                const isBottomRow = index >= 3;
+
+                return (
+                  <div
+                    key={index}
+                    className={`p-12 hover:bg-gradient-to-br hover:from-green-900/20 hover:to-emerald-900/20 transition-all cursor-default group ${
+                      !isRightMost ? "border-r border-zinc-800" : ""
+                    } ${!isBottomRow ? "border-b border-zinc-800" : "border-b border-zinc-800"}`}
+                  >
+                    <Icon
+                      className="w-6 h-6 text-emerald-400 mb-8 group-hover:text-green-400 transition-colors"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
+                      {capability.title}
+                    </h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      {capability.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Before & After Section - Shuffled after Features */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase text-center">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  Real Results: Before & After
+                </span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2">
+              {/* Before */}
+              <div className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-red-900/10 hover:to-transparent transition-all">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-24 h-24 border-2 border-red-500/30 mb-6">
+                    <span className="text-4xl font-medium tracking-tighter text-red-400">
+                      65
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-medium tracking-tight text-red-400 mb-2 uppercase">
+                    Before
                   </h3>
-                  <p className="text-gray-400 text-sm">
-                    Typical Next.js site without optimization
+                  <p className="text-sm text-zinc-500">
+                    Typical unoptimized Next.js site
                   </p>
                 </div>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>LCP: 6.8s</strong> - Slow first paint, users wait
-                      too long
+                <ul className="space-y-4 text-zinc-400">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xs">✗</span>
+                    <span className="text-sm">
+                      <strong className="text-white">LCP: 6.8s</strong> - Slow
+                      first paint, users wait
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>FID: 340ms</strong> - Janky interactions, poor UX
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xs">✗</span>
+                    <span className="text-sm">
+                      <strong className="text-white">FID: 340ms</strong> - Janky
+                      interactions
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>CLS: 0.42</strong> - Layout shifts frustrate users
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xs">✗</span>
+                    <span className="text-sm">
+                      <strong className="text-white">CLS: 0.42</strong> - Layout
+                      shifts frustrate users
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>Mobile Score: 42</strong> - Google penalizes in
-                      search
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xs">✗</span>
+                    <span className="text-sm">
+                      <strong className="text-white">Mobile: 42</strong> - Google
+                      penalizes in search
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-400 mt-1">✗</span>
-                    <span>
-                      <strong>12% bounce rate increase</strong> - Losing
-                      conversions
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xs">✗</span>
+                    <span className="text-sm">
+                      <strong className="text-white">12% bounce increase</strong>{" "}
+                      - Losing conversions
                     </span>
                   </li>
                 </ul>
               </div>
 
               {/* After */}
-              <div className="bg-green-900/20 border-2 border-green-500/30 rounded-xl p-8">
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-500/20 mb-4">
-                    <span className="text-4xl font-bold text-green-400">
+              <div className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-green-900/10 hover:to-transparent transition-all">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-24 h-24 border-2 border-green-500/30 mb-6">
+                    <span className="text-4xl font-medium tracking-tighter text-green-400">
                       98
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-green-400 mb-2">
-                    AFTER
+                  <h3 className="text-2xl font-medium tracking-tight text-green-400 mb-2 uppercase">
+                    After
                   </h3>
-                  <p className="text-gray-400 text-sm">
-                    After Stryxon optimization (2 weeks)
+                  <p className="text-sm text-zinc-500">
+                    After Stryxon optimization (2-3 weeks)
                   </p>
                 </div>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                    <span>
-                      <strong>LCP: 1.4s</strong> - 79% faster, instant perceived
-                      load
+                <ul className="space-y-4 text-zinc-400">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
+                    <span className="text-sm">
+                      <strong className="text-white">LCP: 1.4s</strong> - 79%
+                      faster, instant perceived load
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                    <span>
-                      <strong>FID: 28ms</strong> - 92% faster, buttery smooth
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
+                    <span className="text-sm">
+                      <strong className="text-white">FID: 45ms</strong> - Buttery
+                      smooth interactions
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                    <span>
-                      <strong>CLS: 0.02</strong> - 95% improvement, stable
-                      layouts
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
+                    <span className="text-sm">
+                      <strong className="text-white">CLS: 0.02</strong> -
+                      Rock-solid layout stability
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                    <span>
-                      <strong>Mobile Score: 96</strong> - Top Google search
-                      results
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
+                    <span className="text-sm">
+                      <strong className="text-white">Mobile: 96</strong> - SEO
+                      boost, higher rankings
                     </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                    <span>
-                      <strong>18% conversion increase</strong> - Speed equals
-                      revenue
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
+                    <span className="text-sm">
+                      <strong className="text-white">18% conversion lift</strong>{" "}
+                      - More revenue
                     </span>
                   </li>
                 </ul>
               </div>
             </div>
-            <div className="text-center mt-8">
-              <p className="text-gray-400 text-lg">
-                <strong className="text-green-400">+133% improvement</strong> in
-                overall performance ·{" "}
-                <strong className="text-green-400">2.3x ROI</strong> from
-                conversion increase
-              </p>
-            </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Why It Matters */}
-          <section className="mb-16 bg-yellow-900/10 border border-yellow-500/20 rounded-xl p-8">
-            <h2 className="text-3xl font-bold mb-6 text-yellow-400 text-center">
-              Why PageSpeed Scores Matter
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <TrendingUp className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  SEO Rankings
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  Google uses Core Web Vitals as a ranking factor. Slow sites
-                  rank lower, lose traffic.
-                </p>
-              </div>
-              <div className="text-center">
-                <Target className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Conversion Rates
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  Every 100ms delay costs 1% in conversions. Fast sites make
-                  more money.
-                </p>
-              </div>
-              <div className="text-center">
-                <Gauge className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  User Experience
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  53% of mobile users abandon sites taking &gt;3s to load. Speed
-                  is UX.
-                </p>
+        {/* Pricing */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  Investment
+                </span>
+              </h2>
+            </div>
+
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16">
+                <div className="pb-12 border-b border-zinc-800 mb-12">
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    PageSpeed Optimization Service
+                  </div>
+                  <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text mb-4">
+                    $8,000
+                  </div>
+                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                    One-time · 2-3 week delivery
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 pb-12 border-b border-zinc-800 mb-12">
+                  {[
+                    "Comprehensive performance audit (mobile + desktop)",
+                    "Image optimization with next/image conversion",
+                    "Bundle size reduction & code-splitting",
+                    "Server-side rendering & caching optimization",
+                    "Core Web Vitals tuning (LCP, FID, CLS)",
+                    "Third-party script optimization",
+                    "Font & CSS performance improvements",
+                    "Real User Monitoring setup & documentation",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start py-3">
+                      <div className="w-1 h-1 bg-emerald-400 mt-2 mr-4 shrink-0" />
+                      <span className="text-sm text-zinc-400">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <Link
+                    href="/#contact?source=pagespeed-pricing"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-medium uppercase tracking-widest hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/50"
+                  >
+                    Request Free Audit
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* What We Fix */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-400">
-              What We Optimize
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+        {/* Guarantee */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  Performance Guarantee
+                </span>
+              </h2>
+            </div>
+
+            <div className="border-r border-b border-zinc-800">
               {[
-                {
-                  icon: <ImageIcon className="w-6 h-6" />,
-                  title: "Image Optimization",
-                  description:
-                    "Convert to WebP/AVIF, lazy loading, responsive images, blur placeholders, CDN delivery. Reduce image weight by 60-80%.",
-                  impact: "40% faster LCP",
-                },
-                {
-                  icon: <FileCode className="w-6 h-6" />,
-                  title: "JavaScript Bundle Size",
-                  description:
-                    "Code splitting, tree shaking, dynamic imports, remove unused dependencies. Cut JS payload by 50%.",
-                  impact: "35% faster FID",
-                },
-                {
-                  icon: <Server className="w-6 h-6" />,
-                  title: "Server-Side Rendering",
-                  description:
-                    "Optimize getServerSideProps, implement ISR, Redis caching, database query optimization, API route performance.",
-                  impact: "60% faster TTFB",
-                },
-                {
-                  icon: <Database className="w-6 h-6" />,
-                  title: "Layout Shift Fixes",
-                  description:
-                    "Reserve space for images/ads, font loading strategy, skeleton screens, CSS containment. Eliminate visual jumps.",
-                  impact: "90% CLS reduction",
-                },
-                {
-                  icon: <Zap className="w-6 h-6" />,
-                  title: "Critical Rendering Path",
-                  description:
-                    "Inline critical CSS, defer non-critical JS, preload fonts, preconnect to CDNs, resource hints.",
-                  impact: "50% faster FCP",
-                },
-                {
-                  icon: <CheckCircle className="w-6 h-6" />,
-                  title: "Third-Party Scripts",
-                  description:
-                    "Lazy load analytics, defer social widgets, optimize Google Tag Manager, reduce external requests by 70%.",
-                  impact: "25% overall boost",
-                },
+                "90+ mobile PageSpeed score guaranteed. If we don't hit it, full refund—no questions asked.",
+                "Core Web Vitals in 'Good' range: LCP < 2.5s, FID < 100ms, CLS < 0.1 (measured with Real User Monitoring).",
+                "Zero feature breakage. All existing functionality remains intact. QA on staging before production deploy.",
+                "Performance lasts. Optimizations remain effective unless you add new unoptimized code. Maintenance guide provided.",
+                "7-day post-launch monitoring. Real User Monitoring setup with alerts. Fix any regressions within 48 hours.",
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/50 border border-green-500/20 rounded-xl p-6 hover:border-green-500/40 transition-all"
+                  className="p-12 flex items-start hover:bg-gradient-to-r hover:from-green-900/10 hover:to-transparent transition-all group"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="text-green-400">{item.icon}</div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
+                  <div className="w-6 h-6 border border-emerald-500/50 flex items-center justify-center shrink-0 mr-6 mt-1 group-hover:border-emerald-400 transition-colors">
+                    <div className="w-2 h-2 bg-emerald-400" />
                   </div>
-                  <p className="text-gray-400 mb-3">{item.description}</p>
-                  <div className="inline-block bg-green-900/20 border border-green-500/30 rounded-full px-3 py-1">
-                    <span className="text-green-400 text-sm font-semibold">
-                      {item.impact}
-                    </span>
-                  </div>
+                  <p className="text-sm text-zinc-400 leading-relaxed">{item}</p>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Process */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-400">
-              Our 3-Week Process
-            </h2>
-            <div className="space-y-6">
+        {/* FAQ */}
+        <section className="border-b border-zinc-800">
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:px-24 lg:py-12 border-r border-b border-zinc-800">
+              <h2 className="text-4xl font-medium tracking-tighter uppercase">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                  Common Questions
+                </span>
+              </h2>
+            </div>
+
+            <div>
               {[
                 {
-                  week: "Week 1",
-                  title: "Audit & Baseline",
-                  tasks: [
-                    "Run full Lighthouse audit across 10+ pages",
-                    "Identify bottlenecks with Chrome DevTools",
-                    "Analyze bundle size and network waterfall",
-                    "Create prioritized optimization roadmap",
-                  ],
-                  deliverable: "30-page performance audit report",
+                  q: "What if my app isn't built with Next.js?",
+                  a: "We specialize in Next.js but also optimize React (Vite/CRA), Nuxt, and static sites. Techniques vary by framework but principles remain: reduce bundle size, optimize images, cache aggressively.",
                 },
                 {
-                  week: "Week 2",
-                  title: "Implementation",
-                  tasks: [
-                    "Implement all image/video optimizations",
-                    "Refactor components for code splitting",
-                    "Add Redis/CDN caching layers",
-                    "Fix all CLS issues with reserved space",
-                  ],
-                  deliverable: "GitHub PR with optimized codebase",
+                  q: "How long do results take to show in Google?",
+                  a: "Core Web Vitals affect rankings after 28 days of data collection in Google Search Console. You'll see speed improvements immediately, SEO boost within 1-2 months.",
                 },
                 {
-                  week: "Week 3",
-                  title: "Testing & Validation",
-                  tasks: [
-                    "Run Lighthouse tests on mobile/desktop",
-                    "Load testing with 1000+ concurrent users",
-                    "Verify Core Web Vitals in production",
-                    "Final tuning to hit 90+ score",
-                  ],
-                  deliverable: "Before/after metrics + monitoring setup",
+                  q: "Will optimizations break existing features?",
+                  a: "No. We test on staging and run full QA before deploying. All features remain functional. Rollback scripts provided just in case.",
                 },
-              ].map((item, index) => (
+                {
+                  q: "Can you guarantee exact score like 98?",
+                  a: "We guarantee 90+ mobile score. Exact score depends on content (heavy video sites have natural limits). We always maximize within constraints.",
+                },
+                {
+                  q: "What if my site uses lots of third-party scripts?",
+                  a: "We optimize script loading (defer, async, lazy load). If a script is fundamentally slow (old analytics SDK), we recommend modern alternatives like Plausible or Fathom.",
+                },
+              ].map((faq, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/30 border border-green-500/20 rounded-xl p-8"
+                  className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-green-900/10 hover:to-emerald-900/10 transition-all"
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <span className="text-green-400 font-bold text-lg">
-                          {index + 1}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-sm font-semibold text-green-400 bg-green-900/20 px-3 py-1 rounded-full">
-                          {item.week}
-                        </span>
-                        <h3 className="text-2xl font-bold text-white">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <ul className="space-y-2 mb-4">
-                        {item.tasks.map((task, i) => (
-                          <li key={i} className="text-gray-400 flex gap-2">
-                            <ArrowRight className="w-5 h-5 text-green-400 flex-shrink-0" />
-                            <span>{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="bg-green-900/10 border border-green-500/20 rounded-lg p-3">
-                        <p className="text-sm text-green-400 font-semibold">
-                          Deliverable: {item.deliverable}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Guarantee */}
-          <section className="mb-16 bg-gradient-to-r from-green-900/20 to-emerald-900/20 border-2 border-green-500/30 rounded-xl p-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-green-400">
-              Our Performance Guarantee
-            </h2>
-            <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-              We guarantee a minimum 90+ PageSpeed score on mobile. If we don't
-              hit it, we keep working until we do — at no extra cost.
-            </p>
-            <ul className="text-left text-gray-300 space-y-3 max-w-2xl mx-auto">
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                <span>
-                  <strong>90+ Mobile Score</strong> or money back (measured on
-                  real devices, not simulators)
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                <span>
-                  <strong>All Core Web Vitals pass</strong> Google's thresholds
-                  (LCP &lt;2.5s, FID &lt;100ms, CLS &lt;0.1)
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                <span>
-                  <strong>Zero regressions</strong> - We test on staging before
-                  production. No broken features.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                <span>
-                  <strong>30-day monitoring</strong> - We watch metrics
-                  post-launch and fix any issues for free.
-                </span>
-              </li>
-            </ul>
-          </section>
-
-          {/* Pricing */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-400">
-              Simple Pricing
-            </h2>
-            <div className="max-w-2xl mx-auto bg-gradient-to-br from-green-900/30 to-emerald-900/30 border-2 border-green-500 rounded-2xl p-10 text-center">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                PageSpeed Optimization Package
-              </h3>
-              <p className="text-6xl font-bold text-green-400 mb-2">$2,499</p>
-              <p className="text-gray-400 mb-8">
-                One-time payment · 3-week delivery
-              </p>
-              <ul className="text-left text-gray-300 space-y-3 mb-8">
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>Full performance audit (30+ page report)</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>
-                    All optimization implementations (images, code, SSR)
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>Guaranteed 90+ mobile PageSpeed score</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>Before/after metrics with ROI analysis</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>30 days post-launch monitoring & fixes</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="text-green-400 mt-1 flex-shrink-0" />
-                  <span>Performance monitoring dashboard setup</span>
-                </li>
-              </ul>
-              <Link
-                href="/#contact"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-lg shadow-green-500/50 text-lg"
-              >
-                Get 90+ PageSpeed Score
-              </Link>
-              <p className="text-sm text-gray-400 mt-4">
-                3-week delivery · 90+ score guarantee · Money-back if we fail
-              </p>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-400">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
-              {[
-                {
-                  question: "Do you only work with Next.js?",
-                  answer:
-                    "We specialize in Next.js but also optimize React, Remix, and Gatsby. For WordPress/PHP, we recommend migration to Next.js for best results.",
-                },
-                {
-                  question: "Will optimizations break existing features?",
-                  answer:
-                    "No. We test on staging environments and run full QA before deploying. All features remain functional. We provide rollback scripts just in case.",
-                },
-                {
-                  question:
-                    "What if my site uses a lot of third-party scripts?",
-                  answer:
-                    "We optimize script loading (defer, async, lazy load). If a script is fundamentally slow (e.g., old analytics SDK), we'll recommend modern alternatives.",
-                },
-                {
-                  question: "Can you guarantee exact numbers like 98 score?",
-                  answer:
-                    "We guarantee 90+ mobile score. Exact score depends on your content (e.g., heavy video sites have natural limits). We always maximize within constraints.",
-                },
-                {
-                  question: "How long do optimizations last?",
-                  answer:
-                    "Permanent, unless you add new unoptimized code. We provide a performance checklist so your team maintains scores going forward.",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-900/30 border border-gray-800 rounded-xl p-6"
-                >
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {item.question}
+                  <h3 className="text-lg font-semibold text-white tracking-wide mb-6">
+                    {faq.q}
                   </h3>
-                  <p className="text-gray-400">{item.answer}</p>
+                  <p className="text-base text-zinc-400 leading-relaxed max-w-3xl">
+                    {faq.a}
+                  </p>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* CTA Section */}
-          <section className="text-center bg-gradient-to-r from-green-900/30 to-emerald-900/30 border border-green-500/30 rounded-2xl p-12">
-            <h2 className="text-4xl font-bold mb-4 text-white">
-              Stop Losing Conversions to Slow Load Times
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Every second your site lags costs you money. Get a 90+ PageSpeed
-              score in 3 weeks and watch your conversion rates climb.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-lg shadow-green-500/50"
-            >
-              Request Free Performance Audit
-            </Link>
-            <p className="text-sm text-gray-400 mt-4">
-              No obligation · Get audit results in 48 hours · See before/after
-              projections
-            </p>
-          </section>
-        </div>
+        {/* Final CTA */}
+        <section>
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
+              <div className="border border-zinc-800 p-16 bg-gradient-to-br from-green-900/10 to-emerald-900/10">
+                <div className="pb-12 border-b border-zinc-800 mb-12 text-center">
+                  <h2 className="text-4xl font-medium tracking-tighter uppercase mb-6">
+                    <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text">
+                      Stop Losing Conversions
+                    </span>
+                  </h2>
+                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                    Every second your site lags costs you money. Get a 90+
+                    PageSpeed score in 3 weeks and watch conversion rates climb.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <Link
+                    href="/#contact?source=pagespeed-final-cta"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-medium uppercase tracking-widest hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/50"
+                  >
+                    Request Free Audit
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                    No obligation · Audit results in 48 hours
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <Footer />
