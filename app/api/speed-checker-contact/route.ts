@@ -77,6 +77,9 @@ export async function POST(request: NextRequest) {
 
     // For now, use Formspree as fallback (reuse existing integration)
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
       const formspreeResponse = await fetch("https://formspree.io/f/mwvvqygl", {
         method: "POST",
         headers: {
@@ -88,13 +91,18 @@ export async function POST(request: NextRequest) {
           phone,
           message: `Speed Checker Lead\n\nWebsite: ${website_url}\nPerformance Score: ${performance_score}/100\n\nMessage: ${message || "No message provided"}`,
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeout);
 
       if (!formspreeResponse.ok) {
         console.error("Formspree error:", await formspreeResponse.text());
       }
-    } catch (error) {
-      console.error("Failed to send to Formspree:", error);
+    } catch (error: any) {
+      // Log error but don't fail the request - we still saved the lead data
+      console.error("Failed to send to Formspree:", error.message || error);
+      // Continue and return success - the lead data was logged
     }
 
     return NextResponse.json({
