@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/footer";
-import { 
-  Activity, 
-  GitBranch, 
-  Rocket, 
-  Shield, 
-  Zap, 
+import {
+  Activity,
+  GitBranch,
+  Rocket,
+  Shield,
+  Zap,
   Server,
   Lock,
   CheckCircle,
   Code,
   Container,
   Database,
-  Settings
+  Settings,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -35,7 +35,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.stryxon.com/services/devops" },
   openGraph: {
     title: "DevOps Services - CI/CD, Automation, Infrastructure",
-    description: "Professional DevOps services including CI/CD pipelines, infrastructure automation, and cloud deployment.",
+    description:
+      "Professional DevOps services including CI/CD pipelines, infrastructure automation, and cloud deployment.",
     url: "https://www.stryxon.com/services/devops",
   },
 };
@@ -86,7 +87,6 @@ export default function DevOpsPage() {
     <>
       <div className="min-h-screen bg-black text-white">
         <div className="max-w-7xl mx-auto border-l border-r border-zinc-800">
-          
           {/* Hero */}
           <section className="grid lg:grid-cols-2 border-b border-zinc-800">
             <div className="p-12 lg:p-16 border-r border-zinc-800 flex flex-col justify-center">
@@ -95,12 +95,17 @@ export default function DevOpsPage() {
               </div>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
                 <span className="bg-gradient-to-r from-red-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
-                  Automate.<br />Deploy.<br />Scale.
+                  Automate.
+                  <br />
+                  Deploy.
+                  <br />
+                  Scale.
                 </span>
               </h1>
               <p className="text-lg text-zinc-400 mb-8 max-w-xl">
-                Enterprise-grade CI/CD pipelines, infrastructure automation, and cloud orchestration. 
-                Deploy 10x faster with zero-downtime deployments.
+                Enterprise-grade CI/CD pipelines, infrastructure automation, and
+                cloud orchestration. Deploy 10x faster with zero-downtime
+                deployments.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -156,12 +161,15 @@ export default function DevOpsPage() {
                 Modern DevOps for High-Velocity Teams
               </h2>
               <p className="text-lg text-zinc-400 mb-4">
-                We build automated CI/CD pipelines that eliminate manual deployments, reduce errors by 90%, 
-                and enable your team to ship features 10x faster. From code commit to production in minutes, not days.
+                We build automated CI/CD pipelines that eliminate manual
+                deployments, reduce errors by 90%, and enable your team to ship
+                features 10x faster. From code commit to production in minutes,
+                not days.
               </p>
               <p className="text-lg text-zinc-400">
-                Infrastructure as Code, containerization, orchestration, monitoring, and security built-in from day one. 
-                Works with AWS, Azure, GCP, or on-premise infrastructure.
+                Infrastructure as Code, containerization, orchestration,
+                monitoring, and security built-in from day one. Works with AWS,
+                Azure, GCP, or on-premise infrastructure.
               </p>
             </div>
           </section>
@@ -171,7 +179,9 @@ export default function DevOpsPage() {
             <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
               Technologies
             </div>
-            <h2 className="text-3xl font-bold mb-8">DevOps Tools & Platforms</h2>
+            <h2 className="text-3xl font-bold mb-8">
+              DevOps Tools & Platforms
+            </h2>
             <div className="flex flex-wrap gap-3">
               {[
                 "Docker",
@@ -210,47 +220,56 @@ export default function DevOpsPage() {
               {
                 icon: <GitBranch className="w-6 h-6" />,
                 title: "CI/CD Pipelines",
-                description: "Automated build, test, and deployment pipelines with GitHub Actions, GitLab CI, Jenkins, and CircleCI.",
+                description:
+                  "Automated build, test, and deployment pipelines with GitHub Actions, GitLab CI, Jenkins, and CircleCI.",
               },
               {
                 icon: <Code className="w-6 h-6" />,
                 title: "Infrastructure as Code",
-                description: "Automate infrastructure with Terraform, CloudFormation, and Ansible. Version-controlled deployments.",
+                description:
+                  "Automate infrastructure with Terraform, CloudFormation, and Ansible. Version-controlled deployments.",
               },
               {
                 icon: <Container className="w-6 h-6" />,
                 title: "Container Orchestration",
-                description: "Docker containerization and Kubernetes orchestration. Microservices architecture and service mesh.",
+                description:
+                  "Docker containerization and Kubernetes orchestration. Microservices architecture and service mesh.",
               },
               {
                 icon: <Activity className="w-6 h-6" />,
                 title: "Monitoring & Logging",
-                description: "Complete observability with Prometheus, Grafana, ELK Stack, Datadog, and New Relic.",
+                description:
+                  "Complete observability with Prometheus, Grafana, ELK Stack, Datadog, and New Relic.",
               },
               {
                 icon: <Server className="w-6 h-6" />,
                 title: "Cloud Automation",
-                description: "Automate AWS, Azure, GCP deployments. Auto-scaling, load balancing, and cost optimization.",
+                description:
+                  "Automate AWS, Azure, GCP deployments. Auto-scaling, load balancing, and cost optimization.",
               },
               {
                 icon: <Shield className="w-6 h-6" />,
                 title: "Security & Compliance",
-                description: "DevSecOps practices, security scanning, vulnerability management, and compliance automation.",
+                description:
+                  "DevSecOps practices, security scanning, vulnerability management, and compliance automation.",
               },
               {
                 icon: <Database className="w-6 h-6" />,
                 title: "Database DevOps",
-                description: "Database migrations, backup automation, replication, and performance optimization.",
+                description:
+                  "Database migrations, backup automation, replication, and performance optimization.",
               },
               {
                 icon: <Settings className="w-6 h-6" />,
                 title: "GitOps Workflow",
-                description: "Git-based deployment workflows with ArgoCD and Flux. Declarative infrastructure management.",
+                description:
+                  "Git-based deployment workflows with ArgoCD and Flux. Declarative infrastructure management.",
               },
               {
                 icon: <Lock className="w-6 h-6" />,
                 title: "Site Reliability Engineering",
-                description: "SRE practices, incident management, on-call rotation, and reliability engineering.",
+                description:
+                  "SRE practices, incident management, on-call rotation, and reliability engineering.",
               },
             ].map((service, i) => (
               <div
@@ -277,22 +296,26 @@ export default function DevOpsPage() {
                 {
                   icon: <Rocket className="w-8 h-8" />,
                   title: "Faster Time to Market",
-                  description: "Deploy 10x faster with automated CI/CD pipelines. Ship features in hours, not weeks.",
+                  description:
+                    "Deploy 10x faster with automated CI/CD pipelines. Ship features in hours, not weeks.",
                 },
                 {
                   icon: <Shield className="w-8 h-8" />,
                   title: "Increased Reliability",
-                  description: "Reduce downtime by 90% with automated testing, monitoring, and instant rollback capabilities.",
+                  description:
+                    "Reduce downtime by 90% with automated testing, monitoring, and instant rollback capabilities.",
                 },
                 {
                   icon: <Zap className="w-8 h-8" />,
                   title: "Cost Reduction",
-                  description: "Save 30-50% on infrastructure costs through automation and intelligent resource optimization.",
+                  description:
+                    "Save 30-50% on infrastructure costs through automation and intelligent resource optimization.",
                 },
                 {
                   icon: <Lock className="w-8 h-8" />,
                   title: "Enhanced Security",
-                  description: "Built-in security scanning, vulnerability detection, and compliance checks in every deployment.",
+                  description:
+                    "Built-in security scanning, vulnerability detection, and compliance checks in every deployment.",
                 },
               ].map((benefit, i) => (
                 <div
@@ -300,7 +323,9 @@ export default function DevOpsPage() {
                   className="p-6 border border-zinc-800 hover:border-orange-500/50 transition-all"
                 >
                   <div className="text-orange-400 mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {benefit.title}
+                  </h3>
                   <p className="text-zinc-400">{benefit.description}</p>
                 </div>
               ))}
@@ -308,7 +333,10 @@ export default function DevOpsPage() {
           </section>
 
           {/* Pricing */}
-          <section id="pricing" className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
+          <section
+            id="pricing"
+            className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50"
+          >
             <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
               Investment
             </div>
@@ -320,7 +348,9 @@ export default function DevOpsPage() {
                     $15,000
                   </span>
                 </div>
-                <div className="text-zinc-400">Complete CI/CD setup with monitoring</div>
+                <div className="text-zinc-400">
+                  Complete CI/CD setup with monitoring
+                </div>
               </div>
               <ul className="space-y-3 mb-8">
                 {[
@@ -359,21 +389,26 @@ export default function DevOpsPage() {
                 {
                   phase: "Week 1-2",
                   title: "Assessment & Planning",
-                  description: "Current infrastructure audit, technology selection, pipeline design, and security review.",
+                  description:
+                    "Current infrastructure audit, technology selection, pipeline design, and security review.",
                 },
                 {
                   phase: "Week 3-4",
                   title: "Implementation",
-                  description: "CI/CD pipeline setup, IaC configuration, container orchestration, and monitoring integration.",
+                  description:
+                    "CI/CD pipeline setup, IaC configuration, container orchestration, and monitoring integration.",
                 },
                 {
                   phase: "Week 5-6",
                   title: "Testing & Training",
-                  description: "Load testing, security validation, team training, documentation, and knowledge transfer.",
+                  description:
+                    "Load testing, security validation, team training, documentation, and knowledge transfer.",
                 },
               ].map((step, i) => (
                 <div key={i} className="border border-zinc-800 p-6">
-                  <div className="font-mono text-xs text-orange-400 mb-3">{step.phase}</div>
+                  <div className="font-mono text-xs text-orange-400 mb-3">
+                    {step.phase}
+                  </div>
                   <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
                   <p className="text-zinc-400">{step.description}</p>
                 </div>
@@ -396,7 +431,10 @@ export default function DevOpsPage() {
                 "30-day post-launch support included",
                 "Full documentation & training",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 border border-zinc-800">
+                <div
+                  key={i}
+                  className="flex items-start gap-3 p-4 border border-zinc-800"
+                >
                   <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <span className="text-zinc-300">{item}</span>
                 </div>
@@ -409,7 +447,9 @@ export default function DevOpsPage() {
             <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
               FAQ
             </div>
-            <h2 className="text-3xl font-bold mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold mb-12">
+              Frequently Asked Questions
+            </h2>
             <div className="max-w-3xl space-y-8">
               {[
                 {
@@ -456,7 +496,6 @@ export default function DevOpsPage() {
               Schedule Free Consultation
             </Link>
           </section>
-
         </div>
       </div>
       <Footer />
