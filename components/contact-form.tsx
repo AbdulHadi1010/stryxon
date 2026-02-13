@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,6 +19,21 @@ export default function ContactForm() {
     "idle" | "success" | "error"
   >("idle");
   const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const [leadSource, setLeadSource] = useState<string>("");
+
+  // Capture lead source from URL parameter or referrer
+  useEffect(() => {
+    // Priority 1: URL parameter (e.g., ?source=blog-openclaw)
+    const sourceParam = searchParams.get("source");
+    if (sourceParam) {
+      setLeadSource(sourceParam);
+    } else {
+      // Priority 2: Document referrer (fallback)
+      if (typeof window !== "undefined" && document.referrer) {
+        setLeadSource(document.referrer);
+      }
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +49,7 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           ...formData,
+          leadSource: leadSource,
           "cf-turnstile-response": turnstileToken,
         }),
       });
@@ -196,6 +214,9 @@ export default function ContactForm() {
                   placeholder="Tell us about your project, timeline, and technical requirements..."
                 />
               </div>
+
+              {/* Hidden field for lead source tracking */}
+              <input type="hidden" name="leadSource" value={leadSource} />
 
               {submitStatus === "success" && (
                 <div className="p-4 bg-green-900/20 border border-green-700 rounded-lg text-green-300 text-sm">
