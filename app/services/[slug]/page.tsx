@@ -38,15 +38,16 @@ const iconMap: Record<string, any> = {
 };
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const service = servicesData[params.slug];
+  const { slug } = await params;
+  const service = servicesData[slug];
   if (!service) return { title: "Service Not Found" };
 
   return {
@@ -54,12 +55,12 @@ export async function generateMetadata({
     description: service.metadata.description,
     keywords: service.metadata.keywords,
     alternates: {
-      canonical: `https://www.stryxon.com/services/${params.slug}`,
+      canonical: `https://www.stryxon.com/services/${slug}`,
     },
     openGraph: {
       title: service.metadata.title,
       description: service.metadata.description,
-      url: `https://www.stryxon.com/services/${params.slug}`,
+      url: `https://www.stryxon.com/services/${slug}`,
     },
   };
 }
@@ -68,8 +69,9 @@ export async function generateStaticParams() {
   return Object.keys(servicesData).map((slug) => ({ slug }));
 }
 
-export default function ServicePage({ params }: PageProps) {
-  const service = servicesData[params.slug];
+export default async function ServicePage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = servicesData[slug];
 
   if (!service) {
     notFound();
