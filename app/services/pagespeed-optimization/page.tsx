@@ -14,7 +14,6 @@ const LighthouseScoreMockup = dynamic(
         </div>
       </div>
     ),
-    ssr: false,
   },
 );
 import {

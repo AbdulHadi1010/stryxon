@@ -10,7 +10,6 @@ const TerminalMockup = dynamic(() => import("@/components/terminal-mockup"), {
       <div className="text-zinc-400 text-sm">Loading terminal...</div>
     </div>
   ),
-  ssr: false,
 });
 import {
   Shield,
