@@ -547,7 +547,9 @@ export default function OpenClawSetupPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
                   >
-                    <span className="text-base font-medium">How to Host OpenClaw on Linux</span>
+                    <span className="text-base font-medium">
+                      How to Host OpenClaw on Linux
+                    </span>
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
