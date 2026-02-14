@@ -66,7 +66,7 @@ export default function CloudInfrastructurePage() {
               {/* Left: Massive Headline */}
               <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
                 <div className="mb-6">
-                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <span className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     Infrastructure Engineering
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export default function CloudInfrastructurePage() {
                       <div className="w-3 h-3 border border-zinc-800" />
                       <div className="w-3 h-3 border border-zinc-800" />
                     </div>
-                    <span className="ml-4 font-mono text-xs text-zinc-500">
+                    <span className="ml-4 font-mono text-xs text-zinc-400">
                       terraform apply
                     </span>
                   </div>
@@ -116,19 +116,19 @@ export default function CloudInfrastructurePage() {
                       <div className="text-zinc-600">
                         $ terraform apply -auto-approve
                       </div>
-                      <div className="text-zinc-500">
+                      <div className="text-zinc-400">
                         aws_vpc.main: Creating...
                       </div>
-                      <div className="text-zinc-500">
+                      <div className="text-zinc-400">
                         aws_vpc.main: Creation complete [id=vpc-0a1b2c3d]
                       </div>
-                      <div className="text-zinc-500">
+                      <div className="text-zinc-400">
                         aws_subnet.public_us_east_1a: Creating...
                       </div>
-                      <div className="text-zinc-500">
+                      <div className="text-zinc-400">
                         aws_eks_cluster.main: Creating...
                       </div>
-                      <div className="text-zinc-500">
+                      <div className="text-zinc-400">
                         aws_rds_instance.primary: Creating...
                       </div>
                       <div className="h-2" />
@@ -164,7 +164,7 @@ export default function CloudInfrastructurePage() {
                   key={index}
                   className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all group"
                 >
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-purple-400 transition-colors">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4 group-hover:text-purple-400 transition-colors">
                     {metric.label}
                   </div>
                   <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">
@@ -279,7 +279,7 @@ export default function CloudInfrastructurePage() {
                     <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
                       {capability.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       {capability.description}
                     </p>
                   </div>
@@ -331,13 +331,13 @@ export default function CloudInfrastructurePage() {
                     </div>
                   </div>
                   <div className="lg:col-span-10 p-12">
-                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                       {step.phase}
                     </div>
                     <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                    <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl">
                       {step.description}
                     </p>
                   </div>
@@ -361,13 +361,13 @@ export default function CloudInfrastructurePage() {
             <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
               <div className="border border-zinc-800 p-16">
                 <div className="pb-12 border-b border-zinc-800 mb-12">
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                     Enterprise Cloud Infrastructure
                   </div>
                   <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mb-4">
                     $25,000
                   </div>
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     One-time · 8-week delivery
                   </div>
                 </div>
@@ -500,7 +500,7 @@ export default function CloudInfrastructurePage() {
                       Ready to Deploy?
                     </span>
                   </h2>
-                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                     Schedule a 30-minute technical consultation to discuss
                     infrastructure requirements and receive a customized
                     architecture proposal.
@@ -515,7 +515,7 @@ export default function CloudInfrastructurePage() {
                     Schedule Consultation
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
-                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                  <p className="font-mono text-xs uppercase text-zinc-400 tracking-widest mt-6">
                     Response within 24 hours · No obligation
                   </p>
                 </div>

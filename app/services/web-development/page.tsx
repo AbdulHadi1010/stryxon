@@ -58,7 +58,7 @@ function BrowserMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <div className="flex-1 bg-zinc-900 rounded px-3 py-1 text-xs text-zinc-500 font-mono">
+        <div className="flex-1 bg-zinc-900 rounded px-3 py-1 text-xs text-zinc-400 font-mono">
           https://your-website.com
         </div>
       </div>
@@ -90,7 +90,7 @@ export default function WebDevelopmentPage() {
           {/* Hero */}
           <section className="grid lg:grid-cols-2 border-b border-zinc-800">
             <div className="p-12 lg:p-16 border-r border-zinc-800 flex flex-col justify-center">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
                 Web Development
               </div>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
@@ -144,7 +144,7 @@ export default function WebDevelopmentPage() {
                 <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
                   {metric.value}
                 </div>
-                <div className="text-sm text-zinc-500 uppercase tracking-wider">
+                <div className="text-sm text-zinc-400 uppercase tracking-wider">
                   {metric.label}
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function WebDevelopmentPage() {
 
           {/* FAQ First (Shuffled) */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               FAQ
             </div>
             <h2 className="text-3xl font-bold mb-12">Common Questions</h2>
@@ -191,7 +191,7 @@ export default function WebDevelopmentPage() {
           {/* Description */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
             <div className="max-w-3xl">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4">
                 Overview
               </div>
               <h2 className="text-4xl font-bold mb-6">
@@ -283,7 +283,7 @@ export default function WebDevelopmentPage() {
 
           {/* Tech Stack */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Technologies
             </div>
             <h2 className="text-3xl font-bold mb-8">Modern Web Stack</h2>
@@ -322,7 +322,7 @@ export default function WebDevelopmentPage() {
 
           {/* Process */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Methodology
             </div>
             <h2 className="text-3xl font-bold mb-12">Development Process</h2>
@@ -369,7 +369,7 @@ export default function WebDevelopmentPage() {
             id="pricing"
             className="p-12 lg:p-16 border-b border-zinc-800"
           >
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Investment
             </div>
             <h2 className="text-3xl font-bold mb-12">
@@ -423,7 +423,7 @@ export default function WebDevelopmentPage() {
                       : "border-zinc-800"
                   }`}
                 >
-                  <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-3">
+                  <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-3">
                     {pkg.name}
                   </div>
                   <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
@@ -447,7 +447,7 @@ export default function WebDevelopmentPage() {
 
           {/* Guarantee */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Commitment
             </div>
             <h2 className="text-3xl font-bold mb-8">Our Promise</h2>

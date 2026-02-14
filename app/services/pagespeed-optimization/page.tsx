@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Footer from "@/components/ui/footer";
-import LighthouseScoreMockup from "@/components/lighthouse-mockup";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+
+const LighthouseScoreMockup = dynamic(
+  () => import("@/components/lighthouse-mockup"),
+  {
+    loading: () => (
+      <div className="min-h-[400px] flex items-center justify-center border border-zinc-800 rounded">
+        <div className="text-zinc-400 text-sm">
+          Loading performance metrics...
+        </div>
+      </div>
+    ),
+    ssr: false,
+  },
+);
 import {
   Zap,
   TrendingUp,
@@ -48,24 +63,17 @@ export const metadata: Metadata = {
 };
 
 export default function PageSpeedOptimizationPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "PageSpeed & Core Web Vitals Optimization",
-    description:
-      "Professional Next.js performance optimization service. Guaranteed 90+ PageSpeed scores with Core Web Vitals improvements for better SEO and conversions.",
-    provider: {
-      "@type": "Organization",
-      name: "Stryxon Technologies",
-      url: "https://www.stryxon.com",
-    },
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <ServiceSchema
+        name="Next.js PageSpeed & Core Web Vitals Optimization Service"
+        description="Professional Next.js performance optimization with guaranteed 90+ PageSpeed scores. Fix LCP, FID, CLS issues and improve mobile performance in 2 weeks. Money-back guarantee on deliverables."
+        price="8000"
+        priceValidUntil="2026-12-31"
+        ratingValue="4.9"
+        reviewCount="34"
+        serviceType="Web Performance Optimization"
+        url="https://www.stryxon.com/services/pagespeed-optimization"
       />
 
       <div className="min-h-screen bg-black text-white">
@@ -76,7 +84,7 @@ export default function PageSpeedOptimizationPage() {
               {/* Left: Headlines */}
               <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
                 <div className="mb-6">
-                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <span className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     Performance Engineering
                   </span>
                 </div>
@@ -127,7 +135,7 @@ export default function PageSpeedOptimizationPage() {
                   key={index}
                   className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-green-900/20 hover:to-emerald-900/20 transition-all group"
                 >
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-emerald-400 transition-colors">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4 group-hover:text-emerald-400 transition-colors">
                     {metric.label}
                   </div>
                   <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-green-400 to-emerald-400 text-transparent bg-clip-text">
@@ -195,13 +203,13 @@ export default function PageSpeedOptimizationPage() {
                     </div>
                   </div>
                   <div className="lg:col-span-10 p-12">
-                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                       {step.phase}
                     </div>
                     <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                    <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl">
                       {step.description}
                     </p>
                   </div>
@@ -279,7 +287,7 @@ export default function PageSpeedOptimizationPage() {
                     <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
                       {capability.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       {capability.description}
                     </p>
                   </div>
@@ -312,7 +320,7 @@ export default function PageSpeedOptimizationPage() {
                   <h3 className="text-2xl font-medium tracking-tight text-red-400 mb-2 uppercase">
                     Before
                   </h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-zinc-400">
                     Typical unoptimized Next.js site
                   </p>
                 </div>
@@ -341,14 +349,16 @@ export default function PageSpeedOptimizationPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-red-400 mt-1 text-xs">✗</span>
                     <span className="text-sm">
-                      <strong className="text-white">Mobile: 42</strong> - Google
-                      penalizes in search
+                      <strong className="text-white">Mobile: 42</strong> -
+                      Google penalizes in search
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-400 mt-1 text-xs">✗</span>
                     <span className="text-sm">
-                      <strong className="text-white">12% bounce increase</strong>{" "}
+                      <strong className="text-white">
+                        12% bounce increase
+                      </strong>{" "}
                       - Losing conversions
                     </span>
                   </li>
@@ -366,7 +376,7 @@ export default function PageSpeedOptimizationPage() {
                   <h3 className="text-2xl font-medium tracking-tight text-green-400 mb-2 uppercase">
                     After
                   </h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-zinc-400">
                     After Stryxon optimization (2-3 weeks)
                   </p>
                 </div>
@@ -381,8 +391,8 @@ export default function PageSpeedOptimizationPage() {
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
                     <span className="text-sm">
-                      <strong className="text-white">FID: 45ms</strong> - Buttery
-                      smooth interactions
+                      <strong className="text-white">FID: 45ms</strong> -
+                      Buttery smooth interactions
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -402,7 +412,9 @@ export default function PageSpeedOptimizationPage() {
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-green-400 mt-1 flex-shrink-0 w-4 h-4" />
                     <span className="text-sm">
-                      <strong className="text-white">18% conversion lift</strong>{" "}
+                      <strong className="text-white">
+                        18% conversion lift
+                      </strong>{" "}
                       - More revenue
                     </span>
                   </li>
@@ -426,13 +438,13 @@ export default function PageSpeedOptimizationPage() {
             <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
               <div className="border border-zinc-800 p-16">
                 <div className="pb-12 border-b border-zinc-800 mb-12">
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                     PageSpeed Optimization Service
                   </div>
                   <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 text-transparent bg-clip-text mb-4">
                     $8,000
                   </div>
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     One-time · 2-3 week delivery
                   </div>
                 </div>
@@ -495,7 +507,9 @@ export default function PageSpeedOptimizationPage() {
                   <div className="w-6 h-6 border border-emerald-500/50 flex items-center justify-center shrink-0 mr-6 mt-1 group-hover:border-emerald-400 transition-colors">
                     <div className="w-2 h-2 bg-emerald-400" />
                   </div>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{item}</p>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {item}
+                  </p>
                 </div>
               ))}
             </div>
@@ -563,7 +577,7 @@ export default function PageSpeedOptimizationPage() {
                       Stop Losing Conversions
                     </span>
                   </h2>
-                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                     Every second your site lags costs you money. Get a 90+
                     PageSpeed score in 3 weeks and watch conversion rates climb.
                   </p>
@@ -577,7 +591,7 @@ export default function PageSpeedOptimizationPage() {
                     Request Free Audit
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
-                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                  <p className="font-mono text-xs uppercase text-zinc-400 tracking-widest mt-6">
                     No obligation · Audit results in 48 hours
                   </p>
                 </div>

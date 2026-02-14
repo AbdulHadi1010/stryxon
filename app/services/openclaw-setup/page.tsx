@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Footer from "@/components/ui/footer";
-import TerminalMockup from "@/components/terminal-mockup";
+import ServiceSchema from "@/components/seo/ServiceSchema";
+
+const TerminalMockup = dynamic(() => import("@/components/terminal-mockup"), {
+  loading: () => (
+    <div className="min-h-[400px] flex items-center justify-center border border-zinc-800 rounded">
+      <div className="text-zinc-400 text-sm">Loading terminal...</div>
+    </div>
+  ),
+  ssr: false,
+});
 import {
   Shield,
   Server,
@@ -49,24 +59,17 @@ export const metadata: Metadata = {
 };
 
 export default function OpenClawSetupPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "OpenClaw AI Agent Setup & Hosting",
-    description:
-      "Professional OpenClaw AI agent setup with secure VPS hosting. Done-for-you installation in 24-48 hours with enterprise-grade security.",
-    provider: {
-      "@type": "Organization",
-      name: "Stryxon Technologies",
-      url: "https://www.stryxon.com",
-    },
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <ServiceSchema
+        name="OpenClaw AI Agent Setup & VPS Hosting Service"
+        description="Professional OpenClaw (formerly Clawdbot/Moltbot) AI agent setup with secure VPS hosting. Done-for-you installation in 24-48 hours with enterprise-grade security and zero terminal errors."
+        price="500"
+        priceValidUntil="2026-12-31"
+        ratingValue="5.0"
+        reviewCount="28"
+        serviceType="AI Agent Setup & Hosting"
+        url="https://www.stryxon.com/services/openclaw-setup"
       />
 
       <div className="min-h-screen bg-black text-white">
@@ -77,7 +80,7 @@ export default function OpenClawSetupPage() {
               {/* Left: Headline */}
               <div className="p-16 lg:p-24 border-r border-b border-zinc-800 flex flex-col justify-center">
                 <div className="mb-6">
-                  <span className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <span className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     AI Agent Infrastructure
                   </span>
                 </div>
@@ -145,7 +148,7 @@ export default function OpenClawSetupPage() {
                   key={index}
                   className="p-12 text-center border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-indigo-900/20 hover:to-purple-900/20 transition-all group"
                 >
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4 group-hover:text-indigo-400 transition-colors">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4 group-hover:text-indigo-400 transition-colors">
                     {metric.label}
                   </div>
                   <div className="text-4xl font-medium tracking-tighter bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
@@ -240,7 +243,7 @@ export default function OpenClawSetupPage() {
                     <h3 className="font-mono text-xs uppercase text-white tracking-widest mb-4">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -300,7 +303,7 @@ export default function OpenClawSetupPage() {
                     <h3 className="text-base font-semibold text-white mb-2">
                       {pain.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       {pain.description}
                     </p>
                   </div>
@@ -324,13 +327,13 @@ export default function OpenClawSetupPage() {
             <div className="p-16 lg:p-24 border-r border-b border-zinc-800">
               <div className="border border-zinc-800 p-16">
                 <div className="pb-12 border-b border-zinc-800 mb-12">
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                     OpenClaw Setup + VPS Hosting
                   </div>
                   <div className="text-6xl font-medium tracking-tighter bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text mb-4">
                     $500
                   </div>
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest">
                     One-time setup · 24-48h delivery
                   </div>
                 </div>
@@ -354,7 +357,7 @@ export default function OpenClawSetupPage() {
                 </div>
 
                 <div className="mb-8">
-                  <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-2">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-2">
                     VPS Hosting Costs (Pay Provider Directly)
                   </div>
                   <p className="text-sm text-zinc-400">
@@ -420,13 +423,13 @@ export default function OpenClawSetupPage() {
                     </div>
                   </div>
                   <div className="lg:col-span-10 p-12">
-                    <div className="font-mono text-xs uppercase text-zinc-500 tracking-widest mb-4">
+                    <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
                       {step.phase}
                     </div>
                     <h3 className="text-2xl font-medium tracking-tight text-white mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                    <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl">
                       {step.description}
                     </p>
                   </div>
@@ -532,7 +535,7 @@ export default function OpenClawSetupPage() {
                       Skip The Setup Headaches
                     </span>
                   </h2>
-                  <p className="text-sm text-zinc-500 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                     Get OpenClaw running on secure VPS infrastructure in 24-48
                     hours. No terminal errors, no malware risks, no naming
                     confusion.
@@ -547,7 +550,7 @@ export default function OpenClawSetupPage() {
                     Get Started Now
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
-                  <p className="font-mono text-xs uppercase text-zinc-500 tracking-widest mt-6">
+                  <p className="font-mono text-xs uppercase text-zinc-400 tracking-widest mt-6">
                     24-48h delivery · 30-day guarantee
                   </p>
                 </div>

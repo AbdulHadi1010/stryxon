@@ -51,7 +51,7 @@ function PipelineMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-zinc-500">CI/CD Pipeline</span>
+        <span className="text-zinc-400">CI/CD Pipeline</span>
       </div>
       <div className="p-4 space-y-2">
         <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ function PipelineMockup() {
           <span className="text-orange-400">→ Deploying to production...</span>
         </div>
         <div className="mt-3 pt-3 border-t border-zinc-800">
-          <div className="text-zinc-500">Deploy URL:</div>
+          <div className="text-zinc-400">Deploy URL:</div>
           <div className="text-blue-400">https://api.production.app</div>
         </div>
       </div>
@@ -90,7 +90,7 @@ export default function DevOpsPage() {
           {/* Hero */}
           <section className="grid lg:grid-cols-2 border-b border-zinc-800">
             <div className="p-12 lg:p-16 border-r border-zinc-800 flex flex-col justify-center">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
                 DevOps Engineering
               </div>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
@@ -144,7 +144,7 @@ export default function DevOpsPage() {
                 <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
                   {metric.value}
                 </div>
-                <div className="text-sm text-zinc-500 uppercase tracking-wider">
+                <div className="text-sm text-zinc-400 uppercase tracking-wider">
                   {metric.label}
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function DevOpsPage() {
           {/* Description */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
             <div className="max-w-3xl">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4">
                 Overview
               </div>
               <h2 className="text-4xl font-bold mb-6">
@@ -176,7 +176,7 @@ export default function DevOpsPage() {
 
           {/* Tech Stack First (Shuffled) */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Technologies
             </div>
             <h2 className="text-3xl font-bold mb-8">
@@ -287,7 +287,7 @@ export default function DevOpsPage() {
 
           {/* Benefits */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Impact
             </div>
             <h2 className="text-3xl font-bold mb-12">Why DevOps Matters</h2>
@@ -337,7 +337,7 @@ export default function DevOpsPage() {
             id="pricing"
             className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50"
           >
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Investment
             </div>
             <div className="max-w-2xl">
@@ -380,7 +380,7 @@ export default function DevOpsPage() {
 
           {/* Process */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Methodology
             </div>
             <h2 className="text-3xl font-bold mb-12">Implementation Process</h2>
@@ -418,7 +418,7 @@ export default function DevOpsPage() {
 
           {/* Guarantee */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Commitment
             </div>
             <h2 className="text-3xl font-bold mb-8">Our DevOps Guarantee</h2>
@@ -444,7 +444,7 @@ export default function DevOpsPage() {
 
           {/* FAQ */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               FAQ
             </div>
             <h2 className="text-3xl font-bold mb-12">

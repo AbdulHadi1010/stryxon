@@ -91,7 +91,7 @@ export default function MobileDevelopmentPage() {
           {/* Hero */}
           <section className="grid lg:grid-cols-2 border-b border-zinc-800">
             <div className="p-12 lg:p-16 border-r border-zinc-800 flex flex-col justify-center">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
                 Mobile App Development
               </div>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
@@ -145,7 +145,7 @@ export default function MobileDevelopmentPage() {
                 <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   {metric.value}
                 </div>
-                <div className="text-sm text-zinc-500 uppercase tracking-wider">
+                <div className="text-sm text-zinc-400 uppercase tracking-wider">
                   {metric.label}
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function MobileDevelopmentPage() {
           {/* Description */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
             <div className="max-w-3xl">
-              <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4">
+              <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4">
                 Overview
               </div>
               <h2 className="text-4xl font-bold mb-6">
@@ -181,7 +181,7 @@ export default function MobileDevelopmentPage() {
             id="pricing"
             className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50"
           >
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Investment
             </div>
             <h2 className="text-3xl font-bold mb-12">Mobile App Packages</h2>
@@ -233,7 +233,7 @@ export default function MobileDevelopmentPage() {
                       : "border-zinc-800"
                   }`}
                 >
-                  <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-3">
+                  <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-3">
                     {pkg.name}
                   </div>
                   <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -328,7 +328,7 @@ export default function MobileDevelopmentPage() {
 
           {/* Tech Stack */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Technologies
             </div>
             <h2 className="text-3xl font-bold mb-8">Mobile Technologies</h2>
@@ -364,7 +364,7 @@ export default function MobileDevelopmentPage() {
 
           {/* Process */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Methodology
             </div>
             <h2 className="text-3xl font-bold mb-12">
@@ -410,7 +410,7 @@ export default function MobileDevelopmentPage() {
 
           {/* Guarantee */}
           <section className="p-12 lg:p-16 border-b border-zinc-800 bg-zinc-950/50">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               Commitment
             </div>
             <h2 className="text-3xl font-bold mb-8">Our Mobile App Promise</h2>
@@ -436,7 +436,7 @@ export default function MobileDevelopmentPage() {
 
           {/* FAQ */}
           <section className="p-12 lg:p-16 border-b border-zinc-800">
-            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-6">
               FAQ
             </div>
             <h2 className="text-3xl font-bold mb-12">Common Questions</h2>

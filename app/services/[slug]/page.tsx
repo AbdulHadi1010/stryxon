@@ -1,11 +1,33 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Footer from "@/components/ui/footer";
-import TerminalMockup from "@/components/terminal-mockup";
-import LighthouseScoreMockup from "@/components/lighthouse-mockup";
 import ContactCTA from "@/components/contact-cta";
 import { servicesData } from "@/lib/services-data";
+
+const TerminalMockup = dynamic(() => import("@/components/terminal-mockup"), {
+  loading: () => (
+    <div className="min-h-[400px] flex items-center justify-center border border-zinc-800 rounded">
+      <div className="text-zinc-400 text-sm">Loading terminal...</div>
+    </div>
+  ),
+  ssr: false,
+});
+
+const LighthouseScoreMockup = dynamic(
+  () => import("@/components/lighthouse-mockup"),
+  {
+    loading: () => (
+      <div className="min-h-[400px] flex items-center justify-center border border-zinc-800 rounded">
+        <div className="text-zinc-400 text-sm">
+          Loading performance metrics...
+        </div>
+      </div>
+    ),
+    ssr: false,
+  },
+);
 import {
   CheckCircle,
   ChevronRight,
