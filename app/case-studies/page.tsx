@@ -76,7 +76,9 @@ export default async function CaseStudiesPage() {
                   const isRightColumn = index % 2 === 1;
 
                   // Parse results - handle both string and array formats
-                  const resultsArray: string[] = Array.isArray(study.frontmatter.results)
+                  const resultsArray: string[] = Array.isArray(
+                    study.frontmatter.results,
+                  )
                     ? study.frontmatter.results
                     : study.frontmatter.results
                       ? [study.frontmatter.results]
@@ -101,7 +103,7 @@ export default async function CaseStudiesPage() {
                           <Calendar className="w-3 h-3" />
                           <span>
                             {new Date(
-                              study.frontmatter.date
+                              study.frontmatter.date,
                             ).toLocaleDateString("en-US", {
                               year: "numeric",
                               month: "short",

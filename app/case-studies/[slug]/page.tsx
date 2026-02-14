@@ -3,14 +3,19 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Footer from "@/components/ui/footer";
 import ContactCTA from "@/components/contact-cta";
-import { getCaseStudyBySlug, getPublishedCaseStudies } from "@/lib/case-studies";
+import {
+  getCaseStudyBySlug,
+  getPublishedCaseStudies,
+} from "@/lib/case-studies";
 import { ArrowLeft, Calendar, Building2, CheckCircle } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const caseStudy = await getCaseStudyBySlug(slug);
 
@@ -24,7 +29,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${frontmatter.title} | Case Study | Stryxon`,
-    description: frontmatter.challenge || frontmatter.solution || frontmatter.title,
+    description:
+      frontmatter.challenge || frontmatter.solution || frontmatter.title,
     keywords: [
       frontmatter.industry,
       "case study",
@@ -82,7 +88,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                <span className="uppercase tracking-wider">Back to Case Studies</span>
+                <span className="uppercase tracking-wider">
+                  Back to Case Studies
+                </span>
               </Link>
             </div>
           </div>
@@ -186,10 +194,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <div className="space-y-6 text-zinc-400 leading-relaxed whitespace-pre-wrap">
                       {content.split("\n\n").map((paragraph, idx) => {
                         // Skip frontmatter lines
-                        if (paragraph.trim().startsWith("---") || paragraph.trim().startsWith("#")) {
+                        if (
+                          paragraph.trim().startsWith("---") ||
+                          paragraph.trim().startsWith("#")
+                        ) {
                           return null;
                         }
-                        
+
                         // Skip ContactCTA component lines
                         if (paragraph.includes("<ContactCTA")) {
                           return null;
@@ -202,13 +213,15 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         ) : null;
                       })}
                     </div>
-                    
+
                     {/* Note about full MDX rendering */}
                     <div className="mt-12 p-6 border border-zinc-800 bg-zinc-900/50">
                       <p className="text-sm text-zinc-400">
-                        <strong className="text-zinc-300">Note:</strong> For full MDX rendering with rich formatting, 
-                        install <code className="text-indigo-400">@next/mdx</code> and configure Next.js MDX support. 
-                        The content above is displayed in simplified text format.
+                        <strong className="text-zinc-300">Note:</strong> For
+                        full MDX rendering with rich formatting, install{" "}
+                        <code className="text-indigo-400">@next/mdx</code> and
+                        configure Next.js MDX support. The content above is
+                        displayed in simplified text format.
                       </p>
                     </div>
                   </div>
