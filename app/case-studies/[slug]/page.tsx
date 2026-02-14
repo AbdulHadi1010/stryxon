@@ -184,46 +184,177 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   </div>
                 )}
 
-                {/* MDX Content - Rendered as Prose */}
-                <div className="prose prose-invert prose-lg max-w-none">
-                  <div className="border-t border-zinc-800 pt-12">
-                    <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-8">
-                      Full Case Study
-                    </div>
-                    {/* Basic markdown rendering - whitespace preserved */}
-                    <div className="space-y-6 text-zinc-400 leading-relaxed whitespace-pre-wrap">
-                      {content.split("\n\n").map((paragraph, idx) => {
-                        // Skip frontmatter lines
+                {/* MDX Content - Full Case Study */}
+                <div className="border-t border-zinc-800 pt-12">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-8">
+                    Full Case Study
+                  </div>
+
+                  {/* Render markdown content with proper formatting */}
+                  <div className="space-y-8">
+                    {(() => {
+                      let inFrontmatter = true;
+                      return content.split("\n").map((line, idx) => {
+                        const trimmedLine = line.trim();
+
+                        // Track frontmatter boundaries
+                        if (trimmedLine === "---") {
+                          if (inFrontmatter && idx > 0) {
+                            inFrontmatter = false;
+                            return null;
+                          }
+                          if (idx === 0) {
+                            return null;
+                          }
+                          // Horizontal rule (after frontmatter)
+                          return (
+                            <hr
+                              key={idx}
+                              className="border-t border-zinc-800 my-12"
+                            />
+                          );
+                        }
+
+                        // Skip ContactCTA component
                         if (
-                          paragraph.trim().startsWith("---") ||
-                          paragraph.trim().startsWith("#")
+                          line.includes("<ContactCTA") ||
+                          line.includes("leadSource=") ||
+                          line.includes("/>")
                         ) {
                           return null;
                         }
 
-                        // Skip ContactCTA component lines
-                        if (paragraph.includes("<ContactCTA")) {
-                          return null;
+                        // H1 Headings
+                        if (trimmedLine.startsWith("# ")) {
+                          return (
+                            <h1
+                              key={idx}
+                              className="text-4xl font-medium tracking-tighter text-white mt-12 mb-6 uppercase"
+                            >
+                              {trimmedLine.replace(/^# /, "")}
+                            </h1>
+                          );
                         }
 
-                        return paragraph.trim() ? (
-                          <p key={idx} className="text-base leading-relaxed">
-                            {paragraph}
-                          </p>
-                        ) : null;
-                      })}
-                    </div>
+                        // H2 Headings
+                        if (trimmedLine.startsWith("## ")) {
+                          return (
+                            <h2
+                              key={idx}
+                              className="text-3xl font-medium tracking-tighter text-white mt-10 mb-4"
+                            >
+                              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">
+                                {trimmedLine.replace(/^## /, "")}
+                              </span>
+                            </h2>
+                          );
+                        }
 
-                    {/* Note about full MDX rendering */}
-                    <div className="mt-12 p-6 border border-zinc-800 bg-zinc-900/50">
-                      <p className="text-sm text-zinc-400">
-                        <strong className="text-zinc-300">Note:</strong> For
-                        full MDX rendering with rich formatting, install{" "}
-                        <code className="text-indigo-400">@next/mdx</code> and
-                        configure Next.js MDX support. The content above is
-                        displayed in simplified text format.
-                      </p>
-                    </div>
+                        // H3 Headings
+                        if (trimmedLine.startsWith("### ")) {
+                          return (
+                            <h3
+                              key={idx}
+                              className="text-xl font-medium text-zinc-300 mt-8 mb-3"
+                            >
+                              {trimmedLine.replace(/^### /, "")}
+                            </h3>
+                          );
+                        }
+
+                        // Blockquotes
+                        if (trimmedLine.startsWith("> ")) {
+                          const quoteText = trimmedLine.replace(/^> /, "");
+                          const isAuthor = quoteText.startsWith("—");
+
+                          return (
+                            <blockquote
+                              key={idx}
+                              className={`${
+                                isAuthor
+                                  ? "text-sm text-zinc-500 italic ml-8"
+                                  : "text-lg text-zinc-300 border-l-4 border-indigo-500 pl-6 py-2 italic"
+                              }`}
+                            >
+                              {quoteText}
+                            </blockquote>
+                          );
+                        }
+
+                        // Bullet points
+                        if (trimmedLine.startsWith("- ")) {
+                          const listContent = trimmedLine.replace(/^- /, "");
+                          // Split by bold markers
+                          const parts = listContent.split(/(\*\*.*?\*\*)/g);
+
+                          return (
+                            <li
+                              key={idx}
+                              className="text-base text-zinc-400 leading-relaxed ml-6 list-disc"
+                            >
+                              {parts.map((part, i) => {
+                                if (
+                                  part.startsWith("**") &&
+                                  part.endsWith("**")
+                                ) {
+                                  return (
+                                    <strong
+                                      key={i}
+                                      className="text-zinc-300 font-semibold"
+                                    >
+                                      {part.slice(2, -2)}
+                                    </strong>
+                                  );
+                                }
+                                return <span key={i}>{part}</span>;
+                              })}
+                            </li>
+                          );
+                        }
+
+                        // Regular paragraphs (with bold text support)
+                        if (
+                          trimmedLine &&
+                          !trimmedLine.startsWith("#") &&
+                          !trimmedLine.startsWith("<") &&
+                          !trimmedLine.startsWith(">")
+                        ) {
+                          // Handle bold text **text**
+                          const parts = trimmedLine.split(/(\*\*.*?\*\*)/g);
+
+                          return (
+                            <p
+                              key={idx}
+                              className="text-base text-zinc-400 leading-relaxed"
+                            >
+                              {parts.map((part, i) => {
+                                if (
+                                  part.startsWith("**") &&
+                                  part.endsWith("**")
+                                ) {
+                                  return (
+                                    <strong
+                                      key={i}
+                                      className="text-zinc-300 font-semibold"
+                                    >
+                                      {part.slice(2, -2)}
+                                    </strong>
+                                  );
+                                }
+                                return <span key={i}>{part}</span>;
+                              })}
+                            </p>
+                          );
+                        }
+
+                        // Empty lines for spacing
+                        if (!trimmedLine) {
+                          return <div key={idx} className="h-2" />;
+                        }
+
+                        return null;
+                      });
+                    })()}
                   </div>
                 </div>
               </div>
