@@ -524,6 +524,38 @@ export default function OpenClawSetupPage() {
           </div>
         </section>
 
+        {/* DIY Resources */}
+        <section>
+          <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">
+            <div className="p-16 lg:p-24 border-r border-b border-zinc-800 hover:bg-gradient-to-br hover:from-blue-900/10 hover:to-indigo-900/10 transition-all">
+              <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8">
+                  <div className="font-mono text-xs uppercase text-zinc-400 tracking-widest mb-4">
+                    Technical Resources
+                  </div>
+                  <h2 className="text-3xl font-medium tracking-tighter text-white mb-4">
+                    DIY Resources
+                  </h2>
+                  <p className="text-base text-zinc-400 leading-relaxed">
+                    Prefer to build this yourself? Read our engineering guide.
+                  </p>
+                </div>
+                <div className="lg:col-span-4 text-left lg:text-right">
+                  <a
+                    href="https://blog.stryxon.com/posts/how-to-setup-openclaw-linux"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+                  >
+                    <span className="text-base font-medium">How to Host OpenClaw on Linux</span>
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section>
           <div className="max-w-7xl mx-auto border-l border-t border-zinc-800">

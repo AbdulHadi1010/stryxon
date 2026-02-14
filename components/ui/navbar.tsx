@@ -125,7 +125,7 @@ export default function Navbar({
       url: "/about",
     },
     {
-      title: "Blogs",
+      title: "Engineering",
       url: "https://blog.stryxon.com",
     },
     {
