@@ -11,6 +11,8 @@ import {
   Cpu,
   Database,
   Zap,
+  FileText,
+  Briefcase,
 } from "lucide-react";
 import * as React from "react";
 
@@ -117,6 +119,30 @@ export default function Navbar({
           description: "REST, GraphQL and microservices",
           icon: <Database className="size-5 shrink-0" />,
           url: "/services/api-development",
+        },
+      ],
+    },
+    {
+      title: "Case Studies",
+      url: "/case-studies",
+      items: [
+        {
+          title: "AWS Migration Case Study",
+          description: "40% cost reduction, 99.99% uptime achieved",
+          icon: <Cloud className="size-5 shrink-0" />,
+          url: "/case-studies/agency-migration-aws",
+        },
+        {
+          title: "AI SaaS Platform with RAG",
+          description: "MVP to $50K MRR in 3 months",
+          icon: <Cpu className="size-5 shrink-0" />,
+          url: "/case-studies/ai-saas-platform-rag",
+        },
+        {
+          title: "View All Case Studies",
+          description: "Browse our complete portfolio",
+          icon: <Briefcase className="size-5 shrink-0" />,
+          url: "/case-studies",
         },
       ],
     },
